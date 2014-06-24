@@ -1,0 +1,16 @@
+
+        
+        <% include header %>
+        
+        <p id="greetings">
+            Dear AEON's user,
+        </p>
+        <p id="email">
+            We have received an attempt to reset your password for email <%= useremail %>
+            <br />
+            If you think someone could be
+            trying to stole your information access please <a href="mailto:<%= aeoncontact %>">contact us</a> . Otherwise follow the next <a href= <%= reseturl %> >link </a>
+            to reset your password together with the code: <%= code %>
+        </p>
+
+        <% include footer %>

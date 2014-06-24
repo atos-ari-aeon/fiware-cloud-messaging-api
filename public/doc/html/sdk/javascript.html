@@ -1,0 +1,294 @@
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>SDK for Javascript &mdash; AEON real time communcations</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.1.0/flatly/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.1.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="top" title="AEON real time communcations" href="../index.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html"><img src="../_static/web_simple_header_small.png">
+           </a>
+        <span class="navbar-text navbar-version pull-left"><b>0.2.1-Bolt</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            <li class="divider-vertical"></li>
+            
+                <li><a href="http://aeon.atosresearch.eu">Portal</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../apidoc/apidoc.html">Technical documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../apidoc/apidoc.html#aeon-way-of-working">AEON way of working</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../apidoc/apidoc.html#quick-start">Quick Start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../apidoc/apidoc.html#sdk">SDK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../apidoc/apidoc.html#aeon-api">AEON API</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">SDK for Javascript</a><ul>
+<li><a class="reference internal" href="#instance-the-sdk">Instance the SDK</a></li>
+<li><a class="reference internal" href="#publish">Publish</a></li>
+<li><a class="reference internal" href="#subscribe">Subscribe</a></li>
+<li><a class="reference internal" href="#pausesubscription">PauseSubscription</a></li>
+<li><a class="reference internal" href="#continuesubscription">ContinueSubscription</a></li>
+<li><a class="reference internal" href="#deletesubscription">DeleteSubscription</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+              
+            
+            
+            
+            
+              <li class="hidden-sm"></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      
+  <div class="section" id="sdk-for-javascript">
+<span id="documentation-sdk-javascript"></span><h1>SDK for Javascript<a class="headerlink" href="#sdk-for-javascript" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="instance-the-sdk">
+<span id="sdk-create-javascript"></span><h2>Instance the SDK<a class="headerlink" href="#instance-the-sdk" title="Permalink to this headline">¶</a></h2>
+<p>To start publishing/subscribing with the SDK, it si necessary to instanciate a new SDK object.</p>
+<dl class="function">
+<dt id="AeonSDK">
+<tt class="descname">AeonSDK</tt><big>(</big><em>url</em>, <em>subscriptionData</em><big>)</big><a class="headerlink" href="#AeonSDK" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first simple">
+<li><strong>url</strong> (<em>string</em>) &#8211; publish/subscribe url. The constructor will determine if the url is for publish or subcribe and will set its operation mode to &#8220;publish&#8221; or &#8220;subscribe&#8221;.</li>
+<li><strong>subscriptionData</strong> (<em>JSON</em>) &#8211; it is a JSON containing information to create a new susbcription or directly a previously created subscription.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">and SDK object</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<p>If you are creating connection for a new subscription, subscriptionData (JSON) has to contain &#8220;id&#8221; and &#8220;desc&#8221; fields:</p>
+<div class="highlight-json"><div class="highlight"><pre><span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;demo-test&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;desc&quot;</span><span class="p">:</span> <span class="s2">&quot;create a new subscription for testing&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The combination of &#8220;id&#8221; and &#8220;desc&#8221; (strings) makes your subscriber unique in the iCargo network.</p>
+<p>If you are creating a connection with a previous generated subscription, subscriptionData will be a JSON obtained from sdk.getSubscription(). More details about persistant subscription: <a class="reference internal" href="javascript-persistent.html#documentation-sdk-javascript-persistentsub"><em>Persistent subscription:</em></a></p>
+</div>
+<div class="section" id="publish">
+<span id="sdk-publishing-javascript"></span><h2>Publish<a class="headerlink" href="#publish" title="Permalink to this headline">¶</a></h2>
+<p>This functionality allows to publish a message. The SDK created object has to be in publish mode.</p>
+<dl class="function">
+<dt>
+<tt class="descname">publish</tt><big>(</big><em>data</em><span class="optional">[</span>, <em>control</em><span class="optional">]</span><big>)</big></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>data</strong> &#8211; JSON containing the data to be published.</li>
+<li><strong>control</strong> &#8211; callback function to receive AEON control messages.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<p>You can publish without a control callback function. If control callback is passed, controll messages will be received:</p>
+<ul class="simple">
+<li><a class="reference internal" href="messages.html#documentation-sdk-messages-cero"><em>Code 0: Unknwon error</em></a></li>
+<li><a class="reference internal" href="messages.html#documentation-sdk-messages-one"><em>Code 1: Bad URL</em></a></li>
+<li><a class="reference internal" href="messages.html#documentation-sdk-messages-three"><em>Code 3: Communication infrastructure down</em></a></li>
+<li><a class="reference internal" href="messages.html#documentation-sdk-messages-fifty"><em>Code 50: Communication infrastructure up</em></a></li>
+<li><a class="reference internal" href="messages.html#documentation-sdk-messages-onehundredone"><em>Code 101: SDK operating in Subscription Mod</em></a></li>
+</ul>
+</div>
+<div class="section" id="subscribe">
+<span id="sdk-subscribing-javascript"></span><h2>Subscribe<a class="headerlink" href="#subscribe" title="Permalink to this headline">¶</a></h2>
+<p>This functionality allows to subscribe to an specific channel and receive all the published information. The SDK created object has to be in ssubscription mode.</p>
+<dl class="function">
+<dt>
+<tt class="descname">subscribe</tt><big>(</big><em>deliveredMessage</em><span class="optional">[</span>, <em>control</em><span class="optional">]</span><big>)</big></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>deliveredMessage</strong> &#8211; callback function to receive published messages.</li>
+<li><strong>control</strong> &#8211; callback function to receive AEON control messages.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<p>Each time that a message arrives over the channel, the callback deliveredMessage  will be executed.
+You can be subscribed (not recommended) without a control callback function. If control callback is passed, controll messages will be received:</p>
+<ul class="simple">
+<li><a class="reference internal" href="messages.html#documentation-sdk-messages-cero"><em>Code 0: Unknwon error</em></a></li>
+<li><a class="reference internal" href="messages.html#documentation-sdk-messages-one"><em>Code 1: Bad URL</em></a></li>
+<li><a class="reference internal" href="messages.html#documentation-sdk-messages-three"><em>Code 3: Communication infrastructure down</em></a></li>
+<li><a class="reference internal" href="messages.html#documentation-sdk-messages-one"><em>Code 1: Bad URL</em></a></li>
+<li><a class="reference internal" href="messages.html#documentation-sdk-messages-fifty"><em>Code 50: Communication infrastructure up</em></a></li>
+<li><a class="reference internal" href="messages.html#documentation-sdk-messages-onehundred"><em>Code 100: SDK operating in Publication Mode</em></a></li>
+<li><a class="reference internal" href="messages.html#documentation-sdk-messages-twohundredone"><em>Code 201: Subscription in use</em></a></li>
+<li><a class="reference internal" href="messages.html#documentation-sdk-messages-twohundrethree"><em>Code 203: Subscription incorrect</em></a></li>
+<li><a class="reference internal" href="messages.html#documentation-sdk-messages-twohundredfifty"><em>Code 250: You have been subscribed</em></a></li>
+</ul>
+</div>
+<div class="section" id="pausesubscription">
+<span id="sdk-pause-javascript"></span><h2>PauseSubscription<a class="headerlink" href="#pausesubscription" title="Permalink to this headline">¶</a></h2>
+<p>This operation will allow to stop receiving data from a subscription.</p>
+<dl class="function">
+<dt id="function pauseSubscription">
+<tt class="descname">function pauseSubscription</tt><big>(</big><big>)</big><a class="headerlink" href="#function pauseSubscription" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>Specific control messages received through callback control:</p>
+<ul class="simple">
+<li><a class="reference internal" href="messages.html#documentation-sdk-messages-twohundredtwo"><em>Code 202: You are not subscribed</em></a></li>
+<li><a class="reference internal" href="messages.html#documentation-sdk-messages-twohundredfiftytwo"><em>Code 252: You have been unsubscribed</em></a></li>
+</ul>
+</div>
+<div class="section" id="continuesubscription">
+<span id="sdk-continue-javascript"></span><h2>ContinueSubscription<a class="headerlink" href="#continuesubscription" title="Permalink to this headline">¶</a></h2>
+<p>This operation will allow to re-start receiving data from a subscription that was paused.</p>
+<dl class="function">
+<dt id="function continueSubscription">
+<tt class="descname">function continueSubscription</tt><big>(</big><big>)</big><a class="headerlink" href="#function continueSubscription" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>Specific control messages received through callback control:</p>
+<ul class="simple">
+<li><a class="reference internal" href="messages.html#documentation-sdk-messages-twohundredfifty"><em>Code 250: You have been subscribed</em></a></li>
+</ul>
+</div>
+<div class="section" id="deletesubscription">
+<span id="sdk-delete-javascript"></span><h2>DeleteSubscription<a class="headerlink" href="#deletesubscription" title="Permalink to this headline">¶</a></h2>
+<p>This operation will delete the existing subscription and could not be recovered or continued.</p>
+<dl class="function">
+<dt id="deleteSubscription">
+<tt class="descname">deleteSubscription</tt><big>(</big><big>)</big><a class="headerlink" href="#deleteSubscription" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>Specific control messages received through callback control:</p>
+<ul class="simple">
+<li><a class="reference internal" href="messages.html#documentation-sdk-messages-twohundredtwo"><em>Code 202: You are not subscribed</em></a></li>
+<li><a class="reference internal" href="messages.html#documentation-sdk-messages-twohundredfiftyone"><em>Code 251: Your subscription has been deleted</em></a></li>
+</ul>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2014, ATOS.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

@@ -1,0 +1,202 @@
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>What does real time communications means? &mdash; AEON real time communcations</title>
+    
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootswatch-3.1.0/flatly/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.1.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="top" title="AEON real time communcations" href="#" />
+    <link rel="next" title="Technical documentation" href="apidoc/apidoc.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#"><img src="_static/web_simple_header_small.png">
+           </a>
+        <span class="navbar-text navbar-version pull-left"><b>0.2.1-Bolt</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            <li class="divider-vertical"></li>
+            
+                <li><a href="http://aeon.atosresearch.eu">Portal</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="apidoc/apidoc.html">Technical documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="apidoc/apidoc.html#aeon-way-of-working">AEON way of working</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apidoc/apidoc.html#quick-start">Quick Start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apidoc/apidoc.html#sdk">SDK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apidoc/apidoc.html#aeon-api">AEON API</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">What does real time communications means?</a></li>
+<li><a class="reference internal" href="#how-does-aeon-work">How does AEON work?</a></li>
+<li><a class="reference internal" href="#documentation">Documentation</a><ul>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="apidoc/apidoc.html" title="Next Chapter: Technical documentation"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm">Technical docume... &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+              <li class="hidden-sm"></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      
+  <div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="figure align-center">
+<img alt="_images/web_header_medium.png" src="_images/web_header_medium.png" style="width: 40%;" />
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>This document describes AEON as a cloud platform to create applications with real time communications channels.  The architecture is based on the strongly communication needs that we need to face nowadays, with billions of interconnected devices and short times of response. Thus, the technological solutions used for the implementation are based on strong requirements about: performance, response and scalability, making use of the most advanced cutting edge technologies.</p>
+<p>Due the interoperability needs of these architectures, AEON has been fully designed considering Free Libre Open Source Software technologies. The project has been designed and implemented by the “Supply Chain Sector in the Research &amp; Innovation department in ATOS Spain”.</p>
+<p>AEON aims to facilitate real time communication. It borns from the strong need to be (always) interconnected, whether personal reasons or business needs. We are constantly exchanging information trough different applications: emails, instant messaging, location, etc, not caring about the amount of information or the receptor&#8217;s location. These applications are supported by a communication network, but, which infrastructure is being used? Who is the owner? What if I have similar communication needs than WhatsApp?</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">AEON facilitates to create and manage communications channels. Later, these channels will support the development of application with real time requirements for communications.</p>
+</div>
+<div class="section" id="what-does-real-time-communications-means">
+<h1>What does real time communications means?<a class="headerlink" href="#what-does-real-time-communications-means" title="Permalink to this headline">¶</a></h1>
+<p>What does “Real Time Communication Infrastructure” means? In our current technological stage, the amount of information that it is going to be created during the <a class="reference external" href="http://www.visualnews.com/2012/06/19/how-much-data-created-every-minute/">next five minutes</a> , in the computing world, is almost impossible to be calculated: Facebook generates <a class="reference external" href="http://techcrunch.com/2012/08/22/how-big-is-facebooks-data-2-5-billion-pieces-of-content-and-500-terabytes-ingested-every-day/">2.5B likes by day</a> , FourSquare receives <a class="reference external" href="http://articles.businessinsider.com/2011-08-02/tech/30097137_1_foursquare-users-merchants-ins">5M checking</a> (user’s locations) each day. This situation converges to the need of new infrastructures where it has no limits about gathering (web services), storing (cloud distributed storage) data, and faster communication channels (event-driven architectures). From a more functional point of view: “Cloud infrastructures which spread web services over the unlimited network, capable of processing millions of request by second, and communications with just a few milliseconds of delay”.</p>
+</div>
+<div class="section" id="how-does-aeon-work">
+<h1>How does AEON work?<a class="headerlink" href="#how-does-aeon-work" title="Permalink to this headline">¶</a></h1>
+<p>AEON provides cloud services (channels) to communicate an unlimited number of entities, interchanging an unlimited amount of information. But it is not only about the communication, it also provides services for easily management of entities participating in your environments: mobile, truck, box, thermometer, even yourself...).</p>
+<div class="figure align-center">
+<img alt="_images/AEON-basic3.png" src="_images/AEON-basic3.png" style="width: 50%;" />
+<p class="caption">An interconnected world thanks to AEON</p>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>In this figure, the upper left ship is “virtualized” into AEON as a new entity with a communication channel. We consider an entity as anything that can participate communicating information. With cloud message queuing, the subscriber to a service does not need to understand the protocol used by the service provider or vice versa but can focus on requesting the required business functionality. AEON platform offers a shared cloud-based message queuing framework enabling messaging between various entities that wish to communicate with each other seamlessly and reliably using standard vendor neutral protocols</p>
+</div>
+<div class="section" id="documentation">
+<h1>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h1>
+<p>The next chapters will contain detailed information focused on developments with the AEON&#8217;s platform.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="apidoc/apidoc.html">Technical documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="apidoc/apidoc.html#aeon-way-of-working">AEON way of working</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apidoc/apidoc.html#quick-start">Quick Start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apidoc/apidoc.html#sdk">SDK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apidoc/apidoc.html#aeon-api">AEON API</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2014, ATOS.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

@@ -1,0 +1,307 @@
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>SDK messages &mdash; AEON real time communcations</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.1.0/flatly/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.1.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="top" title="AEON real time communcations" href="../index.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html"><img src="../_static/web_simple_header_small.png">
+           </a>
+        <span class="navbar-text navbar-version pull-left"><b>0.2.1-Bolt</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            <li class="divider-vertical"></li>
+            
+                <li><a href="http://aeon.atosresearch.eu">Portal</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../apidoc/apidoc.html">Technical documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../apidoc/apidoc.html#aeon-way-of-working">AEON way of working</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../apidoc/apidoc.html#quick-start">Quick Start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../apidoc/apidoc.html#sdk">SDK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../apidoc/apidoc.html#aeon-api">AEON API</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">SDK messages</a><ul>
+<li><a class="reference internal" href="#code-0-unknwon-error">Code 0: Unknwon error</a></li>
+<li><a class="reference internal" href="#code-1-bad-url">Code 1: Bad URL</a></li>
+<li><a class="reference internal" href="#code-3-communication-infrastructure-down">Code 3: Communication infrastructure down</a></li>
+<li><a class="reference internal" href="#code-50-communication-infrastructure-up">Code 50: Communication infrastructure up</a></li>
+<li><a class="reference internal" href="#code-100-sdk-operating-in-publication-mode">Code 100: SDK operating in Publication Mode</a></li>
+<li><a class="reference internal" href="#code-101-sdk-operating-in-subscription-mod">Code 101: SDK operating in Subscription Mod</a></li>
+<li><a class="reference internal" href="#code-201-subscription-in-use">Code 201: Subscription in use</a></li>
+<li><a class="reference internal" href="#code-202-you-are-not-subscribed">Code 202: You are not subscribed</a></li>
+<li><a class="reference internal" href="#code-203-subscription-incorrect">Code 203: Subscription incorrect</a></li>
+<li><a class="reference internal" href="#code-250-you-have-been-subscribed">Code 250: You have been subscribed</a></li>
+<li><a class="reference internal" href="#code-251-your-subscription-has-been-deleted">Code 251: Your subscription has been deleted</a></li>
+<li><a class="reference internal" href="#code-252-you-have-been-unsubscribed">Code 252: You have been unsubscribed</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+              
+            
+            
+            
+            
+              <li class="hidden-sm"></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      
+  <div class="section" id="sdk-messages">
+<span id="documentation-sdk-messages"></span><h1>SDK messages<a class="headerlink" href="#sdk-messages" title="Permalink to this headline">¶</a></h1>
+<p>During a publication or subcription process AEON will emit different control&#8217;s messages. These messages can captured using an (optional) &#8220;control&#8221; callback. See <a class="reference internal" href="../apidoc/apidoc.html#documentation-technical-sdk"><em>SDK</em></a> regarding your specific language for more details.</p>
+<p>The control callback receives a JSON in the next format:</p>
+<div class="highlight-json"><pre>{
+    "error": true|false,
+    "msg": &lt;msg&gt;,
+    "code": &lt;code&gt;
+}</pre>
+</div>
+<p>The &#8220;error&#8221; key determinates if the message is considered as an error, or if it is just useful informatino for the developer. The &#8220;msg&#8221; is a text that will add readable information to the message. Finally, the numerical code helps developer to detect the message in order to act accordingly. The next sections explains in details the different messages supported by AEON.</p>
+<div class="section" id="code-0-unknwon-error">
+<span id="documentation-sdk-messages-cero"></span><h2>Code 0: Unknwon error<a class="headerlink" href="#code-0-unknwon-error" title="Permalink to this headline">¶</a></h2>
+<p>This should not happen. Please, contact us.</p>
+<div class="highlight-json"><div class="highlight"><pre><span class="p">{</span>
+    <span class="nt">&quot;error&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nt">&quot;msg&quot;</span><span class="p">:</span> <span class="s2">&quot;Unknwon error&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="code-1-bad-url">
+<span id="documentation-sdk-messages-one"></span><h2>Code 1: Bad URL<a class="headerlink" href="#code-1-bad-url" title="Permalink to this headline">¶</a></h2>
+<p>The channel url (publication or subscription) is incorrect. It could be malformed or the resource no longer exists.</p>
+<div class="highlight-json"><div class="highlight"><pre><span class="p">{</span>
+    <span class="nt">&quot;error&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nt">&quot;msg&quot;</span><span class="p">:</span> <span class="s2">&quot;Bad URL&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="mi">1</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="code-3-communication-infrastructure-down">
+<span id="documentation-sdk-messages-three"></span><h2>Code 3: Communication infrastructure down<a class="headerlink" href="#code-3-communication-infrastructure-down" title="Permalink to this headline">¶</a></h2>
+<p>AEON infrastructure is down. After this event you are not able to publish or to receive messages from a subscription. The SDK is able to detect when the infrastructure is UP again, and everything will continue working (automatic recovering).</p>
+<div class="highlight-json"><div class="highlight"><pre><span class="p">{</span>
+    <span class="nt">&quot;error&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nt">&quot;msg&quot;</span><span class="p">:</span> <span class="s2">&quot;Communication infrastructure down&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="mi">3</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="code-50-communication-infrastructure-up">
+<span id="documentation-sdk-messages-fifty"></span><h2>Code 50: Communication infrastructure up<a class="headerlink" href="#code-50-communication-infrastructure-up" title="Permalink to this headline">¶</a></h2>
+<p>AEON infrastructure is UP. This is the first message you will receive after invoking publish or subscribe method, in order to make you know that AEON is working correctly. This message is also received after an <a class="reference internal" href="#documentation-sdk-messages-three"><em>Code 3: Communication infrastructure down</em></a> message, the SDK is reconfigured automatically and continues sending/receiving information.</p>
+<div class="highlight-json"><div class="highlight"><pre><span class="p">{</span>
+    <span class="nt">&quot;error&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="nt">&quot;msg&quot;</span><span class="p">:</span> <span class="s2">&quot;Communication infrastructure up&#39;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="mi">50</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="code-100-sdk-operating-in-publication-mode">
+<span id="documentation-sdk-messages-onehundred"></span><h2>Code 100: SDK operating in Publication Mode<a class="headerlink" href="#code-100-sdk-operating-in-publication-mode" title="Permalink to this headline">¶</a></h2>
+<p>You are invoking subscribe method but using a publication url.</p>
+<div class="highlight-json"><div class="highlight"><pre><span class="p">{</span>
+    <span class="nt">&quot;error&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nt">&quot;msg&quot;</span><span class="p">:</span> <span class="s2">&quot;Operation Denied. SDK operating in Publication Mode&#39;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="mi">100</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="code-101-sdk-operating-in-subscription-mod">
+<span id="documentation-sdk-messages-onehundredone"></span><h2>Code 101: SDK operating in Subscription Mod<a class="headerlink" href="#code-101-sdk-operating-in-subscription-mod" title="Permalink to this headline">¶</a></h2>
+<p>You are invoking publish method but using a subscription url.</p>
+<div class="highlight-json"><div class="highlight"><pre><span class="p">{</span>
+    <span class="nt">&quot;error&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nt">&quot;msg&quot;</span><span class="p">:</span> <span class="s2">&quot;Operation Denied. SDK operating in Subscription Mode&#39;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="mi">100</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="code-201-subscription-in-use">
+<span id="documentation-sdk-messages-twohundredone"></span><h2>Code 201: Subscription in use<a class="headerlink" href="#code-201-subscription-in-use" title="Permalink to this headline">¶</a></h2>
+<p>You can be subscribed to a channel using a subscription or url, or directly using a subscription (retrieved previously using a subscription url). More details for javascript/nodejs <a class="reference internal" href="javascript-persistent.html#documentation-sdk-javascript-persistentsub"><em>Persistent subscription:</em></a> or Java <a class="reference internal" href="java-persistent.html#documentation-sdk-java-persistentsub"><em>Persistent subscription:</em></a>.</p>
+<p>These obtained subscription can be used by only on process at the same time. Check if you have more process running using the same subscription, or just wait the other release his subscription.</p>
+<p>Not to confuse a subscription url with a subscription. A &#8220;subscription&#8221; second is a json object obtained after invoking sdk.subscribe with a &#8220;subscription url&#8221;.</p>
+<div class="highlight-json"><div class="highlight"><pre><span class="p">{</span>
+    <span class="nt">&quot;error&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nt">&quot;msg&quot;</span><span class="p">:</span> <span class="s2">&quot;This subscription is been used by other process (locked)&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="mi">201</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="code-202-you-are-not-subscribed">
+<span id="documentation-sdk-messages-twohundredtwo"></span><h2>Code 202: You are not subscribed<a class="headerlink" href="#code-202-you-are-not-subscribed" title="Permalink to this headline">¶</a></h2>
+<p>You receive this message whenever you try to pause, continue or delete but you have not obtained a subscription.</p>
+<div class="highlight-json"><div class="highlight"><pre><span class="p">{</span>
+    <span class="nt">&quot;error&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="nt">&quot;msg&quot;</span><span class="p">:</span> <span class="s2">&quot;You are not subscribed&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="mi">253</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="code-203-subscription-incorrect">
+<span id="documentation-sdk-messages-twohundrethree"></span><h2>Code 203: Subscription incorrect<a class="headerlink" href="#code-203-subscription-incorrect" title="Permalink to this headline">¶</a></h2>
+<p>The subscription you are using is incorrect or does not longer exits.</p>
+<p>Not to confuse a subscription url with a subscription. A &#8220;subscription&#8221; second is a json object obtained after invoking sdk.subscribe with a &#8220;subscription url&#8221;.</p>
+<div class="highlight-json"><div class="highlight"><pre><span class="p">{</span>
+    <span class="nt">&quot;error&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nt">&quot;msg&quot;</span><span class="p">:</span> <span class="s2">&quot;Subscription incorrect, bad request&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="mi">203</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="code-250-you-have-been-subscribed">
+<span id="documentation-sdk-messages-twohundredfifty"></span><h2>Code 250: You have been subscribed<a class="headerlink" href="#code-250-you-have-been-subscribed" title="Permalink to this headline">¶</a></h2>
+<p>After invoking sdk.subscribe you receive this message if everything was ok. After this message you will start receiving published messages through this channel.</p>
+<div class="highlight-json"><div class="highlight"><pre><span class="p">{</span>
+    <span class="nt">&quot;error&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="nt">&quot;msg&quot;</span><span class="p">:</span> <span class="s2">&quot;You have been subscribed&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="mi">250</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="code-251-your-subscription-has-been-deleted">
+<span id="documentation-sdk-messages-twohundredfiftyone"></span><h2>Code 251: Your subscription has been deleted<a class="headerlink" href="#code-251-your-subscription-has-been-deleted" title="Permalink to this headline">¶</a></h2>
+<p>While you are subscribed, you receive this message if other process has deleted the channel you are using with this subscription.</p>
+<div class="highlight-json"><div class="highlight"><pre><span class="p">{</span>
+    <span class="nt">&quot;error&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="nt">&quot;msg&quot;</span><span class="p">:</span> <span class="s2">&quot;Your subscription has been deleted&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="mi">251</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="code-252-you-have-been-unsubscribed">
+<span id="documentation-sdk-messages-twohundredfiftytwo"></span><h2>Code 252: You have been unsubscribed<a class="headerlink" href="#code-252-you-have-been-unsubscribed" title="Permalink to this headline">¶</a></h2>
+<p>You receive this message after pausing a subscription. You dont receive more published messages, until you invoke continue method.</p>
+<div class="highlight-json"><div class="highlight"><pre><span class="p">{</span>
+    <span class="nt">&quot;error&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="nt">&quot;msg&quot;</span><span class="p">:</span> <span class="s2">&quot;Your subscription has been deleted&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="mi">252</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2014, ATOS.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

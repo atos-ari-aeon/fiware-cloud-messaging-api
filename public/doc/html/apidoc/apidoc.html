@@ -1,0 +1,271 @@
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Technical documentation &mdash; AEON real time communcations</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.1.0/flatly/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.1.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="top" title="AEON real time communcations" href="../index.html" />
+    <link rel="next" title="API Users Documentation" href="users/userdoc.html" />
+    <link rel="prev" title="What does real time communications means?" href="../index.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html"><img src="../_static/web_simple_header_small.png">
+           </a>
+        <span class="navbar-text navbar-version pull-left"><b>0.2.1-Bolt</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            <li class="divider-vertical"></li>
+            
+                <li><a href="http://aeon.atosresearch.eu">Portal</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">Technical documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#aeon-way-of-working">AEON way of working</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#quick-start">Quick Start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sdk">SDK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#aeon-api">AEON API</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Technical documentation</a><ul>
+<li><a class="reference internal" href="#aeon-way-of-working">AEON way of working</a></li>
+<li><a class="reference internal" href="#quick-start">Quick Start</a></li>
+<li><a class="reference internal" href="#sdk">SDK</a></li>
+<li><a class="reference internal" href="#aeon-api">AEON API</a><ul>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="../index.html" title="Previous Chapter: What does real time communications means?"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm">&laquo; What does real t...</span>
+    </a>
+  </li>
+  <li>
+    <a href="users/userdoc.html" title="Next Chapter: API Users Documentation"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm">API Users Docume... &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+              <li class="hidden-sm"></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      
+  <div class="section" id="technical-documentation">
+<span id="documentation-technical"></span><h1>Technical documentation<a class="headerlink" href="#technical-documentation" title="Permalink to this headline">¶</a></h1>
+<p>This chapter describes, in details, different technical aspects of the AEON&#8217;s platform.</p>
+<div class="section" id="aeon-way-of-working">
+<h2>AEON way of working<a class="headerlink" href="#aeon-way-of-working" title="Permalink to this headline">¶</a></h2>
+<p>AEON allows you to communicate your applications through a real time network. AEON&#8217;s functionality could be classified in two main blocks:</p>
+<ul class="simple">
+<li><strong>resources management</strong>: this functionality allows you to create, retrieve, update and delete your resources: users, entities, and channels</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">A new user <em>John</em> is registered into AEON, he wants to share his position with their friends. <em>John</em> creates an entity called <em>truck</em> and a new channel called <em>Position</em>. The channel is automatically composed by an url to publish messages and another one to register possible subscribers.</p>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="figure align-center">
+<img alt="../_images/create_channel.png" src="../_images/create_channel.png" style="width: 40%;" />
+<p class="caption">Here it is: your first channel</p>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<ul class="simple">
+<li><strong>publish/subscribe mechanisms</strong>: this functionality allows you to send and receive messages through your managed channels</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><em>John</em> keeps the publish url as a very high secret, but share the subscribers url with a couple of friends. Now, <em>John</em> can make a simple POST over the publish url (<em>Position&#8217;s</em> channel). His friends will make use of the subscription url to receive messages from John.</p>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="figure align-center">
+<img alt="../_images/pubsub_urls.png" src="../_images/pubsub_urls.png" />
+<p class="caption">Each channel is composed by two urls (publication and subscription)</p>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>To manage your resources you can use either AEON (<a class="reference external" href="http://lcb-gui.herokuapp.com">dashboard</a>) or <a class="reference internal" href="#documentation-technical-rest"><em>AEON API</em></a> (for a more flexible management). In any case, the applications that you will create, making use of AEON, will seek for publication and subscription urls of each channel. Actually, this is the most valuable resource and the connection point to the real time network. Follow the next section to see How easily your applications could start using AEON&#8217;s platform.</p>
+</div>
+<div class="section" id="quick-start">
+<span id="documentation-technical-quickstart"></span><h2>Quick Start<a class="headerlink" href="#quick-start" title="Permalink to this headline">¶</a></h2>
+<p>This section contains several &#8220;Hello words&#8221; with AEON using the SDK in different programming languages.</p>
+<ul class="simple">
+<li><a class="reference internal" href="../quickstart/getachannel.html#documentation-tutorial-getchannel"><em>Playing with AEON dashboard</em></a></li>
+<li><a class="reference internal" href="../quickstart/java.html#documentation-quickstart-java"><em>Playing with AEON using Java</em></a></li>
+<li><a class="reference internal" href="../quickstart/javascript.html#documentation-quickstart-javascript"><em>Playing with AEON using Javascript</em></a></li>
+<li><a class="reference internal" href="../quickstart/nodejs.html#documentation-quickstart-nodejs"><em>Playing with AEON using Node.js</em></a></li>
+</ul>
+</div>
+<div class="section" id="sdk">
+<span id="documentation-technical-sdk"></span><h2>SDK<a class="headerlink" href="#sdk" title="Permalink to this headline">¶</a></h2>
+<p>AEON provides a Software Develpoment Kit to develop applications over its platform. The utilization of this SDK is very simple and eficient as show in the next subsections.</p>
+<ul class="simple">
+<li><a class="reference internal" href="../sdk/java.html#documentation-sdk-java"><em>SDK for Java</em></a></li>
+<li><a class="reference internal" href="../sdk/javascript.html#documentation-sdk-javascript"><em>SDK for Javascript</em></a></li>
+<li><a class="reference internal" href="../sdk/nodejs.html#documentation-sdk-nodejs"><em>SDK for node.js</em></a></li>
+<li><a class="reference internal" href="../sdk/messages.html#documentation-sdk-messages"><em>SDK messages</em></a></li>
+</ul>
+</div>
+<div class="section" id="aeon-api">
+<span id="documentation-technical-rest"></span><h2>AEON API<a class="headerlink" href="#aeon-api" title="Permalink to this headline">¶</a></h2>
+<p>As a developer, in addition to the (<a class="reference external" href="http://lcb-gui.herokuapp.com">dashboard</a>), AEON open API allows you to implement your resources management in your own way. This is a <strong>key point</strong> of AEON, your applications could have flexibility enough, not only to send/receive data, but also to configure your environment in a very dynamic way. For example, a chat application could manage rooms creating and deleting entities and channels regarding the needs.</p>
+<p>If you are a developer, this should be your section. Here you will find a detailed description of the REST API for <em>resources managment</em> and <em>pub/sub</em> functionality.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="users/userdoc.html">API Users Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="users/userdoc.html#login">Login</a></li>
+<li class="toctree-l2"><a class="reference internal" href="users/userdoc.html#logout">Logout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="users/userdoc.html#create-user">CREATE user</a></li>
+<li class="toctree-l2"><a class="reference internal" href="users/userdoc.html#user-info">User Info</a></li>
+<li class="toctree-l2"><a class="reference internal" href="users/userdoc.html#get-users-list">GET Users list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="users/userdoc.html#get-user">GET User</a></li>
+<li class="toctree-l2"><a class="reference internal" href="users/userdoc.html#delete-user">DELETE user</a></li>
+<li class="toctree-l2"><a class="reference internal" href="users/userdoc.html#update-user-password">UPDATE user password</a></li>
+<li class="toctree-l2"><a class="reference internal" href="users/userdoc.html#remember-the-user-s-password">Remember the user&#8217;s password</a></li>
+<li class="toctree-l2"><a class="reference internal" href="users/userdoc.html#reset-the-user-s-password">Reset the user&#8217;s password</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="entities/entitiesdoc.html">API Entities Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="entities/entitiesdoc.html#post-entity">POST entity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entities/entitiesdoc.html#get-entities-list">GET entities list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entities/entitiesdoc.html#get-entity-info">GET entity info</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entities/entitiesdoc.html#update-entity">UPDATE entity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entities/entitiesdoc.html#delete-entity">DELETE entity</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="channels/channelsdoc.html">API Channels Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="channels/channelsdoc.html#post-channel">POST channel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="channels/channelsdoc.html#get-channels-list">GET channels list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="channels/channelsdoc.html#get-channel-info">GET channel info</a></li>
+<li class="toctree-l2"><a class="reference internal" href="channels/channelsdoc.html#update-channel">UPDATE channel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="channels/channelsdoc.html#delete-channel">DELETE channel</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pubsub/pubsubdoc.html">API Publication/Subscription Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pubsub/pubsubdoc.html#post-message-publish">POST message (publish)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pubsub/pubsubdoc.html#get-message-subscribe">GET message (subscribe)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pubsub/pubsubdoc.html#delete-subscription-unsubscribe">DELETE subscription (Unsubscribe)</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2014, ATOS.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

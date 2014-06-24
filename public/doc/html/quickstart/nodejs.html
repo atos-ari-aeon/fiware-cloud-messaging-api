@@ -1,0 +1,244 @@
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Playing with AEON using Node.js &mdash; AEON real time communcations</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.1.0/flatly/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.1.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="top" title="AEON real time communcations" href="../index.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html"><img src="../_static/web_simple_header_small.png">
+           </a>
+        <span class="navbar-text navbar-version pull-left"><b>0.2.1-Bolt</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            <li class="divider-vertical"></li>
+            
+                <li><a href="http://aeon.atosresearch.eu">Portal</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../apidoc/apidoc.html">Technical documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../apidoc/apidoc.html#aeon-way-of-working">AEON way of working</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../apidoc/apidoc.html#quick-start">Quick Start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../apidoc/apidoc.html#sdk">SDK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../apidoc/apidoc.html#aeon-api">AEON API</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Playing with AEON using Node.js</a><ul>
+<li><a class="reference internal" href="#first-steps">First steps</a><ul>
+<li><a class="reference internal" href="#hello-world-publish">Hello World (publish)</a></li>
+<li><a class="reference internal" href="#hello-world-subscribe">Hello World (subscribe)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+              
+            
+            
+            
+            
+              <li class="hidden-sm"></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      
+  <div class="section" id="playing-with-aeon-using-node-js">
+<span id="documentation-quickstart-nodejs"></span><h1>Playing with AEON using Node.js<a class="headerlink" href="#playing-with-aeon-using-node-js" title="Permalink to this headline">¶</a></h1>
+<p>In this section we will use AEON SDK in order to implement two simple applications with the following behaviour:</p>
+<ul class="simple">
+<li>SendNumbers: publish numbers from 0 to 20 with a delay of 1 second between each publication.</li>
+<li>ReceiveNumber: the application is subscribed to receive and printout numbers. Each three seconds the subscription will be paused and then continued.</li>
+</ul>
+<p>This simple demonstration shows:</p>
+<ul class="simple">
+<li>How to publish data over a channel.</li>
+<li>How to be subscribed to a channel to receive data.</li>
+<li>How to pause the subscription.</li>
+<li>How to continue the subscription without missing data, that could have been created during the break.</li>
+</ul>
+<div class="section" id="first-steps">
+<h2>First steps<a class="headerlink" href="#first-steps" title="Permalink to this headline">¶</a></h2>
+<p>First of all you need to get AEON SDK from the <a class="reference external" href="http://lcb-gui.herokuapp.com/app/index.html#quickstart">download</a> section.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<dl class="last docutils">
+<dt>AEON SDK is licensed as GPLv3</dt>
+<dd><ul class="first last simple">
+<li>If you need to release your software with other (privative) different license, or, please contact us from our web page in section <a class="reference external" href="http://lcb-gui.herokuapp.com/app/index.html#about">about</a> us.</li>
+<li>As an exception, you can release your software with other opensource/freesoftware license different than GPLv3.</li>
+</ul>
+</dd>
+</dl>
+</div>
+<p>Once you have the node module create a new node project using your favourite editor or IDE, and install the SDK module:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">npm</span> <span class="nx">install</span> <span class="nx">AeonSDK</span><span class="o">-</span><span class="nx">nodejs_0</span><span class="p">.</span><span class="nx">x</span><span class="p">.</span><span class="nx">tgz</span>
+</pre></div>
+</div>
+<p>You are almost done. AEON publication/subscription is based on channels with an url for publication and other for subscription. Follow this <a class="reference internal" href="getachannel.html#documentation-tutorial-getchannel"><em>Playing with AEON dashboard</em></a> and bring a couple of urls from your first channel (Pub_url and Sub_url).</p>
+<div class="section" id="hello-world-publish">
+<h3>Hello World (publish)<a class="headerlink" href="#hello-world-publish" title="Permalink to this headline">¶</a></h3>
+<p>Now that you have your node.js project ready, you can begging coding.</p>
+<p>Lets start with the simple code to publish some numbers. First of all you need to be connected to an AEON channel using your publish url.</p>
+<div class="highlight-java"><pre>var AeonSDK = require('aeonsdk-node');
+sdk = new AeonSDK(config.PUB_URL);</pre>
+</div>
+<p>And now, lets generate some numbers with a delay of one second. To publish information you need to use a JSON object:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">AEONSDK</span> <span class="nx">sdk</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AEONSDK</span><span class="p">(</span><span class="nx">Config</span><span class="p">.</span><span class="nx">PUB_URL</span><span class="p">);</span>
+<span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">20</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+   <span class="nx">msg</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;number&quot;</span><span class="o">:</span> <span class="nx">i</span><span class="p">};</span>
+   <span class="nx">sdk</span><span class="p">.</span><span class="nx">publish</span><span class="p">(</span><span class="nx">msg</span><span class="p">);</span>
+   <span class="nx">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span> <span class="c1">//sync blocking sleep, ugly ;)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Done it!. As you can see, once you are connected to your channel, you can directly invoke publish method passing a JSON as a parameter.</p>
+</div>
+<div class="section" id="hello-world-subscribe">
+<h3>Hello World (subscribe)<a class="headerlink" href="#hello-world-subscribe" title="Permalink to this headline">¶</a></h3>
+<p>Now lets create the application to receive the numbers. Againg we need to create a connection with our previously created channel (this time, using the subscription url).</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">AeonSDK</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;aeonsdk-node&#39;</span><span class="p">);</span>
+<span class="nx">sdk</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AeonSDK</span><span class="p">(</span><span class="nx">config</span><span class="p">.</span><span class="nx">SUB_URL</span><span class="p">,</span> <span class="nx">config</span><span class="p">.</span><span class="nx">YOUR_ID</span> <span class="p">,</span> <span class="nx">config</span><span class="p">.</span><span class="nx">YOUR_DESC</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The combination of YOUR_ID and YOUR_DESC (strings) makes your subscriber unique in the iCargo network. Once the SDK is ready you can ask for a subscription. As simple as:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">sdk</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AeonSDK</span><span class="p">(</span><span class="nx">config</span><span class="p">.</span><span class="nx">SUB_URL</span><span class="p">,</span> <span class="nx">config</span><span class="p">.</span><span class="nx">YOUR_ID</span> <span class="p">,</span> <span class="nx">config</span><span class="p">.</span><span class="nx">YOUR_DESC</span><span class="p">);</span>
+<span class="nx">sdk</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">received</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>received parameter is callback function. This is the way that we will manage asynchronous messages produced during the subscription. Any time a message is published in the channel; AEON will notify you through your callback.</p>
+<p>Now lets do it a little bit more interesting. With AEON you can pause the communication, messages produced during your break will be received when you decide to continue.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">received</span> <span class="o">=</span> <span class="kd">function</span> <span class="nx">received</span><span class="p">(</span><span class="nx">msg</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Received: &quot;</span><span class="p">,</span> <span class="nx">msg</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="nx">sdk</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">received</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Ok, we are subscribed, waiting for messages&quot;</span><span class="p">);</span>
+<span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">sdk</span><span class="p">.</span><span class="nx">pauseSubscription</span><span class="p">();</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;lets pause 3 secs&quot;</span><span class="p">);</span>
+
+    <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+        <span class="nx">sdk</span><span class="p">.</span><span class="nx">continueSubscription</span><span class="p">();</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;lets continue&quot;</span><span class="p">);</span>
+        <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+            <span class="nx">sdk</span><span class="p">.</span><span class="nx">deleteSubscription</span><span class="p">();</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Closing. Bye bye&quot;</span><span class="p">);</span>
+        <span class="p">},</span> <span class="mi">3000</span><span class="p">);</span>
+    <span class="p">},</span> <span class="mi">3000</span><span class="p">);</span>
+<span class="p">},</span> <span class="mi">3000</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>When everything is finished you can delete the subscription. After that, if you invoke again sdk.subscribe() with your ID and DESC you will receive a new one, instead of having the possibility of continuing with your previous subscription. Dont delete the subscription if you want to use it later (tomorrow, the next month, in the year 2024).</p>
+<p>Now, you should be able to play with this create, pause, continue, delete depending on the logic of your application. Happy coding.</p>
+</div>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2014, ATOS.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

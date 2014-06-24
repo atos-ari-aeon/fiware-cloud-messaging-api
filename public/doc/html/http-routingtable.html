@@ -1,0 +1,297 @@
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>HTTP Routing Table &mdash; AEON real time communcations</title>
+    
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootswatch-3.1.0/flatly/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.1.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="top" title="AEON real time communcations" href="index.html" />
+
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+
+    <script type="text/javascript">
+      DOCUMENTATION_OPTIONS.COLLAPSE_INDEX = true;
+    </script>
+
+
+  </head>
+  <body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html"><img src="_static/web_simple_header_small.png">
+           </a>
+        <span class="navbar-text navbar-version pull-left"><b>0.2.1-Bolt</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            <li class="divider-vertical"></li>
+            
+                <li><a href="http://aeon.atosresearch.eu">Portal</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="apidoc/apidoc.html">Technical documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="apidoc/apidoc.html#aeon-way-of-working">AEON way of working</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apidoc/apidoc.html#quick-start">Quick Start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apidoc/apidoc.html#sdk">SDK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apidoc/apidoc.html#aeon-api">AEON API</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"></ul>
+</li>
+              
+            
+            
+              
+                
+              
+            
+            
+            
+            
+              <li class="hidden-sm"></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      
+
+   <h1>HTTP Routing Table</h1>
+
+   <div class="modindex-jumpbox">
+   <a href="#cap-/entities"><strong>/entities</strong></a> | 
+   <a href="#cap-/login"><strong>/login</strong></a> | 
+   <a href="#cap-/logout"><strong>/logout</strong></a> | 
+   <a href="#cap-/publish"><strong>/publish</strong></a> | 
+   <a href="#cap-/subscribe"><strong>/subscribe</strong></a> | 
+   <a href="#cap-/users"><strong>/users</strong></a>
+   </div>
+
+   <table class="indextable modindextable" cellspacing="0" cellpadding="2">
+     <tr class="pcap"><td></td><td>&nbsp;</td><td></td></tr>
+     <tr class="cap" id="cap-/entities"><td></td><td>
+       <strong>/entities</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="apidoc/entities/entitiesdoc.html#get--entities-"><tt class="xref">GET /entities/</tt></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="apidoc/entities/entitiesdoc.html#post--entities-"><tt class="xref">POST /entities/</tt></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="apidoc/entities/entitiesdoc.html#get--entities-(entity_id)"><tt class="xref">GET /entities/(entity_id)</tt></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="apidoc/entities/entitiesdoc.html#put--entities-(entity_id)"><tt class="xref">PUT /entities/(entity_id)</tt></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="apidoc/entities/entitiesdoc.html#delete--entities-(entity_id)"><tt class="xref">DELETE /entities/(entity_id)</tt></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="apidoc/channels/channelsdoc.html#get--entities-(entity_id)-channels"><tt class="xref">GET /entities/(entity_id)/channels</tt></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="apidoc/channels/channelsdoc.html#post--entities-(entity_id)-channels"><tt class="xref">POST /entities/(entity_id)/channels</tt></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="apidoc/channels/channelsdoc.html#get--entities-(entity_id)-channels-(channel_id)"><tt class="xref">GET /entities/(entity_id)/channels/(channel_id)</tt></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="apidoc/channels/channelsdoc.html#put--entities-(entity_id)-channels-(channel_id)"><tt class="xref">PUT /entities/(entity_id)/channels/(channel_id)</tt></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="apidoc/channels/channelsdoc.html#delete--entities-(entity_id)-channels-(channel_id)"><tt class="xref">DELETE /entities/(entity_id)/channels/(channel_id)</tt></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&nbsp;</td><td></td></tr>
+     <tr class="cap" id="cap-/login"><td></td><td>
+       <strong>/login</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="apidoc/users/userdoc.html#post--login-"><tt class="xref">POST /login/</tt></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&nbsp;</td><td></td></tr>
+     <tr class="cap" id="cap-/logout"><td></td><td>
+       <strong>/logout</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="apidoc/users/userdoc.html#get--logout"><tt class="xref">GET /logout</tt></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&nbsp;</td><td></td></tr>
+     <tr class="cap" id="cap-/publish"><td></td><td>
+       <strong>/publish</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="apidoc/pubsub/pubsubdoc.html#post--publish-(pubID)"><tt class="xref">POST /publish/(pubID)</tt></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&nbsp;</td><td></td></tr>
+     <tr class="cap" id="cap-/subscribe"><td></td><td>
+       <strong>/subscribe</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="apidoc/pubsub/pubsubdoc.html#delete--subscribe-(subID)"><tt class="xref">DELETE /subscribe/(subID)</tt></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="apidoc/pubsub/pubsubdoc.html#get--subscribe-(subID)?id=idApp&desc=descApp"><tt class="xref">GET /subscribe/(subID)?id=idApp&amp;desc=descApp</tt></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&nbsp;</td><td></td></tr>
+     <tr class="cap" id="cap-/users"><td></td><td>
+       <strong>/users</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="apidoc/users/userdoc.html#get--users-"><tt class="xref">GET /users/</tt></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="apidoc/users/userdoc.html#post--users-"><tt class="xref">POST /users/</tt></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="apidoc/users/userdoc.html#get--users-(user_id)"><tt class="xref">GET /users/(user_id)</tt></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="apidoc/users/userdoc.html#delete--users-(user_id)"><tt class="xref">DELETE /users/(user_id)</tt></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="apidoc/users/userdoc.html#get--users-(user_id)-rememberPassword"><tt class="xref">GET /users/(user_id)/rememberPassword</tt></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="apidoc/users/userdoc.html#put--users-(user_id)-rememberPassword-(code)"><tt class="xref">PUT /users/(user_id)/rememberPassword/(code)</tt></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="apidoc/users/userdoc.html#put--users-(user_id)-updatePassword"><tt class="xref">PUT /users/(user_id)/updatePassword</tt></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="apidoc/users/userdoc.html#get--users-user"><tt class="xref">GET /users/user</tt></a></td><td>
+       <em></em></td></tr>
+   </table>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2014, ATOS.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

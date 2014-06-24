@@ -1,0 +1,729 @@
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>API Users Documentation &mdash; AEON real time communcations</title>
+    
+    <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/bootswatch-3.1.0/flatly/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-3.1.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="top" title="AEON real time communcations" href="../../index.html" />
+    <link rel="up" title="Technical documentation" href="../apidoc.html" />
+    <link rel="next" title="API Entities Documentation" href="../entities/entitiesdoc.html" />
+    <link rel="prev" title="Technical documentation" href="../apidoc.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html"><img src="../../_static/web_simple_header_small.png">
+           </a>
+        <span class="navbar-text navbar-version pull-left"><b>0.2.1-Bolt</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            <li class="divider-vertical"></li>
+            
+                <li><a href="http://aeon.atosresearch.eu">Portal</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../apidoc.html">Technical documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../apidoc.html#aeon-way-of-working">AEON way of working</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../apidoc.html#quick-start">Quick Start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../apidoc.html#sdk">SDK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../apidoc.html#aeon-api">AEON API</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">API Users Documentation</a><ul>
+<li><a class="reference internal" href="#login">Login</a></li>
+<li><a class="reference internal" href="#logout">Logout</a></li>
+<li><a class="reference internal" href="#create-user">CREATE user</a></li>
+<li><a class="reference internal" href="#user-info">User Info</a></li>
+<li><a class="reference internal" href="#get-users-list">GET Users list</a></li>
+<li><a class="reference internal" href="#get-user">GET User</a></li>
+<li><a class="reference internal" href="#delete-user">DELETE user</a></li>
+<li><a class="reference internal" href="#update-user-password">UPDATE user password</a></li>
+<li><a class="reference internal" href="#remember-the-user-s-password">Remember the user&#8217;s password</a></li>
+<li><a class="reference internal" href="#reset-the-user-s-password">Reset the user&#8217;s password</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="../apidoc.html" title="Previous Chapter: Technical documentation"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm">&laquo; Technical docume...</span>
+    </a>
+  </li>
+  <li>
+    <a href="../entities/entitiesdoc.html" title="Next Chapter: API Entities Documentation"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm">API Entities Doc... &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+              <li class="hidden-sm"></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      
+  <div class="section" id="api-users-documentation">
+<span id="userdoc"></span><h1>API Users Documentation<a class="headerlink" href="#api-users-documentation" title="Permalink to this headline">¶</a></h1>
+<p>Documentation for user&#8217;s management. Most of the AEON&#8217;s functionalities
+requires registered users. This registered users will make use of the AEON&#8217;s functionality
+to create entities and channels.</p>
+<p>You can try all the operation using AEON&#8217;s <a class="reference external" href="http://lcb.herokuapp.com/">API</a></p>
+<div class="section" id="login">
+<span id="userdoc-login"></span><h2>Login<a class="headerlink" href="#login" title="Permalink to this headline">¶</a></h2>
+<p>Logging process with an existing user and password (<a class="reference internal" href="#post--users-" title="POST /users/"><tt class="xref http http-post docutils literal"><span class="pre">POST</span> <span class="pre">/users/</span></tt></a>) . If the process results &#8220;ok&#8221;
+you will receive a cookie with your session. This cookie will be
+used in most of the operations.</p>
+<dl class="post">
+<dt id="post--login-">
+<tt class="descname">POST </tt><tt class="descname">/login/</tt><a class="headerlink" href="#post--login-" title="Permalink to this definition">¶</a></dt>
+<dd><p>Login process</p>
+<p><strong>Example request</strong>:</p>
+<div class="highlight-http"><div class="highlight"><pre><span class="nf">POST</span> <span class="nn">/login/</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">:api-host:`API example host`</span>
+<span class="na">Content</span><span class="o">:</span> <span class="l">application/json</span>
+<span class="na">Accept</span><span class="o">:</span> <span class="l">application/json</span>
+
+{
+  &#39;username&#39;: &#39;john&#39;,
+  &#39;password&#39;: &#39;john&#39;,
+  &#39;type&#39;: &#39;user&#39;
+}
+</pre></div>
+</div>
+<p><strong>Example response</strong>:</p>
+<div class="highlight-http"><div class="highlight"><pre><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
+
+<span class="p">{</span>
+  <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+  <span class="nt">&quot;desc&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status Codes:</th><td class="field-body"><ul class="first last simple">
+<li><strong>200</strong> &#8211; no error</li>
+<li><strong>40x</strong> &#8211; error</li>
+<li><strong>400</strong> &#8211; Incorrect model received, check mandatory params and syntax</li>
+<li><strong>500</strong> &#8211; unknown error (contact for support)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="logout">
+<span id="userdoc-logout"></span><h2>Logout<a class="headerlink" href="#logout" title="Permalink to this headline">¶</a></h2>
+<p>Logout process. The user set in the cookie will be unset from it. The cookie won&#8217;t be deleted from the server.</p>
+<dl class="get">
+<dt id="get--logout">
+<tt class="descname">GET </tt><tt class="descname">/logout</tt><a class="headerlink" href="#get--logout" title="Permalink to this definition">¶</a></dt>
+<dd><p>Logout process</p>
+<p><strong>Example request</strong>:</p>
+<div class="highlight-http"><div class="highlight"><pre><span class="nf">GET</span> <span class="nn">/logout</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">:api-host:`API example host`</span>
+<span class="na">Accept</span><span class="o">:</span> <span class="l">application/json</span>
+</pre></div>
+</div>
+<p><strong>Example response</strong>:</p>
+<div class="highlight-http"><div class="highlight"><pre><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
+
+<span class="p">{</span>
+  <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+  <span class="nt">&quot;desc&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status Codes:</th><td class="field-body"><ul class="first last simple">
+<li><strong>200</strong> &#8211; no error</li>
+<li><strong>205</strong> &#8211; Unathorized</li>
+<li><strong>500</strong> &#8211; unknown error (contact for support)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="create-user">
+<span id="userdoc-create"></span><h2>CREATE user<a class="headerlink" href="#create-user" title="Permalink to this headline">¶</a></h2>
+<p>Create/Register a new user into the system. By the moment, it only includes
+information about user and password.</p>
+<dl class="post">
+<dt id="post--users-">
+<tt class="descname">POST </tt><tt class="descname">/users/</tt><a class="headerlink" href="#post--users-" title="Permalink to this definition">¶</a></dt>
+<dd><p>Register a new user</p>
+<p><strong>Example request</strong>:</p>
+<div class="highlight-http"><div class="highlight"><pre><span class="nf">POST</span> <span class="nn">/users/</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">example.com</span>
+<span class="na">Content</span><span class="o">:</span> <span class="l">application/json</span>
+<span class="na">Accept</span><span class="o">:</span> <span class="l">application/json</span>
+
+<span class="p">{</span>
+     <span class="nt">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;john&quot;</span><span class="p">,</span>
+     <span class="nt">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;john&quot;</span><span class="p">,</span>
+     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span>
+     <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;john&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example response</strong>:</p>
+<div class="highlight-http"><div class="highlight"><pre><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
+
+<span class="p">{</span>
+  <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+  <span class="nt">&quot;desc&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span>
+  <span class="s2">&quot;result&quot;</span><span class="p">:</span>
+ <span class="p">[</span>
+  <span class="p">{</span>
+     <span class="nt">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;john&quot;</span><span class="p">,</span>
+     <span class="nt">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;john&quot;</span><span class="p">,</span>
+     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span>
+     <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;john&quot;</span>
+  <span class="p">}</span>
+ <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status Codes:</th><td class="field-body"><ul class="first last simple">
+<li><strong>200</strong> &#8211; no error</li>
+<li><strong>400</strong> &#8211; Incorrect model received, check mandatory params and syntax</li>
+<li><strong>400</strong> &#8211; user already exists</li>
+<li><strong>40x</strong> &#8211; error</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="user-info">
+<span id="userdoc-userinfo"></span><h2>User Info<a class="headerlink" href="#user-info" title="Permalink to this headline">¶</a></h2>
+<p>Retrieves the information related to the user identified in the cookie.</p>
+<dl class="get">
+<dt id="get--users-user">
+<tt class="descname">GET </tt><tt class="descname">/users/user</tt><a class="headerlink" href="#get--users-user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get user info</p>
+<p><strong>Example request</strong>:</p>
+<div class="highlight-http"><div class="highlight"><pre><span class="nf">GET</span> <span class="nn">/users/user</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">:api-host:`API example host`</span>
+<span class="na">Accept</span><span class="o">:</span> <span class="l">application/json</span>
+</pre></div>
+</div>
+<p><strong>Example response</strong>:</p>
+<div class="highlight-http"><pre>  HTTP/1.1 200 OK
+  Content-Type: application/json
+
+  {
+    "code": 200,
+    "desc": "ok",
+    "result": [
+        {
+            "_id": "userID",
+            "type": "user",
+            "username": "username"
+        }
+    ]
+}</pre>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status Codes:</th><td class="field-body"><ul class="first last simple">
+<li><strong>200</strong> &#8211; no error</li>
+<li><strong>205</strong> &#8211; Unathorized</li>
+<li><strong>500</strong> &#8211; unknown error (contact for support)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="get-users-list">
+<span id="userdoc-list"></span><h2>GET Users list<a class="headerlink" href="#get-users-list" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Get list of registered users. Just basic information. Preconditions:</dt>
+<dd><ul class="first last simple">
+<li>You need to be logged: (<a class="reference internal" href="#login">Login</a>)</li>
+</ul>
+</dd>
+</dl>
+<dl class="get">
+<dt id="get--users-">
+<tt class="descname">GET </tt><tt class="descname">/users/</tt><a class="headerlink" href="#get--users-" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get user&#8217;s list.</p>
+<p><strong>Example request</strong>:</p>
+<div class="highlight-http"><div class="highlight"><pre><span class="nf">GET</span> <span class="nn">/users/</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">example.com</span>
+<span class="na">Accept</span><span class="o">:</span> <span class="l">application/json</span>
+</pre></div>
+</div>
+<p><strong>Example response</strong>:</p>
+<div class="highlight-http"><div class="highlight"><pre><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
+
+<span class="p">{</span>
+  <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+  <span class="nt">&quot;desc&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span>
+  <span class="s2">&quot;result&quot;</span><span class="p">:</span>
+ <span class="p">[</span>
+  <span class="p">{</span>
+     <span class="nt">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;john&quot;</span><span class="p">,</span>
+     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span>
+     <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;john&quot;</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+     <span class="nt">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;jammes&quot;</span><span class="p">,</span>
+     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span>
+     <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;jammes&quot;</span>
+  <span class="p">}</span>
+ <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status Codes:</th><td class="field-body"><ul class="first last simple">
+<li><strong>200</strong> &#8211; no error</li>
+<li><strong>401</strong> &#8211; Not authenticated</li>
+<li><strong>40x</strong> &#8211; error</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="get-user">
+<span id="userdoc-info"></span><h2>GET User<a class="headerlink" href="#get-user" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Get complete information of an specific user. Preconditions:</dt>
+<dd><ul class="first last simple">
+<li>In order to get extra information of an existing user you need to be logged</li>
+<li>You need to be logged as (<cite>user_id</cite>): (<a class="reference internal" href="#login">Login</a>)</li>
+</ul>
+</dd>
+</dl>
+<dl class="get">
+<dt id="get--users-(user_id)">
+<tt class="descname">GET </tt><tt class="descname">/users/</tt><big>(</big><em>user_id</em><big>)</big><a class="headerlink" href="#get--users-(user_id)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get information for (<cite>user_id</cite>).</p>
+<p><strong>Example request</strong>:</p>
+<div class="highlight-http"><div class="highlight"><pre><span class="nf">GET</span> <span class="nn">/users/jhon</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">example.com</span>
+<span class="na">Accept</span><span class="o">:</span> <span class="l">application/json</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Query Parameters:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
+<li><strong>user_id</strong> &#8211; user_id email identifier</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example response</strong>:</p>
+<div class="highlight-http"><div class="highlight"><pre><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
+
+<span class="p">{</span>
+  <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+  <span class="nt">&quot;desc&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;result&quot;</span><span class="p">:</span>
+  <span class="p">[</span>
+   <span class="p">{</span>
+      <span class="nt">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;jhon&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;jhon&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span>
+   <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status Codes:</th><td class="field-body"><ul class="first last simple">
+<li><strong>200</strong> &#8211; no error</li>
+<li><strong>401</strong> &#8211; You are not authorized for this operation</li>
+<li><strong>401</strong> &#8211; Not authenticated</li>
+<li><strong>40x</strong> &#8211; error</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="delete-user">
+<span id="userdoc-delete"></span><h2>DELETE user<a class="headerlink" href="#delete-user" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Delete an specific user. When a user is deleted, all the entities and the information assigned will be deleted too. Preconditions:</dt>
+<dd><ul class="first last simple">
+<li>In order to delete an existing user you need to be logged</li>
+<li>You need to be logged as (<cite>user_id</cite>): (<a class="reference internal" href="#login">Login</a>)</li>
+</ul>
+</dd>
+</dl>
+<dl class="delete">
+<dt id="delete--users-(user_id)">
+<tt class="descname">DELETE </tt><tt class="descname">/users/</tt><big>(</big><em>user_id</em><big>)</big><a class="headerlink" href="#delete--users-(user_id)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete  (<cite>user_id</cite>).</p>
+<p><strong>Example request</strong>:</p>
+<div class="highlight-http"><div class="highlight"><pre><span class="nf">DELETE</span> <span class="nn">/users/jhon</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">example.com</span>
+<span class="na">Accept</span><span class="o">:</span> <span class="l">application/json</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Query Parameters:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
+<li><strong>user_id</strong> &#8211; user_id email identifier</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example response</strong>:</p>
+<div class="highlight-http"><div class="highlight"><pre><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
+
+<span class="p">{</span>
+  <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+  <span class="nt">&quot;desc&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status Codes:</th><td class="field-body"><ul class="first last simple">
+<li><strong>200</strong> &#8211; no error</li>
+<li><strong>401</strong> &#8211; You are not authorized for this operation</li>
+<li><strong>401</strong> &#8211; Not authenticated</li>
+<li><strong>40x</strong> &#8211; error</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="update-user-password">
+<span id="userdoc-updatepass"></span><h2>UPDATE user password<a class="headerlink" href="#update-user-password" title="Permalink to this headline">¶</a></h2>
+<p>Change the user password.</p>
+<dl class="put">
+<dt id="put--users-(user_id)-updatePassword">
+<tt class="descname">PUT </tt><tt class="descname">/users/</tt><big>(</big><em>user_id</em><big>)</big><tt class="descname">/updatePassword</tt><a class="headerlink" href="#put--users-(user_id)-updatePassword" title="Permalink to this definition">¶</a></dt>
+<dd><p>Changes the user password</p>
+<p><strong>Example request</strong>:</p>
+<div class="highlight-http"><div class="highlight"><pre><span class="nf">PUT</span> <span class="nn">/users/user@domain.com/updatePassword</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">example.com</span>
+<span class="na">Content</span><span class="o">:</span> <span class="l">application/json</span>
+<span class="na">Accept</span><span class="o">:</span> <span class="l">application/json</span>
+
+<span class="p">{</span>
+     <span class="nt">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;newPassword&quot;</span><span class="p">,</span>
+     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Query Parameters:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
+<li><strong>user_id</strong> &#8211; user_id email identifier</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example response</strong>:</p>
+<div class="highlight-http"><div class="highlight"><pre><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
+
+<span class="p">{</span>
+    <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+    <span class="nt">&quot;desc&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;result&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status Codes:</th><td class="field-body"><ul class="first last simple">
+<li><strong>200</strong> &#8211; no error</li>
+<li><strong>400</strong> &#8211; Incorrect model received, check mandatory params and syntax</li>
+<li><strong>40x</strong> &#8211; error</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="remember-the-user-s-password">
+<span id="userdoc-rememberpass"></span><h2>Remember the user&#8217;s password<a class="headerlink" href="#remember-the-user-s-password" title="Permalink to this headline">¶</a></h2>
+<p>This function is in charge of helping to remember a forgotten or missed password. Mainly,
+an existing user id will be requested (users are registered with emails). Thus, the user will
+receive an email with extra information in his email address. The extra information contains
+a temporal code used to reset the password with (<a class="reference internal" href="#userdoc-resetpass"><em>Reset the user&#8217;s password</em></a>).</p>
+<dl class="get">
+<dt id="get--users-(user_id)-rememberPassword">
+<tt class="descname">GET </tt><tt class="descname">/users/</tt><big>(</big><em>user_id</em><big>)</big><tt class="descname">/rememberPassword</tt><a class="headerlink" href="#get--users-(user_id)-rememberPassword" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate a temporal code to change the user&#8217;s password. (user_id) is the email of
+an existing user. Through this email he will receive the necessary information to (<a class="reference internal" href="#userdoc-resetpass"><em>Reset the user&#8217;s password</em></a>).</p>
+<p><strong>Example request</strong>:</p>
+<div class="highlight-http"><div class="highlight"><pre><span class="nf">GET</span> <span class="nn">/users/user@domain.com/rememberPassword</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">example.com</span>
+<span class="na">Accept</span><span class="o">:</span> <span class="l">application/json</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Query Parameters:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
+<li><strong>user_id</strong> &#8211; user_id email identifier</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example response</strong>:</p>
+<div class="highlight-http"><div class="highlight"><pre><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
+
+<span class="p">{</span>
+ <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+ <span class="nt">&quot;desc&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+ <span class="nt">&quot;result&quot;</span><span class="p">:</span> <span class="p">[</span>
+   <span class="s2">&quot;You will receive an email with information for reset.&quot;</span>
+ <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status Codes:</th><td class="field-body"><ul class="first last simple">
+<li><strong>200</strong> &#8211; no error</li>
+<li><strong>404</strong> &#8211; The user does not exist</li>
+<li><strong>500</strong> &#8211; Error sending reset email</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="reset-the-user-s-password">
+<span id="userdoc-resetpass"></span><h2>Reset the user&#8217;s password<a class="headerlink" href="#reset-the-user-s-password" title="Permalink to this headline">¶</a></h2>
+<p>This function is in charge of resetting a forgotten or missed password. The user needs to provide
+an existing user id (users are registered with emails), the new password and a temporal code generated by (<a class="reference internal" href="#userdoc-rememberpass"><em>Remember the user&#8217;s password</em></a>).</p>
+<dl class="put">
+<dt id="put--users-(user_id)-rememberPassword-(code)">
+<tt class="descname">PUT </tt><tt class="descname">/users/</tt><big>(</big><em>user_id</em><big>)</big><tt class="descname">/rememberPassword/</tt><big>(</big><em>code</em><big>)</big><a class="headerlink" href="#put--users-(user_id)-rememberPassword-(code)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Changes user&#8217;s password of (user_id) using the retrieved (code) by (<a class="reference internal" href="#userdoc-rememberpass"><em>Remember the user&#8217;s password</em></a>).</p>
+<p><strong>Example request</strong>:</p>
+<div class="highlight-http"><div class="highlight"><pre><span class="nf">PUT</span> <span class="nn">/users/user@domain.com/rememberPassword/8c5bdbf8-8c2f-46fb-8ae5-b7a579aca07b</span>  <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">example.com</span>
+<span class="na">Content</span><span class="o">:</span> <span class="l">application/json</span>
+<span class="na">Accept</span><span class="o">:</span> <span class="l">application/json</span>
+
+<span class="p">{</span>
+     <span class="nt">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;newPassword&quot;</span><span class="p">,</span>
+     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Query Parameters:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
+<li><strong>user_id</strong> &#8211; user_id email identifier</li>
+<li><strong>code</strong> &#8211; temporal code to reset the password</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example response</strong>:</p>
+<div class="highlight-http"><div class="highlight"><pre><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
+
+<span class="p">{</span>
+    <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+    <span class="nt">&quot;desc&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;result&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status Codes:</th><td class="field-body"><ul class="first last simple">
+<li><strong>200</strong> &#8211; no error</li>
+<li><strong>404</strong> &#8211; user does not exist</li>
+<li><strong>500</strong> &#8211; error trying to reset user password</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2014, ATOS.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
