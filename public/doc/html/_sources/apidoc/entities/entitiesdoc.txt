@@ -66,9 +66,9 @@ The entity will be created and owned by the logged user.
       }
 
    :statuscode 200: no error
-   :statuscode 400: Incorrect model received, check mandatory params and syntax
-   :statuscode 401: Not authenticated  
-   :statuscode 40x: error
+   :statuscode 400: error
+   :statuscode 401: Not authenticated
+   :statuscode 417: Incorrect model received, check mandatory params and syntax 
 
 .. _entitydoc-list:
 
@@ -120,7 +120,7 @@ Get list of entities owned by the logged user. Preconditions:
 
    :statuscode 200: no error
    :statuscode 401: Not authenticated  
-   :statuscode 40x: error
+   :statuscode 400: error
    
    
 .. _entitydoc-info:
@@ -172,9 +172,9 @@ Get complete information of an specific entity. Preconditions:
     }
 
    :statuscode 200: no error
-   :statuscode 401: You are not authorized for this operation
-   :statuscode 401: Not authenticated   
-   :statuscode 40x: error
+   :statuscode 400: error
+   :statuscode 401: not authorized
+   :statuscode 404: Entity not exist   
 
 .. _entitydoc-update:
 
@@ -220,9 +220,9 @@ Update the name or the description of an entity. Preconditions:
       }
 
    :statuscode 200: no error
-   :statuscode 401: You are not authorized for this operation
-   :statuscode 401: Not authenticated   
-   :statuscode 40x: error
+   :statuscode 400: error
+   :statuscode 401: not authorized
+   :statuscode 417: Incorrect model received, check mandatory params and syntax
 
 .. _entitydoc-delete:
 
@@ -260,9 +260,10 @@ Delete an specific entity. When an entity is deleted, the channels that belongs 
       }
 
    :statuscode 200: no error
-   :statuscode 401: You are not authorized for this operation
-   :statuscode 401: Not authenticated   
-   :statuscode 40x: error
+   :statuscode 400: error
+   :statuscode 401: not authorized
+   :statuscode 404: Entity not exist   
+   
 
 
 

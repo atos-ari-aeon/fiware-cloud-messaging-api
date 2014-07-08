@@ -56,8 +56,8 @@ used in most of the operations.
       }
 
    :statuscode 200: no error
-   :statuscode 40x: error
-   :statuscode 400: Incorrect model received, check mandatory params and syntax
+   :statuscode 400: error
+   :statuscode 417: Wrong user/password
    :statuscode 500: unknown error (contact for support)
 
 
@@ -94,7 +94,8 @@ Logout process. The user set in the cookie will be unset from it. The cookie won
       }
 
    :statuscode 200: no error
-   :statuscode 205: Unathorized
+   :statuscode 400: error
+   :statuscode 401: Not authenticated
    :statuscode 500: unknown error (contact for support)
 
 .. _userdoc-create:
@@ -149,9 +150,9 @@ information about user and password.
       }
 
    :statuscode 200: no error
-   :statuscode 400: Incorrect model received, check mandatory params and syntax
-   :statuscode 400: user already exists
-   :statuscode 40x: error
+   :statuscode 400: error 
+   :statuscode 409: user already exists
+   :statuscode 417: Incorrect model received, check mandatory params and syntax
 
 
 .. _userdoc-userInfo:
@@ -194,8 +195,9 @@ Retrieves the information related to the user identified in the cookie.
     }
 
    :statuscode 200: no error
-   :statuscode 205: Unathorized
-   :statuscode 500: unknown error (contact for support)
+   :statuscode 400: error
+   :statuscode 401: Not authenticated
+   :statuscode 404: user not exist
 
 
 .. _userdoc-list:
@@ -245,8 +247,9 @@ Get list of registered users. Just basic information. Preconditions:
       }
 
    :statuscode 200: no error
+   :statuscode 400: error
    :statuscode 401: Not authenticated
-   :statuscode 40x: error
+   
 
 
 .. _userdoc-info:
@@ -293,9 +296,9 @@ Get complete information of an specific user. Preconditions:
       }
 
    :statuscode 200: no error
-   :statuscode 401: You are not authorized for this operation
+   :statuscode 400: error
    :statuscode 401: Not authenticated
-   :statuscode 40x: error
+   :statuscode 404: user not exist
 
 .. _userdoc-delete:
 
@@ -334,9 +337,9 @@ Delete an specific user. When a user is deleted, all the entities and the inform
       }
 
    :statuscode 200: no error
-   :statuscode 401: You are not authorized for this operation
-   :statuscode 401: Not authenticated
-   :statuscode 40x: error
+   :statuscode 400: error
+   :statuscode 401: Not authorized
+   :statuscode 404: user not exist
 
 
 .. _userdoc-updatePass:
@@ -382,8 +385,10 @@ Change the user password.
       }
 
    :statuscode 200: no error
-   :statuscode 400: Incorrect model received, check mandatory params and syntax
-   :statuscode 40x: error
+   :statuscode 400: error
+   :statuscode 401: Not authorized
+   :statuscode 404: user not exist
+   :statuscode 417: Incorrect model received, check mandatory params and syntax
 
 
 .. _userdoc-rememberPass:
@@ -427,7 +432,8 @@ a temporal code used to reset the password with (:ref:`userdoc-resetPass`).
       }
 
    :statuscode 200: no error
-   :statuscode 404: The user does not exist
+   :statuscode 400: error
+   :statuscode 404: user not exist
    :statuscode 500: Error sending reset email
 
 
@@ -475,5 +481,6 @@ an existing user id (users are registered with emails), the new password and a t
       }
 
    :statuscode 200: no error
-   :statuscode 404: user does not exist
-   :statuscode 500: error trying to reset user password
+   :statuscode 400: error
+   :statuscode 404: user not exist
+   :statuscode 500: error resetting user password

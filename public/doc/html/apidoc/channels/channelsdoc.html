@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 
 
@@ -71,12 +70,12 @@
      href="../../index.html">Site <b class="caret"></b></a>
   <ul class="dropdown-menu globaltoc"
       role="menu"
-      aria-labelledby="dLabelGlobalToc"><ul>
-<li class="toctree-l1"><a class="reference internal" href="../apidoc.html">Technical documentation</a><ul>
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../apidoc.html">Technical documentation</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../apidoc.html#aeon-way-of-working">AEON way of working</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../apidoc.html#quick-start">Quick Start</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../apidoc.html#sdk">SDK</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../apidoc.html#aeon-api">AEON API</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../apidoc.html#aeon-api">AEON API</a></li>
 </ul>
 </li>
 </ul>
@@ -197,10 +196,9 @@ information about description and the pub/sub mechanisms. Some preconditions:
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Status Codes:</th><td class="field-body"><ul class="first last simple">
 <li><strong>200</strong> &#8211; no error</li>
-<li><strong>400</strong> &#8211; Incorrect model received, check mandatory params and syntax</li>
-<li><strong>401</strong> &#8211; You are not authorized for this operation</li>
+<li><strong>400</strong> &#8211; error</li>
 <li><strong>401</strong> &#8211; Not authenticated</li>
-<li><strong>40x</strong> &#8211; error</li>
+<li><strong>417</strong> &#8211; Incorrect model received, check mandatory params and syntax</li>
 </ul>
 </td>
 </tr>
@@ -241,28 +239,29 @@ information about description and the pub/sub mechanisms. Some preconditions:
 </tbody>
 </table>
 <p><strong>Example response</strong>:</p>
-<div class="highlight-http"><pre>HTTP/1.1 200 OK
+<div class="highlight-http"><div class="highlight"><pre>HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-  "code": 200,
-  "desc": "ok"
-  "result":
+  &quot;code&quot;: 200,
+  &quot;desc&quot;: &quot;ok&quot;
+  &quot;result&quot;:
    [
 
     {
-      "id": "51e7be461fb1a1f179000002",
-      "channelName": "channelname",
-      "channeldesc": "channeldesc",
-      "type": "channel",
-      "broker": {
+      &quot;id&quot;: &quot;51e7be461fb1a1f179000002&quot;,
+      &quot;channelName&quot;: &quot;channelname&quot;,
+      &quot;channeldesc&quot;: &quot;channeldesc&quot;,
+      &quot;type&quot;: &quot;channel&quot;,
+      &quot;broker&quot;: {
        ...
        },
 
     },
     ...
    ]
- }</pre>
+ }
+</pre></div>
 </div>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -270,9 +269,8 @@ Content-Type: application/json
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Status Codes:</th><td class="field-body"><ul class="first last simple">
 <li><strong>200</strong> &#8211; no error</li>
-<li><strong>401</strong> &#8211; You are not authorized for this operation</li>
+<li><strong>400</strong> &#8211; error</li>
 <li><strong>401</strong> &#8211; Not authenticated</li>
-<li><strong>40x</strong> &#8211; error</li>
 </ul>
 </td>
 </tr>
@@ -316,27 +314,28 @@ Content-Type: application/json
 </tbody>
 </table>
 <p><strong>Example response</strong>:</p>
-<div class="highlight-http"><pre>HTTP/1.1 200 OK
+<div class="highlight-http"><div class="highlight"><pre>HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-  "code": 200,
-  "desc": "ok"
-  "result":
+  &quot;code&quot;: 200,
+  &quot;desc&quot;: &quot;ok&quot;
+  &quot;result&quot;:
    [
 
     {
-      "id": "51e7be461fb1a1f179000002",
-      "channelName": "channelname",
-      "channeldesc": "channeldesc",
-      "type": "channel",
-      "broker": {
+      &quot;id&quot;: &quot;51e7be461fb1a1f179000002&quot;,
+      &quot;channelName&quot;: &quot;channelname&quot;,
+      &quot;channeldesc&quot;: &quot;channeldesc&quot;,
+      &quot;type&quot;: &quot;channel&quot;,
+      &quot;broker&quot;: {
        ...
        },
 
     }
    ]
- }</pre>
+ }
+</pre></div>
 </div>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -344,10 +343,9 @@ Content-Type: application/json
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Status Codes:</th><td class="field-body"><ul class="first last simple">
 <li><strong>200</strong> &#8211; no error</li>
-<li><strong>401</strong> &#8211; You are not authorized for this operation</li>
+<li><strong>400</strong> &#8211; error</li>
 <li><strong>401</strong> &#8211; Not authenticated</li>
-<li><strong>404</strong> &#8211; Channel not found</li>
-<li><strong>40x</strong> &#8211; error</li>
+<li><strong>404</strong> &#8211; Channel not exist</li>
 </ul>
 </td>
 </tr>
@@ -401,10 +399,10 @@ Content-Type: application/json
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Status Codes:</th><td class="field-body"><ul class="first last simple">
 <li><strong>200</strong> &#8211; no error</li>
-<li><strong>401</strong> &#8211; You are not authorized for this operation</li>
+<li><strong>400</strong> &#8211; error</li>
 <li><strong>401</strong> &#8211; Not authenticated</li>
 <li><strong>404</strong> &#8211; Channel not found</li>
-<li><strong>40x</strong> &#8211; error</li>
+<li><strong>417</strong> &#8211; Incorrect model received, check mandatory params and syntax</li>
 </ul>
 </td>
 </tr>
@@ -463,10 +461,9 @@ Content-Type: application/json
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Status Codes:</th><td class="field-body"><ul class="first last simple">
 <li><strong>200</strong> &#8211; no error</li>
-<li><strong>401</strong> &#8211; You are not authorized for this operation</li>
+<li><strong>400</strong> &#8211; error</li>
 <li><strong>401</strong> &#8211; Not authenticated</li>
 <li><strong>404</strong> &#8211; Channel not found</li>
-<li><strong>40x</strong> &#8211; error</li>
 </ul>
 </td>
 </tr>

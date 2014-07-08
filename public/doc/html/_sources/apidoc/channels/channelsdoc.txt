@@ -61,10 +61,9 @@ The channel will be attached to the entity, together with Pub_Url and a (Sub_Url
       }
 
    :statuscode 200: no error
-   :statuscode 400: Incorrect model received, check mandatory params and syntax
-   :statuscode 401: You are not authorized for this operation
+   :statuscode 400: error
    :statuscode 401: Not authenticated
-   :statuscode 40x: error
+   :statuscode 417: Incorrect model received, check mandatory params and syntax
 
 .. _channeldoc-list:
 
@@ -118,9 +117,8 @@ Get the list of channels of an specific entity. Preconditions:
        }
 
    :statuscode 200: no error
-   :statuscode 401: You are not authorized for this operation
+   :statuscode 400: error
    :statuscode 401: Not authenticated
-   :statuscode 40x: error
 
 
 .. _channeldoc-info:
@@ -175,10 +173,9 @@ Get complete information of an specific channel. Preconditions:
        }
 
    :statuscode 200: no error
-   :statuscode 401: You are not authorized for this operation
+   :statuscode 400: error
    :statuscode 401: Not authenticated
-   :statuscode 404: Channel not found
-   :statuscode 40x: error
+   :statuscode 404: Channel not exist
 
 .. _channeldoc-update:
 
@@ -224,10 +221,10 @@ Updates the information of an specific channel. Preconditions:
       }
 
    :statuscode 200: no error
-   :statuscode 401: You are not authorized for this operation
+   :statuscode 400: error
    :statuscode 401: Not authenticated
    :statuscode 404: Channel not found
-   :statuscode 40x: error
+   :statuscode 417: Incorrect model received, check mandatory params and syntax
 
 .. _channeldoc-delete:
 
@@ -267,10 +264,10 @@ Delete an specific channel. Preconditions:
       }
 
    :statuscode 200: no error
-   :statuscode 401: You are not authorized for this operation
+   :statuscode 400: error
    :statuscode 401: Not authenticated
    :statuscode 404: Channel not found
-   :statuscode 40x: error
+   
 
 
 

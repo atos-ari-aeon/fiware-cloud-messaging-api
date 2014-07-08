@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 
 
@@ -169,8 +168,9 @@
 <h3>Hello World (publish)<a class="headerlink" href="#hello-world-publish" title="Permalink to this headline">¶</a></h3>
 <p>Now that you have your node.js project ready, you can begging coding.</p>
 <p>Lets start with the simple code to publish some numbers. First of all you need to be connected to an AEON channel using your publish url.</p>
-<div class="highlight-java"><pre>var AeonSDK = require('aeonsdk-node');
-sdk = new AeonSDK(config.PUB_URL);</pre>
+<div class="highlight-java"><div class="highlight"><pre>var AeonSDK = require(&#39;aeonsdk-node&#39;);
+sdk = new AeonSDK(config.PUB_URL);
+</pre></div>
 </div>
 <p>And now, lets generate some numbers with a delay of one second. To publish information you need to use a JSON object:</p>
 <div class="highlight-javascript"><div class="highlight"><pre><span class="nx">AEONSDK</span> <span class="nx">sdk</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AEONSDK</span><span class="p">(</span><span class="nx">Config</span><span class="p">.</span><span class="nx">PUB_URL</span><span class="p">);</span>

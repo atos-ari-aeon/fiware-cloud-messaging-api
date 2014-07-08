@@ -56,7 +56,8 @@ Mainly, if you have the url, you can publish!!
 
    :statuscode 200: no error
    :statuscode 400: no message to publish
-   :statuscode 40x: error
+   :statuscode 408: Can not publish
+   :statuscode 417: Incorrect model received, check mandatory params and syntax
 
 .. _pubsubdoc-sub:
 GET message (subscribe)
@@ -109,8 +110,8 @@ This operation tries to register the requester into the subscribers list. If eve
     }
 
    :statuscode 200: no error
-   :statuscode 400: Incorrect model received, check mandatory params and syntax
-   :statuscode 40x: error    
+   :statuscode 400: error
+   :statuscode 408: Can not create new subscription
 
 
 .. _pubsubdoc-unsub:
@@ -153,7 +154,6 @@ DELETE subscription (Unsubscribe)
       }
 
    :statuscode 200: no error
-   :statuscode 400: Incorrect model received, check mandatory params and syntax
-   :statuscode 40x: error    
-
+   :statuscode 400: error 
+   :statuscode 404: subscription not exist
 
