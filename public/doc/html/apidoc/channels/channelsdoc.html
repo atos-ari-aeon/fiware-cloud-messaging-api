@@ -249,16 +249,14 @@ Content-Type: application/json
    [
 
     {
-      &quot;id&quot;: &quot;51e7be461fb1a1f179000002&quot;,
+      &quot;_id&quot;: &quot;51e7be461fb1a1f179000002&quot;,
       &quot;channelName&quot;: &quot;channelname&quot;,
       &quot;channeldesc&quot;: &quot;channeldesc&quot;,
-      &quot;type&quot;: &quot;channel&quot;,
-      &quot;broker&quot;: {
-       ...
-       },
-
+      &quot;pubID&quot;: &quot;4ca05d1f-ff02-481d-a1db-9d69c6bfff73&quot;,
+      &quot;subID&quot;: &quot;d203158e-bac8-49ee-b2d3-1fd82729fa09&quot;
     },
     ...
+
    ]
  }
 </pre></div>
@@ -324,13 +322,23 @@ Content-Type: application/json
    [
 
     {
-      &quot;id&quot;: &quot;51e7be461fb1a1f179000002&quot;,
+      &quot;_id&quot;: &quot;51e7be461fb1a1f179000002&quot;,
       &quot;channelName&quot;: &quot;channelname&quot;,
       &quot;channeldesc&quot;: &quot;channeldesc&quot;,
-      &quot;type&quot;: &quot;channel&quot;,
-      &quot;broker&quot;: {
-       ...
-       },
+      &quot;pubID&quot;: &quot;4ca05d1f-ff02-481d-a1db-9d69c6bfff73&quot;,
+      &quot;subID&quot;: &quot;d203158e-bac8-49ee-b2d3-1fd82729fa09&quot;,
+      &quot;puburl&quot;: &quot;http://lcb.herokuapp.com/publish/4ca05d1f-ff02-481d-a1db-9d69c6bfff73&quot;,
+      &quot;subscriptionsurl&quot;: &quot;http://lcb.herokuapp.com/subscribe/d203158e-bac8-49ee-b2d3-1fd82729fa09&quot;,
+      &quot;subscriptions&quot;: [
+        {
+          _id: &quot;53bfe41faf5e6e0200000016&quot;,
+          desc: &quot;demo-sub&quot;,
+          id: &quot;demo-sub&quot;,
+          ip: &quot;lcb.herokuapp.com&quot;,
+          subkey: &quot;Delivery Item 1-10925842-queu&quot;
+        },
+        ...
+      ]
 
     }
    ]

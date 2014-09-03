@@ -103,16 +103,14 @@ Get the list of channels of an specific entity. Preconditions:
          [
 
           {
-            "id": "51e7be461fb1a1f179000002",
+            "_id": "51e7be461fb1a1f179000002",
             "channelName": "channelname",
             "channeldesc": "channeldesc",
-            "type": "channel",
-            "broker": {
-             ...
-             },
-
+            "pubID": "4ca05d1f-ff02-481d-a1db-9d69c6bfff73",
+            "subID": "d203158e-bac8-49ee-b2d3-1fd82729fa09"
           },
           ...
+          
          ]
        }
 
@@ -160,13 +158,23 @@ Get complete information of an specific channel. Preconditions:
          [
 
           {
-            "id": "51e7be461fb1a1f179000002",
+            "_id": "51e7be461fb1a1f179000002",
             "channelName": "channelname",
             "channeldesc": "channeldesc",
-            "type": "channel",
-            "broker": {
-             ...
-             },
+            "pubID": "4ca05d1f-ff02-481d-a1db-9d69c6bfff73",
+            "subID": "d203158e-bac8-49ee-b2d3-1fd82729fa09",
+            "puburl": "http://lcb.herokuapp.com/publish/4ca05d1f-ff02-481d-a1db-9d69c6bfff73",
+            "subscriptionsurl": "http://lcb.herokuapp.com/subscribe/d203158e-bac8-49ee-b2d3-1fd82729fa09",
+            "subscriptions": [
+              {
+                _id: "53bfe41faf5e6e0200000016",
+                desc: "demo-sub",
+                id: "demo-sub",
+                ip: "lcb.herokuapp.com",
+                subkey: "Delivery Item 1-10925842-queu"
+              },
+              ...
+            ]
 
           }
          ]
