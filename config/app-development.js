@@ -33,21 +33,21 @@ module.exports.env = 'development';
 module.exports.logLevel = 'debug'; // { silly: 0, debug: 1, verbose: 2, info: 3, warn: 4, error: 5 }
 // version info
 module.exports.version = {}
-module.exports.version.version = "0.2";
+module.exports.version.version = "0.2.1";
 module.exports.version.codename = "Bolt";
 
 // configuration for the external/proxy host
 module.exports.protocol = 'http';
-module.exports.extHost = 'localhost';
+module.exports.extHost = '127.0.0.1';
 module.exports.extPort = 3000;
 // configuration for the internal deployed instance
-module.exports.host = '';
+module.exports.host = '127.0.0.1';
 module.exports.port = 3000;
 module.exports.secret = "default should be changed";
 
 //configuration about the gui interface
 module.exports.protocolGUI = 'http';
-module.exports.extHostGUI = 'localhost';
+module.exports.extHostGUI = '127.0.0.1';
 module.exports.extPortGUI = 8000;
 
 // contact info
@@ -56,5 +56,5 @@ module.exports.fullContact = "AEON Support <aeon-support@lists.atosresearch.eu>"
 
 // reCaptcha keys
 
-module.exports.reCaptchaPublic = ""; 
-module.exports.reCaptchaPrivate = ""; 
+module.exports.reCaptchaPublic = "6LfpRe4SAAAAAK55U_PfaYxvogR-jHGRMJQp8ArW"; 
+module.exports.reCaptchaPrivate = "6LfpRe4SAAAAACXMxzVFqtA39Q0m3VWFLZ-WBsCL"; 
