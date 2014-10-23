@@ -1,6 +1,6 @@
 /**
     Copyright (C) 2014 ATOS
- 
+
     This file is part of AEON.
 
     This program is free software: you can redistribute it and/or modify
@@ -15,8 +15,8 @@
 
     You should have received a copy of the GNU Affero General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>
-   
-   
+
+
    Authors: Jose Gato Luis (jose.gato@atos.net)
             Javier Garcia Hernandez (javier.garcia@atos.net)
 
@@ -28,7 +28,6 @@
 
 var express = require('express'),
     MongoStore = require('connect-mongo')(express),
-    http = require('http'),
     path = require('path'),
     passport = require('passport'),
     LocalStrategy = require('passport-local').Strategy,
@@ -99,12 +98,12 @@ module.exports.BrokerConnector = brokerConnector;
 //console.log(exchange);
 
 var singleServer = {
-  "db" : config.db.db,
-  "collection" : "express_sessions",
-  "username" : config.db.username || "",
-  "password" : config.db.password || "",
-  "host" : config.db.host,
-  "port" : config.db.port
+    "db" : config.db.db,
+    "collection" : "express_sessions",
+    "username" : config.db.username || "",
+    "password" : config.db.password || "",
+    "host" : config.db.host,
+    "port" : config.db.port
 }
 
 //Solve CORS problems. We will have to change the Access-Control-Allow-Origin and forbid some incoming connections.
@@ -117,10 +116,10 @@ var allowCrossDomain = function(req, res, next) {
     res.header('Access-Control-Allow-Credentials', "true");
 
     if ('OPTIONS' == req.method) {
-      res.send(200);
+        res.send(200);
     }
     else {
-      next();
+        next();
     }
 
 }
@@ -128,8 +127,8 @@ var allowCrossDomain = function(req, res, next) {
 app.configure(function() {
     app.set('port', config.app.port || 3000);
     app.set('host', config.app.host);
-//    app.set('views', __dirname + '/views');
-//    app.set('view engine', 'jade');
+    //    app.set('views', __dirname + '/views');
+    //    app.set('view engine', 'jade');
     app.use(express.favicon());
     app.use(express.logger('dev'));
     app.use(express.bodyParser());
@@ -177,11 +176,22 @@ app.configure('development', function() {
 });
 
 require('./routes/routes').routes(app, passport,
-    mongoConnection, module.exports.BrokerConnector);
+                                  mongoConnection, module.exports.BrokerConnector);
 
 
+if ((config.app.SSL != undefined) && (config.app.SSL == true)){
+    var https = require('https');
+    var fs = require('fs');
+    var server_options = {key: fs.readFileSync(config.app.key), cert: fs.readFileSync(config.app.cert)};
+    
+    https.createServer(server_options, app).listen(app.get('port'), app.get('host'), function() {
+        console.log("Express server listening on port " + app.get('port') + " " + app.get('host'));
+    });
 
-http.createServer(app).listen(app.get('port'), app.get('host'), function() {
-    console.log("Express server listening on port " + app.get('port') + " " + app.get('host'));
-});
+} else {
+    var https = require('https');
+    http.createServer(app).listen(app.get('port'), app.get('host'), function() {
+        console.log("Express server listening on port " + app.get('port') + " " + app.get('host'));
+    });
 
+}

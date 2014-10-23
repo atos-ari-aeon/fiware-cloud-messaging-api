@@ -37,7 +37,7 @@ module.exports.version.version = "0.2.1";
 module.exports.version.codename = "Bolt";
 
 // configuration for the external/proxy host
-module.exports.protocol = 'http';
+module.exports.protocol = 'https';
 module.exports.extHost = '127.0.0.1';
 module.exports.extPort = 3000;
 // configuration for the internal deployed instance
@@ -45,8 +45,12 @@ module.exports.host = '127.0.0.1';
 module.exports.port = 3000;
 module.exports.secret = "default should be changed";
 
+module.exports.SSL = true;
+module.exports.key = 'cert/key.pem'; //only if ssl enabled
+module.exports.cert = 'cert/cert.pem'; //only if ssl enabled
+
 //configuration about the gui interface
-module.exports.protocolGUI = 'http';
+module.exports.protocolGUI = 'https';
 module.exports.extHostGUI = '127.0.0.1';
 module.exports.extPortGUI = 8000;
 
