@@ -1,6 +1,6 @@
 /**
     Copyright (C) 2014 ATOS
- 
+
     This file is part of AEON.
 
     This program is free software: you can redistribute it and/or modify
@@ -15,8 +15,8 @@
 
     You should have received a copy of the GNU Affero General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>
-   
-   
+
+
    Authors: Jose Gato Luis (jose.gato@atos.net)
             Javier Garcia Hernandez (javier.garcia@atos.net)
 
@@ -45,6 +45,10 @@ module.exports.host = '127.0.0.1';
 module.exports.port = 3000;
 module.exports.secret = "default should be changed";
 
+// configuration for the socketIO server
+module.exports.socket_server_host = '127.0.0.1';
+module.exports.socket_server_port = 7789;
+
 module.exports.SSL = true;
 module.exports.key = 'cert/key.pem'; //only if ssl enabled
 module.exports.cert = 'cert/cert.pem'; //only if ssl enabled
@@ -60,5 +64,5 @@ module.exports.fullContact = "AEON Support <aeon-support@lists.atosresearch.eu>"
 
 // reCaptcha keys
 
-module.exports.reCaptchaPublic = "6LfpRe4SAAAAAK55U_PfaYxvogR-jHGRMJQp8ArW"; 
-module.exports.reCaptchaPrivate = "6LfpRe4SAAAAACXMxzVFqtA39Q0m3VWFLZ-WBsCL"; 
+module.exports.reCaptchaPublic = "6LfpRe4SAAAAAK55U_PfaYxvogR-jHGRMJQp8ArW";
+module.exports.reCaptchaPrivate = "6LfpRe4SAAAAACXMxzVFqtA39Q0m3VWFLZ-WBsCL";

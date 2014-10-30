@@ -1,6 +1,6 @@
 /**
     Copyright (C) 2014 ATOS
- 
+
     This file is part of AEON.
 
     This program is free software: you can redistribute it and/or modify
@@ -15,8 +15,8 @@
 
     You should have received a copy of the GNU Affero General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>
-   
-   
+
+
    Authors: Jose Gato Luis (jose.gato@atos.net)
             Javier Garcia Hernandez (javier.garcia@atos.net)
 
@@ -64,5 +64,16 @@ exports.remove = function remove(req, res){
     }
     else
         errorsManagment.sendError(errorsManagment.INCORRECT_MODEL_ERROR, res);
+
+}
+
+exports.getConfig = function getConfig(req, res){
+
+    var result = {};
+    result.socket_server = config.app.protocol + "://" + config.app.socket_server_host + ":" + config.app.socket_server_port;
+
+
+
+    responsesManagment.sendResponse(null, res, result);
 
 }
