@@ -1,6 +1,6 @@
 /**
     Copyright (C) 2014 ATOS
- 
+
     This file is part of AEON.
 
     This program is free software: you can redistribute it and/or modify
@@ -15,8 +15,8 @@
 
     You should have received a copy of the GNU Affero General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>
-   
-   
+
+
    Authors: Jose Gato Luis (jose.gato@atos.net)
             Javier Garcia Hernandez (javier.garcia@atos.net)
 
@@ -57,13 +57,13 @@ module.exports = function(app, passport, dbConnection, broker) {
     function getChannel(req, res, next){
 
         if (!req.body)
-            errorsManagment.sendError(errorsManagment.NOT_MESSAGE_PUBLISH, res);    
+            errorsManagment.sendError(errorsManagment.NOT_MESSAGE_PUBLISH, res);
 
         if(req.url.indexOf("publish")!=-1)
             pubSub = "pub";
         else if(req.url.indexOf("subscribe")!=-1)
             pubSub = "sub";
-        else 
+        else
             errorsManagment.sendError(errorsManagment.SUB_URL_NOT_EXISTS, res);
 
         if(pubSub == 'pub')
@@ -74,15 +74,15 @@ module.exports = function(app, passport, dbConnection, broker) {
                 else {
                     req.entityID = doc._id;
                     req.channelID = doc.channels[0]._id;
-                    req.AEONChannel = doc.channels[0];                    
+                    req.AEONChannel = doc.channels[0];
                     next();
                 }
-            });        
+            });
         else
             backendChannels.findChannelBySubID(req.params.subID, req.dbConnection, function(err, doc) {
                 if (err)
                     errorsManagment.sendError(err, res);
-                else {                
+                else {
                     req.entityID = doc._id;
                     req.channelID = doc.channels[0]._id;
                     req.AEONChannel = doc.channels[0];
@@ -109,8 +109,8 @@ module.exports = function(app, passport, dbConnection, broker) {
 
 
     app.post('/publish/:pubID', passDBConnection, passBroker, getChannel,
-             pubChain.workerstep1, 
-             pubChain.workerstep2, 
+             pubChain.workerstep1,
+             pubChain.workerstep2,
              pubChain.workerstep3,
              function (req, res){
                  logger.info("end of pub chain");
@@ -129,9 +129,11 @@ module.exports = function(app, passport, dbConnection, broker) {
         "workerstep3": dumpWorker
     }
 
-    app.get('/subscribe/:subID', passDBConnection, passBroker, getChannel, 
-            subscriptionsChain.workerstep1, 
-            subscriptionsChain.workerstep2, 
+    app.get('/subscribe/config',passDBConnection, passBroker, pubsub.getConfig);
+
+    app.get('/subscribe/:subID', passDBConnection, passBroker, getChannel,
+            subscriptionsChain.workerstep1,
+            subscriptionsChain.workerstep2,
             subscriptionsChain.workerstep3,
             function (req, res){
                 console.log("end of pub chain");
