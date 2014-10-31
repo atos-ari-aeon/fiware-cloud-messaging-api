@@ -15,7 +15,7 @@ To start publishing/subscribing with the SDK, it si necessary to instanciate a n
 .. js:function:: AeonSDK(url, subscriptionData)
 
 	:param string url: publish/subscribe url. The constructor will determine if the url is for publish or subcribe and will set its operation mode to "publish" or "subscribe".
-	:param JSON subscriptionData: it is a JSON containing information to create a new susbcription or directly a previously created subscription.
+    :param JSON subscriptionData: Mandatory if you want to receive data through the channel. It is a JSON containing information to create a new susbcription or directly a previously created subscription.
 	:returns: and SDK object
 
 If you are creating connection for a new subscription, subscriptionData (JSON) has to contain "id" and "desc" fields:
