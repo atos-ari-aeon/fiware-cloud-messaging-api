@@ -12,13 +12,12 @@ Instance the SDK
 
 To start publishing/subscribing with the SDK, it si necessary to instanciate a new SDK object.
 	
-.. js:function:: AeonSDK(url, subscriptionData)
+.. js:function:: AeonSDK(url, [subscriptionData])
 
-	:param string url: publish/subscribe url. The constructor will determine if the url is for publish or subcribe and will set its operation mode to "publish" or "subscribe".
-    :param JSON subscriptionData: Mandatory if you want to receive data through the channel. It is a JSON containing information to create a new susbcription or directly a previously created subscription.
-	:returns: and SDK object
+    :param string url: publish/subscribe url. The constructor will determine if the url is for publish or subcribe and will set its operation mode to "publish" or "subscribe".
+    :param JSON subscriptionData: Mandatory if you will use the object for subscriptions. It is a JSON containing information about your subscription, this information will be used to retrieve your existing subscription data or to create a new one (if it does not exist or it was deleted).
+    :returns: and SDK object
 
-If you are creating connection for a new subscription, subscriptionData (JSON) has to contain "id" and "desc" fields:
 
 .. code-block:: json
 
@@ -27,9 +26,7 @@ If you are creating connection for a new subscription, subscriptionData (JSON) h
         "desc": "create a new subscription for testing"
     }
     
-The combination of "id" and "desc" (strings) makes your subscriber unique in the iCargo network.
-
-If you are creating a connection with a previous generated subscription, subscriptionData will be a JSON obtained from sdk.getSubscription(). More details about persistant subscription: :ref:`documentation-sdk-javascript-persistentsub`
+The combination of "id" and "desc" (strings) makes your subscription unique in the AEON network. Details about persistant subscriptions: :ref:`documentation-sdk-javascript-persistentsub`
 
 .. _sdk-publishing-javascript:
 

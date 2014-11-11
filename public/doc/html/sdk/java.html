@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 
 
@@ -137,12 +138,33 @@
 <span id="documentation-sdk-java"></span><h1>SDK for Java<a class="headerlink" href="#sdk-for-java" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="instance-the-sdk">
 <span id="sdk-create-java"></span><h2>Instance the SDK<a class="headerlink" href="#instance-the-sdk" title="Permalink to this headline">¶</a></h2>
-<p>To start publishing/subscribing with the SDK, it si necessary to instanciate a new SDK object.</p>
-<p>The combination of &#8220;id&#8221; and &#8220;desc&#8221; (strings) makes your subscriber unique in the iCargo network.</p>
-<p>When you are looking for a subscription, you can use a subscribe url, or you can use a previously obtained subscription. More details <a class="reference internal" href="java-persistent.html#documentation-sdk-java-persistentsub"><em>Persistent subscription:</em></a></p>
+<p>To start publishing/subscribing with the SDK, it si necessary to instanciate a new SDK object and retreive a new subscription for your channel.</p>
 <dl class="function">
 <dt id="AeonSDK">
-<tt class="descname">AeonSDK</tt><big>(</big><em>String url</em>, <em>JSONObject subscription</em><big>)</big><a class="headerlink" href="#AeonSDK" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">AeonSDK</tt><big>(</big><em>String url</em>, <em>String id</em>, <em>String desc</em><big>)</big><a class="headerlink" href="#AeonSDK" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first simple">
+<li><strong>url</strong> (<em>string</em>) &#8211; publish/subscribe url. The constructor will determine if the url is for publish or subcribe and will set its operation mode to &#8220;publish&#8221; or &#8220;subscribe&#8221;.</li>
+<li><strong>id</strong> (<em>string</em>) &#8211; Mandatory only for subscription mode.</li>
+<li><strong>desc</strong> (<em>string</em>) &#8211; Mandatory only for subscription mode.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">and SDK object</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<p>The combination of &#8220;id&#8221; and &#8220;desc&#8221; (strings) makes your subscription unique in the AEON network. This information will be used to retrieve your existing subscription data or to create a new one (if it does not exist or it was deleted).</p>
+<p>Also, you can use a previously obtained subscription. More details <a class="reference internal" href="java-persistent.html#documentation-sdk-java-persistentsub"><em>Persistent subscription:</em></a></p>
+<dl class="function">
+<dt>
+<tt class="descname">AeonSDK</tt><big>(</big><em>String url</em>, <em>JSONObject subscription</em><big>)</big></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -164,6 +186,23 @@
 <div class="section" id="publish">
 <span id="sdk-publishing-java"></span><h2>Publish<a class="headerlink" href="#publish" title="Permalink to this headline">¶</a></h2>
 <p>This functionality allows to publish a message. The SDK created object has to be in publish mode.</p>
+<dl class="function">
+<dt>
+<tt class="descname">publish</tt><big>(</big><em>JSONObject jsonData</em><span class="optional">[</span>, <em>AEONInterface callback</em><span class="optional">]</span><big>)</big></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>jsonData</strong> (<em>JSONObject</em>) &#8211; JSON containing the data to be published.</li>
+<li><strong>callback</strong> (<em>AEONInterface</em>) &#8211; callback containing the methods (invoked asynchrounsly) to receive AEON control messages.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 <p>See <a class="reference internal" href="#sdk-java-callbacks"><em>AEON callbacks</em></a> for details about callbacks.</p>
 <p>You can publish without a callback. Control messages received through callback.control:</p>
 <ul class="simple">
@@ -177,6 +216,22 @@
 <div class="section" id="subscribe">
 <span id="sdk-subscribing-java"></span><h2>Subscribe<a class="headerlink" href="#subscribe" title="Permalink to this headline">¶</a></h2>
 <p>This functionality allows to subscribe to an specific channel and receive all the published information. The SDK created object has to be in ssubscription mode.</p>
+<dl class="function">
+<dt>
+<tt class="descname">subscribe</tt><big>(</big><em>AEONInterface callback</em><big>)</big></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>callback</strong> (<em>AEONInterface</em>) &#8211; callback with control and receivedEvent methods.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 <p>See <a class="reference internal" href="#sdk-java-callbacks"><em>AEON callbacks</em></a> for details about callbacks.</p>
 <p>Each time that a message arrives over the channel, the callback.receivedEvent function will be executed.
 Control messages received through callback.control:</p>
@@ -195,6 +250,11 @@ Control messages received through callback.control:</p>
 <div class="section" id="pausesubscription">
 <span id="sdk-pause-java"></span><h2>PauseSubscription<a class="headerlink" href="#pausesubscription" title="Permalink to this headline">¶</a></h2>
 <p>This operation will allow to stop receiving data from a subscription.</p>
+<dl class="function">
+<dt id="pauseSubscription">
+<tt class="descname">pauseSubscription</tt><big>(</big><big>)</big><a class="headerlink" href="#pauseSubscription" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <p>Specific control messages received through callback.control:</p>
 <ul class="simple">
 <li><a class="reference internal" href="messages.html#documentation-sdk-messages-twohundredtwo"><em>Code 202: You are not subscribed</em></a></li>
@@ -204,6 +264,11 @@ Control messages received through callback.control:</p>
 <div class="section" id="continuesubscription">
 <span id="sdk-continue-java"></span><h2>ContinueSubscription<a class="headerlink" href="#continuesubscription" title="Permalink to this headline">¶</a></h2>
 <p>This operation will allow to re-start receiving data from a subscription that was paused.</p>
+<dl class="function">
+<dt id="continueSubscription">
+<tt class="descname">continueSubscription</tt><big>(</big><big>)</big><a class="headerlink" href="#continueSubscription" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <p>Specific control messages received through callback.control:</p>
 <ul class="simple">
 <li><a class="reference internal" href="messages.html#documentation-sdk-messages-twohundredfifty"><em>Code 250: You have been subscribed</em></a></li>
@@ -212,6 +277,11 @@ Control messages received through callback.control:</p>
 <div class="section" id="deletesubscription">
 <span id="sdk-delete-java"></span><h2>DeleteSubscription<a class="headerlink" href="#deletesubscription" title="Permalink to this headline">¶</a></h2>
 <p>This operation will delete the existing subscription and could not be recovered or continued.</p>
+<dl class="function">
+<dt id="deleteSubscription">
+<tt class="descname">deleteSubscription</tt><big>(</big><big>)</big><a class="headerlink" href="#deleteSubscription" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <p>Specific control messages received through callback.control:</p>
 <ul class="simple">
 <li><a class="reference internal" href="messages.html#documentation-sdk-messages-twohundredtwo"><em>Code 202: You are not subscribed</em></a></li>

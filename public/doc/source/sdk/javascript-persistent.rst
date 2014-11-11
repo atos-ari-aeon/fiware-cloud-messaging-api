@@ -17,7 +17,9 @@ What if you want to leave everything and continue who knows when? You can invoke
         }
     }
     
-    sdk = new AeonSDK(config.SUB_URL, config.YOUR_ID , config.YOUR_DESC);
+    var subscriptionData = { "id": config.YOUR_ID, "desc": config.YOUR_DESC};
+    sdk = new AeonSDK(config.SUB_URL, subscriptionData);
+
     sdk.subscribe(control, received);
 
     ....
@@ -25,8 +27,9 @@ What if you want to leave everything and continue who knows when? You can invoke
     ....
     
     // get stored persistantSubscription
-    sdk = new AeonSDK(config.SUB_URL, persistantSubscription);
+    sdk = new AeonSDK(config.SUB_URL, persistantSubscription); //or just use you previous ID and desc as the first time
     sdk.subscribe(control, received);
 
-    // you can continue where you leave it...
+    // you can continue where you leave it
+    // you will receive published messages during that period
 

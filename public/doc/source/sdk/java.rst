@@ -19,7 +19,7 @@ To start publishing/subscribing with the SDK, it si necessary to instanciate a n
 	:param string desc: Mandatory only for subscription mode. 
 	:returns: and SDK object
 
-The combination of "id" and "desc" (strings) makes your subscription unique in the iCargo network.
+The combination of "id" and "desc" (strings) makes your subscription unique in the AEON network. This information will be used to retrieve your existing subscription data or to create a new one (if it does not exist or it was deleted).
 
 Also, you can use a previously obtained subscription. More details :ref:`documentation-sdk-java-persistentsub`
 
