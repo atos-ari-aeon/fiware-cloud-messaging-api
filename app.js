@@ -189,7 +189,7 @@ if ((config.app.SSL != undefined) && (config.app.SSL == true)){
     });
 
 } else {
-    var https = require('https');
+    var http = require('http');
     http.createServer(app).listen(app.get('port'), app.get('host'), function() {
         console.log("Express server listening on port " + app.get('port') + " " + app.get('host'));
     });
