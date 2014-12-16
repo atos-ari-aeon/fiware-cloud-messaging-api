@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 
 
@@ -70,12 +71,12 @@
      href="../../index.html">Site <b class="caret"></b></a>
   <ul class="dropdown-menu globaltoc"
       role="menu"
-      aria-labelledby="dLabelGlobalToc"><ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../apidoc.html">Technical documentation</a><ul class="current">
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../apidoc.html">Technical documentation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../apidoc.html#aeon-way-of-working">AEON way of working</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../apidoc.html#quick-start">Quick Start</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../apidoc.html#sdk">SDK</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../apidoc.html#aeon-api">AEON API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../apidoc.html#aeon-api">AEON API</a></li>
 </ul>
 </li>
 </ul>
@@ -239,27 +240,26 @@ information about description and the pub/sub mechanisms. Some preconditions:
 </tbody>
 </table>
 <p><strong>Example response</strong>:</p>
-<div class="highlight-http"><div class="highlight"><pre>HTTP/1.1 200 OK
+<div class="highlight-http"><pre>HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-  &quot;code&quot;: 200,
-  &quot;desc&quot;: &quot;ok&quot;
-  &quot;result&quot;:
+  "code": 200,
+  "desc": "ok"
+  "result":
    [
 
     {
-      &quot;_id&quot;: &quot;51e7be461fb1a1f179000002&quot;,
-      &quot;channelName&quot;: &quot;channelname&quot;,
-      &quot;channeldesc&quot;: &quot;channeldesc&quot;,
-      &quot;pubID&quot;: &quot;4ca05d1f-ff02-481d-a1db-9d69c6bfff73&quot;,
-      &quot;subID&quot;: &quot;d203158e-bac8-49ee-b2d3-1fd82729fa09&quot;
+      "_id": "51e7be461fb1a1f179000002",
+      "channelName": "channelname",
+      "channeldesc": "channeldesc",
+      "pubID": "4ca05d1f-ff02-481d-a1db-9d69c6bfff73",
+      "subID": "d203158e-bac8-49ee-b2d3-1fd82729fa09"
     },
     ...
 
    ]
- }
-</pre></div>
+ }</pre>
 </div>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -312,38 +312,37 @@ Content-Type: application/json
 </tbody>
 </table>
 <p><strong>Example response</strong>:</p>
-<div class="highlight-http"><div class="highlight"><pre>HTTP/1.1 200 OK
+<div class="highlight-http"><pre>HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-  &quot;code&quot;: 200,
-  &quot;desc&quot;: &quot;ok&quot;
-  &quot;result&quot;:
+  "code": 200,
+  "desc": "ok"
+  "result":
    [
 
     {
-      &quot;_id&quot;: &quot;51e7be461fb1a1f179000002&quot;,
-      &quot;channelName&quot;: &quot;channelname&quot;,
-      &quot;channeldesc&quot;: &quot;channeldesc&quot;,
-      &quot;pubID&quot;: &quot;4ca05d1f-ff02-481d-a1db-9d69c6bfff73&quot;,
-      &quot;subID&quot;: &quot;d203158e-bac8-49ee-b2d3-1fd82729fa09&quot;,
-      &quot;puburl&quot;: &quot;http://lcb.herokuapp.com/publish/4ca05d1f-ff02-481d-a1db-9d69c6bfff73&quot;,
-      &quot;subscriptionsurl&quot;: &quot;http://lcb.herokuapp.com/subscribe/d203158e-bac8-49ee-b2d3-1fd82729fa09&quot;,
-      &quot;subscriptions&quot;: [
+      "_id": "51e7be461fb1a1f179000002",
+      "channelName": "channelname",
+      "channeldesc": "channeldesc",
+      "pubID": "4ca05d1f-ff02-481d-a1db-9d69c6bfff73",
+      "subID": "d203158e-bac8-49ee-b2d3-1fd82729fa09",
+      "puburl": "http://lcb.herokuapp.com/publish/4ca05d1f-ff02-481d-a1db-9d69c6bfff73",
+      "subscriptionsurl": "http://lcb.herokuapp.com/subscribe/d203158e-bac8-49ee-b2d3-1fd82729fa09",
+      "subscriptions": [
         {
-          _id: &quot;53bfe41faf5e6e0200000016&quot;,
-          desc: &quot;demo-sub&quot;,
-          id: &quot;demo-sub&quot;,
-          ip: &quot;lcb.herokuapp.com&quot;,
-          subkey: &quot;Delivery Item 1-10925842-queu&quot;
+          _id: "53bfe41faf5e6e0200000016",
+          desc: "demo-sub",
+          id: "demo-sub",
+          ip: "lcb.herokuapp.com",
+          subkey: "Delivery Item 1-10925842-queu"
         },
         ...
       ]
 
     }
    ]
- }
-</pre></div>
+ }</pre>
 </div>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />

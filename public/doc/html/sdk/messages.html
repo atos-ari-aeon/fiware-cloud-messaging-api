@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 
 
@@ -142,12 +143,11 @@
 <span id="documentation-sdk-messages"></span><h1>SDK messages<a class="headerlink" href="#sdk-messages" title="Permalink to this headline">¶</a></h1>
 <p>During a publication or subcription process AEON will emit different control&#8217;s messages. These messages can captured using an (optional) &#8220;control&#8221; callback. See <a class="reference internal" href="../apidoc/apidoc.html#documentation-technical-sdk"><em>SDK</em></a> regarding your specific language for more details.</p>
 <p>The control callback receives a JSON in the next format:</p>
-<div class="highlight-json"><div class="highlight"><pre>{
-    &quot;error&quot;: true|false,
-    &quot;msg&quot;: &lt;msg&gt;,
-    &quot;code&quot;: &lt;code&gt;
-}
-</pre></div>
+<div class="highlight-json"><pre>{
+    "error": true|false,
+    "msg": &lt;msg&gt;,
+    "code": &lt;code&gt;
+}</pre>
 </div>
 <p>The &#8220;error&#8221; key determinates if the message is considered as an error, or if it is just useful informatino for the developer. The &#8220;msg&#8221; is a text that will add readable information to the message. Finally, the numerical code helps developer to detect the message in order to act accordingly. The next sections explains in details the different messages supported by AEON.</p>
 <div class="section" id="code-0-unknwon-error">

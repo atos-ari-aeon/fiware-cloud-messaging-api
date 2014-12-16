@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 
 
@@ -69,12 +70,12 @@
      href="../../index.html">Site <b class="caret"></b></a>
   <ul class="dropdown-menu globaltoc"
       role="menu"
-      aria-labelledby="dLabelGlobalToc"><ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../apidoc.html">Technical documentation</a><ul class="current">
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../apidoc.html">Technical documentation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../apidoc.html#aeon-way-of-working">AEON way of working</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../apidoc.html#quick-start">Quick Start</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../apidoc.html#sdk">SDK</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../apidoc.html#aeon-api">AEON API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../apidoc.html#aeon-api">AEON API</a></li>
 </ul>
 </li>
 </ul>
@@ -234,23 +235,22 @@ to receive data.</p>
 </tbody>
 </table>
 <p><strong>Example response</strong>:</p>
-<div class="highlight-http"><div class="highlight"><pre>  HTTP/1.1 200 OK
+<div class="highlight-http"><pre>  HTTP/1.1 200 OK
   Content-Type: application/json
 
   {
-    &quot;code&quot;: 200,
-    &quot;desc&quot;: &quot;ok&quot;,
-    &quot;result&quot;: [
+    "code": 200,
+    "desc": "ok",
+    "result": [
         {
-            &quot;id&quot;: &quot;webapp&quot;,
-            &quot;desc&quot;: &quot;webapp&quot;,
-            &quot;ip&quot;: &quot;localhost:3000&quot;,
-            &quot;subkey&quot;: &quot;Position-54543172-queu&quot;,
-            &quot;_id&quot;: &quot;53143f94aaa7e6bc1a000001&quot;
+            "id": "webapp",
+            "desc": "webapp",
+            "ip": "localhost:3000",
+            "subkey": "Position-54543172-queu",
+            "_id": "53143f94aaa7e6bc1a000001"
         }
     ]
-}
-</pre></div>
+}</pre>
 </div>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
