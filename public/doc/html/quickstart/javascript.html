@@ -213,7 +213,8 @@
 &lt;script type="text/javascript" src="socket.io.js"&gt;&lt;/script&gt;</pre>
 </div>
 <p>The code below subscribes to the channel and wait for published messages. After three seconds, the subscription will be paused and after three seconds, it will be continued again.</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">sdk</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AeonSDK</span><span class="p">(</span><span class="nx">SUB_URL</span><span class="p">,</span> <span class="nx">YOUR_ID</span><span class="p">,</span> <span class="nx">YOUR_DESC</span><span class="p">);</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">subscriptionData</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="nx">config</span><span class="p">.</span><span class="nx">YOUR_ID</span><span class="p">,</span> <span class="s2">&quot;desc&quot;</span><span class="o">:</span> <span class="nx">config</span><span class="p">.</span><span class="nx">YOUR_DESC</span><span class="p">};</span>
+<span class="nx">sdk</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AeonSDK</span><span class="p">(</span><span class="nx">config</span><span class="p">.</span><span class="nx">SUB_URL</span><span class="p">,</span> <span class="nx">subscriptionData</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>The combination of YOUR_ID and YOUR_DESC (strings) makes your subscriber unique in the iCargo network. Once the SDK is ready you can ask for a subscription. As simple as:</p>
