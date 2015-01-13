@@ -23,10 +23,10 @@ What if you want to leave everything and continue who knows when? You can invoke
     ....
     public static void main(String[] args)  {
         // get stored persistantSubscription
-        AEONSDK sdk = new AEONSDK(Config.PUB_URL, persistantSubscription);
+        AEONSDK sdk = new AEONSDK(Config.PUB_URL, persistantSubscription); //or just use you previous ID and desc as the first time
         sdk.subscribe(myCallBack);      
         ....
         // you can continue where you leave it...
-
+        // you will receive published messages during that period
     }
 

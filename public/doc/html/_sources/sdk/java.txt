@@ -10,18 +10,22 @@ SDK for Java
 Instance the SDK
 -----------------
 
-To start publishing/subscribing with the SDK, it si necessary to instanciate a new SDK object.
+To start publishing/subscribing with the SDK, it si necessary to instanciate a new SDK object and retreive a new subscription for your channel.
 	
-.. java:method:: AeonSDK(String url, String id, String desc)
+.. js:function:: AeonSDK(String url, String id, String desc)
 
 	:param string url: publish/subscribe url. The constructor will determine if the url is for publish or subcribe and will set its operation mode to "publish" or "subscribe".
 	:param string id: Mandatory only for subscription mode. 
 	:param string desc: Mandatory only for subscription mode. 
 	:returns: and SDK object
 
-The combination of "id" and "desc" (strings) makes your subscriber unique in the iCargo network.
+<<<<<<< HEAD
+The combination of "id" and "desc" (strings) makes your subscription unique in the iCargo network.
+=======
+The combination of "id" and "desc" (strings) makes your subscription unique in the AEON network. This information will be used to retrieve your existing subscription data or to create a new one (if it does not exist or it was deleted).
+>>>>>>> e89290d8f4295dd2f073a4c9c0fbff75b3f8bdb5
 
-When you are looking for a subscription, you can use a subscribe url, or you can use a previously obtained subscription. More details :ref:`documentation-sdk-java-persistentsub`
+Also, you can use a previously obtained subscription. More details :ref:`documentation-sdk-java-persistentsub`
 
 .. js:function:: AeonSDK(String url, JSONObject subscription)
 
@@ -37,7 +41,7 @@ Publish
 
 This functionality allows to publish a message. The SDK created object has to be in publish mode.
 
-.. java:method:: publish(JSONObject jsonData, [AEONInterface callback])
+.. js:function:: publish(JSONObject jsonData, [AEONInterface callback])
 	
 	:param JSONObject jsonData: JSON containing the data to be published.
 	:param AEONInterface callback: callback containing the methods (invoked asynchrounsly) to receive AEON control messages.
@@ -64,7 +68,7 @@ Subscribe
 
 This functionality allows to subscribe to an specific channel and receive all the published information. The SDK created object has to be in ssubscription mode. 
 	
-.. java:method:: subscribe(AEONInterface callback)
+.. js:function:: subscribe(AEONInterface callback)
 	
 	:param AEONInterface callback:  callback with control and receivedEvent methods. 
 	
@@ -101,7 +105,7 @@ PauseSubscription
 
 This operation will allow to stop receiving data from a subscription.
 
-.. java:method:: pauseSubscription()	
+.. js:function:: pauseSubscription()	
 	
 
 Specific control messages received through callback.control:
@@ -117,7 +121,7 @@ ContinueSubscription
 
 This operation will allow to re-start receiving data from a subscription that was paused.
 
-.. java:method:: continueSubscription()	
+.. js:function:: continueSubscription()	
 	
 Specific control messages received through callback.control:
 
@@ -130,7 +134,7 @@ DeleteSubscription
 
 This operation will delete the existing subscription and could not be recovered or continued.
 
-.. java:method:: deleteSubscription()	
+.. js:function:: deleteSubscription()	
 	
 Specific control messages received through callback.control:
 

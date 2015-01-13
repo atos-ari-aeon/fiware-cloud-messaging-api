@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 
 
@@ -70,12 +71,12 @@
      href="../../index.html">Site <b class="caret"></b></a>
   <ul class="dropdown-menu globaltoc"
       role="menu"
-      aria-labelledby="dLabelGlobalToc"><ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../apidoc.html">Technical documentation</a><ul class="current">
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../apidoc.html">Technical documentation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../apidoc.html#aeon-way-of-working">AEON way of working</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../apidoc.html#quick-start">Quick Start</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../apidoc.html#sdk">SDK</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../apidoc.html#aeon-api">AEON API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../apidoc.html#aeon-api">AEON API</a></li>
 </ul>
 </li>
 </ul>
@@ -158,37 +159,35 @@ information about description and a list of channels. Some preconditions:
 <tt class="descname">POST </tt><tt class="descname">/entities/</tt><a class="headerlink" href="#post--entities-" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a new entity</p>
 <p><strong>Example request</strong>:</p>
-<div class="highlight-http"><div class="highlight"><pre>POST /entities/ HTTP/1.1
+<div class="highlight-http"><pre>POST /entities/ HTTP/1.1
 Host: example.com
 Content: application/json
 Accept: application/json
 
 {
-  &quot;entityname&quot;: &quot;entityname&quot;,
-  &quot;entitydesc&quot;: &quot;entitydesc&quot;,
-  &quot;type&quot;: &quot;entity&quot;,
-};
-</pre></div>
+  "entityname": "entityname",
+  "entitydesc": "entitydesc",
+  "type": "entity",
+};</pre>
 </div>
 <p><strong>Example response</strong>:</p>
-<div class="highlight-http"><div class="highlight"><pre>HTTP/1.1 200 OK
+<div class="highlight-http"><pre>HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-  &quot;code&quot;: 200,
-  &quot;desc&quot;: &quot;ok&quot;
-  &quot;result&quot;:
+  "code": 200,
+  "desc": "ok"
+  "result":
   [
    {
-      &quot;entityname&quot;: &quot;entityname&quot;,
-      &quot;entitydesc&quot;: &quot;entitydesc&quot;,
-      &quot;type&quot;: &quot;entity&quot;,
-      &quot;owner&quot;: &quot;userid&quot;,
-      &quot;channels&quot;: [&quot;channelname&quot;]
+      "entityname": "entityname",
+      "entitydesc": "entitydesc",
+      "type": "entity",
+      "owner": "userid",
+      "channels": ["channelname"]
    };
   ]
-}
-</pre></div>
+}</pre>
 </div>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -226,28 +225,27 @@ Content-Type: application/json
 </pre></div>
 </div>
 <p><strong>Example response</strong>:</p>
-<div class="highlight-http"><div class="highlight"><pre>  HTTP/1.1 200 OK
+<div class="highlight-http"><pre>  HTTP/1.1 200 OK
   Content-Type: application/json
 
   {
-    &quot;code&quot;: 200,
-    &quot;desc&quot;: &quot;ok&quot;
-    &quot;result&quot;:
+    "code": 200,
+    "desc": "ok"
+    "result":
     [
         {
 
-            &quot;_id&quot;: &quot;entityid&quot;,
-            &quot;channels&quot;: [ … ],
-            &quot;entitydesc&quot;: &quot;entitydesc&quot;,
-            &quot;entityname&quot;: &quot;entityname&quot;,
-            &quot;owner&quot;: &quot;userid&quot;,
-            &quot;type&quot;: &quot;entity&quot;
+            "_id": "entityid",
+            "channels": [ … ],
+            "entitydesc": "entitydesc",
+            "entityname": "entityname",
+            "owner": "userid",
+            "type": "entity"
 
         },
     ...
     ]
-}
-</pre></div>
+}</pre>
 </div>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -298,27 +296,26 @@ Content-Type: application/json
 </tbody>
 </table>
 <p><strong>Example response</strong>:</p>
-<div class="highlight-http"><div class="highlight"><pre>  HTTP/1.1 200 OK
+<div class="highlight-http"><pre>  HTTP/1.1 200 OK
   Content-Type: application/json
 
   {
-    &quot;code&quot;: 200,
-    &quot;desc&quot;: &quot;ok&quot;
-    &quot;result&quot;:
+    "code": 200,
+    "desc": "ok"
+    "result":
     [
         {
 
-            &quot;_id&quot;: &quot;entityid&quot;,
-            &quot;channels&quot;: [ … ],
-            &quot;entitydesc&quot;: &quot;entitydesc&quot;,
-            &quot;entityname&quot;: &quot;entityname&quot;,
-            &quot;owner&quot;: &quot;userid&quot;,
-            &quot;type&quot;: &quot;entity&quot;
+            "_id": "entityid",
+            "channels": [ … ],
+            "entitydesc": "entitydesc",
+            "entityname": "entityname",
+            "owner": "userid",
+            "type": "entity"
 
         },
     ]
-}
-</pre></div>
+}</pre>
 </div>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />

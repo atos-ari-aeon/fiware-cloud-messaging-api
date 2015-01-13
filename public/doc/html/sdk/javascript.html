@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 
 
@@ -139,14 +140,14 @@
 <p>To start publishing/subscribing with the SDK, it si necessary to instanciate a new SDK object.</p>
 <dl class="function">
 <dt id="AeonSDK">
-<tt class="descname">AeonSDK</tt><big>(</big><em>url</em>, <em>subscriptionData</em><big>)</big><a class="headerlink" href="#AeonSDK" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">AeonSDK</tt><big>(</big><em>url</em><span class="optional">[</span>, <em>subscriptionData</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#AeonSDK" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first simple">
 <li><strong>url</strong> (<em>string</em>) &#8211; publish/subscribe url. The constructor will determine if the url is for publish or subcribe and will set its operation mode to &#8220;publish&#8221; or &#8220;subscribe&#8221;.</li>
-<li><strong>subscriptionData</strong> (<em>JSON</em>) &#8211; it is a JSON containing information to create a new susbcription or directly a previously created subscription.</li>
+<li><strong>subscriptionData</strong> (<em>JSON</em>) &#8211; Mandatory if you will use the object for subscriptions. It is a JSON containing information about your subscription, this information will be used to retrieve your existing subscription data or to create a new one (if it does not exist or it was deleted).</li>
 </ul>
 </td>
 </tr>
@@ -157,15 +158,13 @@
 </table>
 </dd></dl>
 
-<p>If you are creating connection for a new subscription, subscriptionData (JSON) has to contain &#8220;id&#8221; and &#8220;desc&#8221; fields:</p>
 <div class="highlight-json"><div class="highlight"><pre><span class="p">{</span>
     <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;demo-test&quot;</span><span class="p">,</span>
     <span class="nt">&quot;desc&quot;</span><span class="p">:</span> <span class="s2">&quot;create a new subscription for testing&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>The combination of &#8220;id&#8221; and &#8220;desc&#8221; (strings) makes your subscriber unique in the iCargo network.</p>
-<p>If you are creating a connection with a previous generated subscription, subscriptionData will be a JSON obtained from sdk.getSubscription(). More details about persistant subscription: <a class="reference internal" href="javascript-persistent.html#documentation-sdk-javascript-persistentsub"><em>Persistent subscription:</em></a></p>
+<p>The combination of &#8220;id&#8221; and &#8220;desc&#8221; (strings) makes your subscription unique in the AEON network. Details about persistant subscriptions: <a class="reference internal" href="javascript-persistent.html#documentation-sdk-javascript-persistentsub"><em>Persistent subscription:</em></a></p>
 </div>
 <div class="section" id="publish">
 <span id="sdk-publishing-javascript"></span><h2>Publish<a class="headerlink" href="#publish" title="Permalink to this headline">¶</a></h2>

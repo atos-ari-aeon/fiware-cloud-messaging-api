@@ -74,14 +74,15 @@ Now lets create the application to receive the numbers. Againg we need to create
 .. code-block:: javascript
     
     var AeonSDK = require('aeonsdk-node');
-    sdk = new AeonSDK(config.SUB_URL, config.YOUR_ID , config.YOUR_DESC);
+    var subscriptionData = { "id": config.YOUR_ID, "desc": config.YOUR_DESC};
+    sdk = new AeonSDK(config.SUB_URL, subscriptionData);
 
     
 The combination of YOUR_ID and YOUR_DESC (strings) makes your subscriber unique in the iCargo network. Once the SDK is ready you can ask for a subscription. As simple as:
 
 .. code-block:: javascript
 
-    sdk = new AeonSDK(config.SUB_URL, config.YOUR_ID , config.YOUR_DESC);
+    sdk = new AeonSDK(config.SUB_URL, subscriptionData);
     sdk.subscribe(received);
 
 

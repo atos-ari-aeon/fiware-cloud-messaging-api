@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 
 
@@ -160,9 +161,8 @@
 </dl>
 </div>
 <p>Once you have the javascript library create a new html project using your favourite editor or IDE, and add the SDK and the socket.io library to the javascript libraries:</p>
-<div class="highlight-javascript"><div class="highlight"><pre>&lt;script type=&quot;text/javascript&quot; src=&quot;aeonSDK.js&quot;&gt;&lt;/script&gt;
-&lt;script type=&quot;text/javascript&quot; src=&quot;socket.io.js&quot;&gt;&lt;/script&gt;
-</pre></div>
+<div class="highlight-javascript"><pre>&lt;script type="text/javascript" src="aeonSDK.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="socket.io.js"&gt;&lt;/script&gt;</pre>
 </div>
 <p>You are almost done. AEON publication/subscription is based on channels with an url for publication and other for subscription. Follow this <a class="reference internal" href="getachannel.html#documentation-tutorial-getchannel"><em>Playing with AEON dashboard</em></a> and bring a couple of urls from your first channel (Pub_url and Sub_url).</p>
 <div class="section" id="hello-world-publish">
@@ -209,12 +209,12 @@
 <div class="section" id="hello-world-subscribe">
 <h3>Hello World (subscribe)<a class="headerlink" href="#hello-world-subscribe" title="Permalink to this headline">¶</a></h3>
 <p>Now lets create the page to receive the numbers. Againg we need to create a connection with our previously created channel (this time, using the subscription url). In this page it is also necessary to include the the SDK and the socket.io library to the javascript libraries:</p>
-<div class="highlight-javascript"><div class="highlight"><pre>&lt;script type=&quot;text/javascript&quot; src=&quot;aeonSDK.js&quot;&gt;&lt;/script&gt;
-&lt;script type=&quot;text/javascript&quot; src=&quot;socket.io.js&quot;&gt;&lt;/script&gt;
-</pre></div>
+<div class="highlight-javascript"><pre>&lt;script type="text/javascript" src="aeonSDK.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="socket.io.js"&gt;&lt;/script&gt;</pre>
 </div>
 <p>The code below subscribes to the channel and wait for published messages. After three seconds, the subscription will be paused and after three seconds, it will be continued again.</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">sdk</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AeonSDK</span><span class="p">(</span><span class="nx">SUB_URL</span><span class="p">,</span> <span class="nx">YOUR_ID</span><span class="p">,</span> <span class="nx">YOUR_DESC</span><span class="p">);</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">subscriptionData</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="nx">config</span><span class="p">.</span><span class="nx">YOUR_ID</span><span class="p">,</span> <span class="s2">&quot;desc&quot;</span><span class="o">:</span> <span class="nx">config</span><span class="p">.</span><span class="nx">YOUR_DESC</span><span class="p">};</span>
+<span class="nx">sdk</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AeonSDK</span><span class="p">(</span><span class="nx">config</span><span class="p">.</span><span class="nx">SUB_URL</span><span class="p">,</span> <span class="nx">subscriptionData</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>The combination of YOUR_ID and YOUR_DESC (strings) makes your subscriber unique in the iCargo network. Once the SDK is ready you can ask for a subscription. As simple as:</p>

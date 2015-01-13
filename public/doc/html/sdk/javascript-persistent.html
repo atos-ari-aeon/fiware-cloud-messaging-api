@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 
 
@@ -136,7 +137,9 @@
     <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="nx">sdk</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AeonSDK</span><span class="p">(</span><span class="nx">config</span><span class="p">.</span><span class="nx">SUB_URL</span><span class="p">,</span> <span class="nx">config</span><span class="p">.</span><span class="nx">YOUR_ID</span> <span class="p">,</span> <span class="nx">config</span><span class="p">.</span><span class="nx">YOUR_DESC</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">subscriptionData</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="nx">config</span><span class="p">.</span><span class="nx">YOUR_ID</span><span class="p">,</span> <span class="s2">&quot;desc&quot;</span><span class="o">:</span> <span class="nx">config</span><span class="p">.</span><span class="nx">YOUR_DESC</span><span class="p">};</span>
+<span class="nx">sdk</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AeonSDK</span><span class="p">(</span><span class="nx">config</span><span class="p">.</span><span class="nx">SUB_URL</span><span class="p">,</span> <span class="nx">subscriptionData</span><span class="p">);</span>
+
 <span class="nx">sdk</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">control</span><span class="p">,</span> <span class="nx">received</span><span class="p">);</span>
 
 <span class="p">....</span>
@@ -144,10 +147,11 @@
 <span class="p">....</span>
 
 <span class="c1">// get stored persistantSubscription</span>
-<span class="nx">sdk</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AeonSDK</span><span class="p">(</span><span class="nx">config</span><span class="p">.</span><span class="nx">SUB_URL</span><span class="p">,</span> <span class="nx">persistantSubscription</span><span class="p">);</span>
+<span class="nx">sdk</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AeonSDK</span><span class="p">(</span><span class="nx">config</span><span class="p">.</span><span class="nx">SUB_URL</span><span class="p">,</span> <span class="nx">persistantSubscription</span><span class="p">);</span> <span class="c1">//or just use you previous ID and desc as the first time</span>
 <span class="nx">sdk</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">control</span><span class="p">,</span> <span class="nx">received</span><span class="p">);</span>
 
-<span class="c1">// you can continue where you leave it...</span>
+<span class="c1">// you can continue where you leave it</span>
+<span class="c1">// you will receive published messages during that period</span>
 </pre></div>
 </div>
 </div>
