@@ -29,4 +29,4 @@
  
  
 module.exports = {}
-module.exports.url = "amqp://jgato:jgato@localhost:5672"
+module.exports.url = "amqp://user:user@localhost:5672"
