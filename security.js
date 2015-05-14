@@ -32,11 +32,11 @@ var backend = require('./core/backend/mongomodels/userdb');
 var errorsManagment = require('./controllers/errors.js');
 var responsesManagment = require('./controllers/responses.js');
 var bcrypt = require('bcrypt');
-
+var logger = require('./logger');
 
 function ensureAuthenticated(req, res, next) {
     if (req.isAuthenticated()) {
-        console.log("User is authenticated");
+        logger.info("User is authenticated");
         return next();
     }
 
@@ -52,7 +52,7 @@ function serializeUser(user, done) {
 function deserializeUser(id, done) {
     backend.findUserByName(id, module.exports.dbConnection, null, function(err, users) {
         if ((err) || (users.length != 1)) {
-            console.log("Error, received cookie but user does not exist");
+            logger.error("Received cookie but user does not exist");
             done(null, false);
         } else {
             done(null, users[0]);
@@ -68,8 +68,8 @@ function authenticateUser(username, password, done) {
     backend.findUserByName(username, module.exports.dbConnection, null, function(err, users) {
 
         if ((!users) || (users.length != 1)) {
-            console.log("No only one user");
-            console.log(done);
+            logger.error("No only one user");
+            logger.info(done);
             done(null, false, responsesManagment.getResponseMessage(
                 new Error(errorsManagment.WRONG_USER_PASSWORD), null));
         } else {
@@ -83,7 +83,7 @@ function authenticateUser(username, password, done) {
             bcrypt.compare(password, user.password, function(err, isMatch) {
                 if (err || !isMatch) 
                     return done(null, false);
-                console.log("ok login");
+                logger.info("ok login");
                 done(null, user);
             });
 
