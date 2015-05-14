@@ -39,6 +39,8 @@
   *
   */
 
+var logger = require('../logger.js');
+
 exports.INCORRECT_MODEL_ERROR = new Error("Incorrect model received, check mandatory params and syntax");
 exports.INCORRECT_MODEL_ERROR.msg = "Incorrect model received, check mandatory params and syntax";
 exports.INCORRECT_MODEL_ERROR.code = 101;
@@ -227,7 +229,7 @@ exports.sendError = function (error, res){
     };
 
     var newError = this.getErrorMessage (error);
-    console.log("Sending error " + JSON.stringify(newError));
+    logger.error("Sending error " + JSON.stringify(newError));
 
     res.json(code, newError);
 
