@@ -114,10 +114,14 @@ module.exports.createUser = function createUser(user, dbConnection, next) {
 
             collection.insert(user, function(err, docs) {
                 if (err){
-                    if (err.code == 11000)
+                    if (err.code == 11000){
+                        logger.error("createUser(): user already exist " + user.username);
                         return next(errorsManagment.USER_EXISTS, null);
-                    else 
+                    }
+                    else{
+                        logger.error("createUser(): unknown error " + user.username);
                         return next(errorsManagment.UNKNOWN_ERROR, null);
+                    }
                 }
                 next(null, docs);
             });    
