@@ -100,7 +100,7 @@ module.exports.removeByUserName = function findUser(userName, dbConnection, next
 
 
 module.exports.createUser = function createUser(user, dbConnection, next) {
-    logger.info("createUser(): creating user " + user);
+    logger.info("createUser(): creating user " + user.username);
 
     collection = dbConnection.getClient().collection(dbConnection.config.collectionUsers);
 
