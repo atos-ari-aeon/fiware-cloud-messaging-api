@@ -140,9 +140,9 @@ app.configure(function() {
         key: 'aeon.sid',        
         store: new MongoStore(mongoConnection.config, function(db, err){
             if (err)
-                console.log(err.message);
+                logger.error(err.message);
             else
-                console.log("Connected to DB for sessions");
+                logger.info("Connected to DB for sessions");
         })
     }));
 
@@ -185,13 +185,13 @@ if ((config.app.SSL != undefined) && (config.app.SSL == true)){
     var server_options = {key: fs.readFileSync(config.app.key), cert: fs.readFileSync(config.app.cert)};
     
     https.createServer(server_options, app).listen(app.get('port'), app.get('host'), function() {
-        console.log("Express server listening on port " + app.get('port') + " " + app.get('host'));
+        logger.info("Express server listening on port " + app.get('port') + " " + app.get('host'));
     });
 
 } else {
     var http = require('http');
     http.createServer(app).listen(app.get('port'), app.get('host'), function() {
-        console.log("Express server listening on port " + app.get('port') + " " + app.get('host'));
+        logger.info("Express server listening on port " + app.get('port') + " " + app.get('host'));
     });
 
 }
