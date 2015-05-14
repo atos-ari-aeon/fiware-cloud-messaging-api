@@ -26,7 +26,8 @@ var winston = require('winston');
 var config = require('./config/config.js');
 var logger = new (winston.Logger);
 
-logger.add(winston.transports.Console, { level: config.app.logLevel, colorize: true });
+logger.add(winston.transports.File,{ filename: 'rest.log' , level: config.app.logLevel });
+//logger.add(winston.transports.Console, { level: config.app.logLevel, colorize: true });
 
 module.exports = logger;
 
