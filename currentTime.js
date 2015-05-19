@@ -25,6 +25,6 @@
 var moment = require('moment');
 
 var now = moment().format("D/M/YYYY HH:mm:ss:SSS ZZ");
-console.log(now);
+//console.log(now);
 
 
