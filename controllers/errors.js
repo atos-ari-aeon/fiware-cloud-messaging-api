@@ -229,8 +229,7 @@ exports.sendError = function (error, res){
     };
 
     var newError = this.getErrorMessage (error);
-    logger.error("Sending error " + JSON.stringify(newError));
-
+    //logger.error("Sending error " + JSON.stringify(newError));
     res.json(code, newError);
 
 }
@@ -239,6 +238,6 @@ exports.getErrorMessage = function (error){
     var raiseError = {};
     raiseError.code = error.code;
     raiseError.desc = error.msg;
-    console.log(raiseError)
+    logger.error(JSON.stringify(raiseError));
     return raiseError;
 }
