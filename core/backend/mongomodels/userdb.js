@@ -54,7 +54,7 @@ module.exports.findUserByName = function findUser(userName, dbConnection, projec
         logger.info("userdb findUserByName USER_NOT_EXISTS: " + userName);
         next(errorsManagment.USER_NOT_EXISTS, null);
       } else {
-        logger.info("userdb findUserByName: >0 y null? " + JSON.stringify(docs));
+        //logger.info("userdb findUserByName: >0 y null? " + JSON.stringify(docs));
         next(null, docs);
       }
     }
