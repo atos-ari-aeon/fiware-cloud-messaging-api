@@ -35,75 +35,83 @@ var bcrypt = require('bcrypt');
 var logger = require('./logger');
 
 function ensureAuthenticated(req, res, next) {
-    if (req.isAuthenticated()) {
-        logger.info("User is authenticated");
-        return next();
-    }
+  if (req.isAuthenticated()) {
+    //logger.info("User is authenticated");
+    return next();
+  }
 
-    errorsManagment.sendError(errorsManagment.NOT_AUTHENTICATED,res);
+  errorsManagment.sendError(errorsManagment.NOT_AUTHENTICATED,res);
 
-};
+}
 
 
 function serializeUser(user, done) {
-    done(null, user._id);
-};
+  done(null, user._id);
+}
 
 function deserializeUser(id, done) {
-    backend.findUserByName(id, module.exports.dbConnection, null, function(err, users) {
-        if ((err) || (users.length != 1)) {
-            logger.error("Received cookie but user does not exist");
-            done(null, false);
-        } else {
-            done(null, users[0]);
-        };
-
-    });
-};
+  backend.findUserByName(id, module.exports.dbConnection, null, function (err, users) {
+    if ((err) || (users.length !== 1)) {
+      logger.error("Received cookie but user does not exist");
+      done(null, false);
+    } else {
+      done(null, users[0]);
+    }
+  });
+}
 
 
 
 function authenticateUser(username, password, done) {
 
-    backend.findUserByName(username, module.exports.dbConnection, null, function(err, users) {
+  backend.findUserByName(username, module.exports.dbConnection, null, function (err, users) {
+    if ((!users) || (users.length !== 1)) {
+      if (!users) {
+        //logger.error("No user " + username);
+        done(null, false, responsesManagment.getResponseMessage(new Error(errorsManagment.WRONG_USER_PASSWORD), null));
+      } else {
+        //logger.error("No only one user "+ username);
+        done(null, false, responsesManagment.getResponseMessage(new Error(errorsManagment.USER_EXISTS), null));
+      }
+    } else {
+      var user = users[0];
+      if (err) {
+        done(err, null);
+      }
+      if (username !== user.username) {
+        return done(null, false);
+      }
 
-        if ((!users) || (users.length != 1)) {
-            logger.error("No only one user");
-            logger.info(done);
-            done(null, false, responsesManagment.getResponseMessage(
-                new Error(errorsManagment.WRONG_USER_PASSWORD), null));
+      bcrypt.compare(password, user.password, function (err, isMatch) {
+        if (err || !isMatch) {
+          //logger.error(" Wrong password "+ username+":"+password);
+          return done(null, false);
         } else {
-            var user = users[0];
-            if (err)
-                done(err, null);
-            if (username != user.username) {
-                return done(null, false);
-            }
-
-            bcrypt.compare(password, user.password, function(err, isMatch) {
-                if (err || !isMatch) 
-                    return done(null, false);
-                logger.info("ok login");
-                done(null, user);
-            });
-
-            
+          //logger.info(" login ok "+ username);
+          done(null, user);
         }
-    });
+
+        //logger.info("ok login");
+
+      });
+
+
+    }
+  });
     
-};
+}
 
-module.exports.initializePassport = function(passport, LocalStrategy, getDBConnection) {
+module.exports.initializePassport = function (passport, LocalStrategy, getDBConnection) {
 
-    passport.ensureAuthenticated = ensureAuthenticated;
+  passport.ensureAuthenticated = ensureAuthenticated;
 
-    passport.serializeUser = serializeUser;
+  passport.serializeUser = serializeUser;
 
-    passport.deserializeUser = deserializeUser;
+  passport.deserializeUser = deserializeUser;
 
-    passport.use(new LocalStrategy(authenticateUser));
+  passport.use(new LocalStrategy(authenticateUser));
 
-    module.exports.dbConnection = getDBConnection;
+  module.exports.dbConnection = getDBConnection;
 
 
 };
