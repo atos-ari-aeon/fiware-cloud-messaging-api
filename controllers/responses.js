@@ -28,10 +28,11 @@
  */
  
  var errorsManagment = require('./errors.js');
+ var logger = require('../logger.js');
  
  exports.getResponseMessage = function(err, data){
      if (err) {
-        console.log(err);
+        logger.error("getResponse " + JSON.stringify(err));
         return errorsManagment.getErrorMessage(err.message, 400);
         
     } else {
@@ -49,7 +50,7 @@
  };
  exports.sendResponse = function (err, res, data) {
     if (err) {
-        console.log(err);
+        logger.error("sendResponse " + JSON.stringify(err));
         //console.log(errorsManagment);
         errorsManagment.sendError(err, res);
         
