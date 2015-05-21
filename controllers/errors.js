@@ -229,7 +229,7 @@ exports.sendError = function (error, res){
     };
 
     var newError = this.getErrorMessage (error);
-    logger.error(JSON.stringify(newError));
+    //logger.error(JSON.stringify(newError));
     res.json(code, newError);
 
 }
