@@ -44,7 +44,6 @@ function ensureAuthenticated(req, res, next) {
 
 }
 
-
 function serializeUser(user, done) {
   done(null, user._id);
 }
@@ -59,8 +58,6 @@ function deserializeUser(id, done) {
     }
   });
 }
-
-
 
 function authenticateUser(username, password, done) {
 
@@ -92,10 +89,7 @@ function authenticateUser(username, password, done) {
         }
 
         //logger.info("ok login");
-
       });
-
-
     }
   });
     
