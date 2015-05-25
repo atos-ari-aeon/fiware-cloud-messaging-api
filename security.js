@@ -40,8 +40,7 @@ function ensureAuthenticated(req, res, next) {
     return next();
   }
 
-  errorsManagment.sendError(errorsManagment.NOT_AUTHENTICATED,res);
-
+  errorsManagment.sendError(errorsManagment.NOT_AUTHENTICATED, res);
 }
 
 function serializeUser(user, done) {
@@ -56,6 +55,7 @@ function deserializeUser(id, done) {
     } else {
       done(null, users[0]);
     }
+
   });
 }
 
@@ -70,11 +70,13 @@ function authenticateUser(username, password, done) {
         //logger.error("No only one user "+ username);
         done(null, false, responsesManagment.getResponseMessage(new Error(errorsManagment.USER_EXISTS), null));
       }
+
     } else {
       var user = users[0];
       if (err) {
         done(err, null);
       }
+
       if (username !== user.username) {
         return done(null, false);
       }
@@ -91,6 +93,7 @@ function authenticateUser(username, password, done) {
         //logger.info("ok login");
       });
     }
+
   });
     
 }
