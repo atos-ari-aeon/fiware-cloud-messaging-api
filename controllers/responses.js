@@ -39,10 +39,13 @@
         var response = {}
         response.code = 200;
         response.desc = "ok";
-        if (Array.isArray(data))
+
+        if (Array.isArray(data)) {
             response.result = data;
-        else
+        } else {
             response.result = [data];
+        }
+
         return response;
     }
 
@@ -56,7 +59,6 @@
         
     } else {        
         //console.log(res['req']['sessionID'])
-        
         var response = this.getResponseMessage(err, data);
         res.status(200);
         res.set("Connection", "close");
