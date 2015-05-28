@@ -48,7 +48,10 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="../index.html"><img src="../_static/web_simple_header_small.png">
+        <a class="navbar-brand" href="../index.html">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/web_simple_header_small.png" alt="Logo"/>
+            </a></p>
            </a>
         <span class="navbar-text navbar-version pull-left"><b>0.2.1-Bolt</b></span>
       </div>
@@ -90,6 +93,7 @@
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">SDK for Java</a><ul>
+<li><a class="reference internal" href="#pre-requisites">Pre-requisites</a></li>
 <li><a class="reference internal" href="#instance-the-sdk">Instance the SDK</a></li>
 <li><a class="reference internal" href="#publish">Publish</a></li>
 <li><a class="reference internal" href="#subscribe">Subscribe</a></li>
@@ -105,8 +109,6 @@
               
             
             
-              
-                
               
             
             
@@ -136,6 +138,10 @@
       
   <div class="section" id="sdk-for-java">
 <span id="documentation-sdk-java"></span><h1>SDK for Java<a class="headerlink" href="#sdk-for-java" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="pre-requisites">
+<h2>Pre-requisites<a class="headerlink" href="#pre-requisites" title="Permalink to this headline">¶</a></h2>
+<p>First of all you need to get AEON SDK from the <a href="#id1"><span class="problematic" id="id2">download_</span></a> section. Java package is distributed containing the sdk.jar and Socket-io.jar (dependency).</p>
+</div>
 <div class="section" id="instance-the-sdk">
 <span id="sdk-create-java"></span><h2>Instance the SDK<a class="headerlink" href="#instance-the-sdk" title="Permalink to this headline">¶</a></h2>
 <p>To start publishing/subscribing with the SDK, it si necessary to instanciate a new SDK object and retreive a new subscription for your channel.</p>
@@ -160,11 +166,6 @@
 </table>
 </dd></dl>
 
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-The combination of &#8220;id&#8221; and &#8220;desc&#8221; (strings) makes your subscription unique in the iCargo network.
-=======
-The combination of &#8220;id&#8221; and &#8220;desc&#8221; (strings) makes your subscription unique in the AEON network. This information will be used to retrieve your existing subscription data or to create a new one (if it does not exist or it was deleted).
-&gt;&gt;&gt;&gt;&gt;&gt;&gt; e89290d8f4295dd2f073a4c9c0fbff75b3f8bdb5</p>
 <p>Also, you can use a previously obtained subscription. More details <a class="reference internal" href="java-persistent.html#documentation-sdk-java-persistentsub"><em>Persistent subscription:</em></a></p>
 <dl class="function">
 <dt>
