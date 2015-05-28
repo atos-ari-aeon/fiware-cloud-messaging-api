@@ -39,12 +39,12 @@ var AEONChannel = require('broker-manager').Channel;
 
 function checkChannelModel(channelModel) {
   if (!("type" in channelModel) || (channelModel.type != "channel")) {
-    console.log("not model of type channel");
+    logger.error("Channel checkChannelModel: not model of type channel");
     return false;
   }
 
   if (!("channelname" in channelModel) || !("channeldesc" in channelModel)) {
-    console.log("not channelname or channeldesc");
+    logger.error("Channel checkChannelModel: not channelname or channeldesc");
     return false;
   }
 
@@ -53,7 +53,7 @@ function checkChannelModel(channelModel) {
 
 function checkSubscriptionParams(subscription) {
   if (!("id" in subscription) || !("desc" in subscription)) {
-    console.log("incorrect subscription request");
+    logger.error("Channel checkSubscriptionParams: incorrect subscription request");
     return false;
   }
 
@@ -99,7 +99,7 @@ exports.remove = function (req, res) {
 };
 
 exports.list = function (req, res) {
-  console.log("List of channels");
+  //console.log("List of channels");
 
   entities.isEntityOwner(req, function (checked, err) {
     if (!checked) {
@@ -120,7 +120,7 @@ exports.list = function (req, res) {
 
 
 exports.info = function (req, res) {
-  console.log("Info for channel ", req.params.channel);
+  //logger.info("ChannelInfo for channel ", req.params.channel);
 
   entities.isEntityOwner(req, function (checked, error) {
     if (!checked) {
