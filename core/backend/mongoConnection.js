@@ -29,6 +29,7 @@
  */
 
 var mongodb = require('mongodb');
+var logger = require('../../logrer');
 
 options = {};
 options.safe = true;
@@ -37,16 +38,16 @@ options.logger.doDebug = true;
 options.logger.debug = function (message, object) {
   // print the mongo command:
   // "writing command to mongodb"
-  console.log(message);
+  logger.info(message);
 
   // print the collection name
-  console.log(object.json.collectionName);
+  logger.info(object.json.collectionName);
 
   // print the json query sent to MongoDB
-  console.log(object.json.query);
+  logger.info(object.json.query);
 
   // print the binary object
-  console.log(object.binary);
+  logger.info(object.binary);
 };
 
 
@@ -83,7 +84,7 @@ MongoConnection.prototype.createConnection = function createConnection() {
 
   mongoClient.open(function (err, mongoClient) {
     if (err) {
-      console.log(err);
+      logger.error(err);
       throw err;
     }
 
@@ -91,10 +92,10 @@ MongoConnection.prototype.createConnection = function createConnection() {
     if (obj.config.username != "") {
       dbAEON.authenticate(obj.config.username, obj.config.password, function (err, result) {
         if (err) {
-          console.log(err);
+          logger.error(err);
           throw err;
         }
-        console.log("AEON DB connected");
+        logger.info("AEON DB connected");
         obj.setClient(dbAEON);
       });
     } else {
