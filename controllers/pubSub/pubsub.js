@@ -39,14 +39,13 @@ var subscriptionModel = require('./models/subscriptionmodel');
 
 function checkSubscriptionParams(subscription) {
 
-    if (!("id" in subscription) || !("desc" in subscription)) {
-        console.log("incorrect subscription request");
-        return false;
-    }
-    console.log("correct request");
+  if (!("id" in subscription) || !("desc" in subscription)) {
+    logger.error("incorrect subscription request");
+    return false;
+  }
 
-    return true;
-
+  //console.log("correct request");
+  return true;
 }
 
 exports.remove = function remove(req, res){
