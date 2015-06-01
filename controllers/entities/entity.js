@@ -35,12 +35,12 @@ var manager = require('../../core/middleware/manager');
 function checkEntityModel(entityModel) {
 
   if ((!"type" in entityModel) || (entityModel.type !== "entity")) {
-    console.log("not model of type entity");
+    logger.error("not model of type entity");
     return false;
   }
 
   if ((!"entityname" in entityModel) || (!"entitydesc" in entityModel)) {
-    console.log("not entityname or entitydesc");
+    logger.error("not entityname or entitydesc");
     return false;
   }
 
@@ -91,7 +91,7 @@ exports.isEntityOwner = function (req, next) {
  *
  */
 exports.remove = function (req, res) {
-  console.log("Delete entity ", req.params.entity);
+  logger.info("Delete entity ", req.params.entity);
 
   manager.deleteEntity(req.brokerConnection, req.dbConnection, req.params.entity, function (err, doc) {
     entitiesResponse(err, doc, res);
@@ -99,7 +99,7 @@ exports.remove = function (req, res) {
 };
 
 exports.list = function (req, res) {
-  console.log("List of entities");
+  //console.log("List of entities");
   var projection = { 'channels': 0};
 
   manager.getEntities(req.user._id, projection, req.dbConnection, function (err, doc) {
@@ -109,7 +109,7 @@ exports.list = function (req, res) {
 };
 
 exports.info = function (req, res) {
-  console.log("Info for entity ", req.params.entity);
+  //console.log("Info for entity ", req.params.entity);
   exports.isEntityOwner(req, function (checked, err) {
     if (!checked) {
       errorsManagment.sendError(err, res);
@@ -126,7 +126,7 @@ exports.info = function (req, res) {
 
 
 exports.create = function (req, res) {
-  console.log("Create entity");
+  //console.log("Create entity");
   // lets try to do very light checks
   var entityModel = req.body;
   if (checkEntityModel(entityModel)) {
@@ -147,7 +147,7 @@ exports.create = function (req, res) {
 };
 
 exports.update = function (req, res) {
-  console.log("Update entity");
+  //console.log("Update entity");
 
   var entityID = req.params.entity;
   var entityModel = req.body;
