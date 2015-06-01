@@ -255,7 +255,7 @@ exports.getSubscription = function (req, res, next) {
       channel.setPubID(doc.pubID);
       channel.setSubID(doc.subID);
 
-      console.log("creating subscription for channel " + channel.getChannelName() + " and subID " + channel.getSubID());
+      //console.log("creating subscription for channel " + channel.getChannelName() + " and subID " + channel.getSubID());
 
       var id = req.query["id"];
       var desc = req.query["desc"];
