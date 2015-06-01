@@ -30,43 +30,43 @@
 
 var mongodb = require('mongodb');
 
-options = {}
+options = {};
 options.safe = true;
 options.logger = {};
 options.logger.doDebug = true;
-options.logger.debug = function(message, object) {
-    // print the mongo command:
-    // "writing command to mongodb"
-    console.log(message);
+options.logger.debug = function (message, object) {
+  // print the mongo command:
+  // "writing command to mongodb"
+  console.log(message);
 
-    // print the collection name
-    console.log(object.json.collectionName)
+  // print the collection name
+  console.log(object.json.collectionName);
 
-    // print the json query sent to MongoDB
-    console.log(object.json.query)
+  // print the json query sent to MongoDB
+  console.log(object.json.query);
 
-    // print the binary object
-    console.log(object.binary)
-}
+  // print the binary object
+  console.log(object.binary);
+};
 
 
 // Constructor
 
 function MongoConnection(config) {
-    this.dbClient = null;
-    this.config = config;
-    this.options = options;
+  this.dbClient = null;
+  this.config = config;
+  this.options = options;
 
 }
 
 MongoConnection.prototype.getClient = function getClient() {
-    return this.dbClient;
-}
+  return this.dbClient;
+};
 
 
 MongoConnection.prototype.setClient = function setClient(client) {
-    this.dbClient = client;
-}
+  this.dbClient = client;
+};
 
 
 /*
@@ -76,35 +76,31 @@ MongoConnection.prototype.setClient = function setClient(client) {
  */
 
 MongoConnection.prototype.createConnection = function createConnection() {
+  var MongoClient = require('mongodb').MongoClient,
+    Server = require('mongodb').Server;
+  var mongoClient = new MongoClient(new Server(this.config.host, this.config.port), options);
+  var obj = this;
 
-    var MongoClient = require('mongodb').MongoClient,
-        Server = require('mongodb').Server;
+  mongoClient.open(function (err, mongoClient) {
+    if (err) {
+      console.log(err);
+      throw err;
+    }
 
-    var mongoClient = new MongoClient(new Server(this.config.host, this.config.port), options);
-
-    var obj = this;
-
-    mongoClient.open(function(err, mongoClient) {
-
+    var dbAEON = mongoClient.db(obj.config.db);
+    if (obj.config.username != "") {
+      dbAEON.authenticate(obj.config.username, obj.config.password, function (err, result) {
         if (err) {
-            console.log(err);
-            throw err;
+          console.log(err);
+          throw err;
         }
-
-        var dbAEON = mongoClient.db(obj.config.db);
-        if (obj.config.username != "") {
-            dbAEON.authenticate(obj.config.username, obj.config.password, function(err, result) {
-                if (err) {
-                    console.log(err);
-                    throw err;
-                }
-                console.log("AEON DB connected");
-                obj.setClient(dbAEON);
-            });
-        } else {
-            obj.setClient(dbAEON);
-        }
-    });
+        console.log("AEON DB connected");
+        obj.setClient(dbAEON);
+      });
+    } else {
+      obj.setClient(dbAEON);
+    }
+  });
 
 };
 
