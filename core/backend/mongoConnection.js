@@ -29,7 +29,7 @@
  */
 
 var mongodb = require('mongodb');
-var logger = require('../../logrer');
+var logger = require('../../logger.js');
 
 options = {};
 options.safe = true;
