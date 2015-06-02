@@ -1,3 +1,4 @@
+.. include:: ../links.rst
 .. _documentation-sdk-nodejs:
 
 SDK for node.js
@@ -6,6 +7,10 @@ SDK for node.js
 
 .. _sdk-create-nodejs:
 
+Pre-requisites
+--------------
+
+First of all you need to get AEON SDK from `GitLab <http://gitlab.atosresearch.eu/ari/aeon-sdk/blob/master/SDK/releases/nodejs/AeonSDK-nodejs_0.2.1.tgz>`_.
 
 Instance the SDK
 -----------------

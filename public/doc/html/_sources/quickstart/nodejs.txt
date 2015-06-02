@@ -21,7 +21,7 @@ This simple demonstration shows:
 First steps
 ===================
 
-First of all you need to get AEON SDK from the download_ section.
+First of all you need to get AEON SDK from `GitLab <http://gitlab.atosresearch.eu/ari/aeon-sdk/blob/master/SDK/releases/nodejs/AeonSDK-nodejs_0.2.1.tgz>`_.
 
 .. note::
 

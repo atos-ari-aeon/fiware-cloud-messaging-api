@@ -1,3 +1,4 @@
+.. include:: ../links.rst
 .. _documentation-sdk-javascript:
 
 SDK for Javascript
@@ -6,6 +7,10 @@ SDK for Javascript
 
 .. _sdk-create-javascript:
 
+Pre-requisites
+--------------
+
+First of all you need to get AEON SDK from `GitLab <http://gitlab.atosresearch.eu/ari/aeon-sdk/blob/master/SDK/javascript/releases/AeonSDK-Javascript_0.2.0.tgz>`_.
 
 Instance the SDK
 -----------------

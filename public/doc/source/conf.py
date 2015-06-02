@@ -127,7 +127,7 @@ html_theme_options = {
 'bootstrap_version': "3",
 
 'navbar_links': [
-        ("Portal", "http://aeon.atosresearch.eu",1),
+        ("Portal", "http://130.206.81.70:8000",1),
     ],
 }
 
