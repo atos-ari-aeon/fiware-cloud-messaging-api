@@ -1,8 +1,8 @@
 
-.. _portal: http://lcb-gui.herokuapp.com
-.. _dashboard: http://lcb-gui.herokuapp.com
-.. _about: http://lcb-gui.herokuapp.com/app/index.html#about
-.. _quickstart: http://lcb-gui.herokuapp.com/app/index.html#quickstart
-.. _download: http://lcb-gui.herokuapp.com/app/index.html#quickstart
-.. _API: http://lcb.herokuapp.com/
+.. _portal: http://130.206.81.70:8000
+.. _dashboard: http://130.206.81.70:8000
+.. _about: http://130.206.81.70:8000/app/index.html#about
+.. _quickstart: http://130.206.81.70:8000/app/index.html#quickstart
+.. _download: http://130.206.81.70:8000/app/index.html#quickstart
+.. _API: http://130.206.81.70:3000/
 

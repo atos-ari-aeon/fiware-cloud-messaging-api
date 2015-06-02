@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 
 
@@ -10,7 +9,7 @@
     
     <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/bootswatch-3.1.0/flatly/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/bootswatch-3.2.0/flatly/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
     
     <script type="text/javascript">
@@ -27,7 +26,7 @@
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="../../_static/bootstrap-3.1.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-3.2.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="top" title="AEON real time communcations" href="../../index.html" />
@@ -40,7 +39,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 
   </head>
-  <body>
+  <body role="document">
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -58,9 +57,8 @@
 
         <div class="collapse navbar-collapse nav-collapse">
           <ul class="nav navbar-nav">
-            <li class="divider-vertical"></li>
             
-                <li><a href="http://aeon.atosresearch.eu">Portal</a></li>
+                <li><a href="http://130.206.81.70:8000">Portal</a></li>
             
             
               <li class="dropdown globaltoc-container">
@@ -71,12 +69,12 @@
      href="../../index.html">Site <b class="caret"></b></a>
   <ul class="dropdown-menu globaltoc"
       role="menu"
-      aria-labelledby="dLabelGlobalToc"><ul>
-<li class="toctree-l1"><a class="reference internal" href="../apidoc.html">Technical documentation</a><ul>
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../apidoc.html">Technical documentation</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../apidoc.html#aeon-way-of-working">AEON way of working</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../apidoc.html#quick-start">Quick Start</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../apidoc.html#sdk">SDK</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../apidoc.html#aeon-api">AEON API</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../apidoc.html#aeon-api">AEON API</a></li>
 </ul>
 </li>
 </ul>
@@ -109,11 +107,11 @@
               
                 
   <li>
-    <a href="../entities/entitiesdoc.html" title="Previous Chapter: API Entities Documentation"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm">&laquo; API Entities Doc...</span>
+    <a href="../entities/entitiesdoc.html" title="Previous Chapter: API Entities Documentation"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; API Entities Doc...</span>
     </a>
   </li>
   <li>
-    <a href="../pubsub/pubsubdoc.html" title="Next Chapter: API Publication/Subscription Documentation"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm">API Publication/... &raquo;</span>
+    <a href="../pubsub/pubsubdoc.html" title="Next Chapter: API Publication/Subscription Documentation"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">API Publication/... &raquo;</span>
     </a>
   </li>
               
@@ -155,17 +153,17 @@
 </ul>
 </dd>
 </dl>
-<p>You can try all the operation using AEON&#8217;s <a class="reference external" href="http://lcb.herokuapp.com/">API</a></p>
+<p>You can try all the operation using AEON&#8217;s <a class="reference external" href="http://130.206.81.70:3000/">API</a></p>
 <div class="section" id="post-channel">
 <span id="channeldoc-create"></span><h2>POST channel<a class="headerlink" href="#post-channel" title="Permalink to this headline">¶</a></h2>
 <p>Create a new channel into the specific entity. Channels contains
 information about description and the pub/sub mechanisms. Some preconditions:
-- You need to be logged: (<a class="reference internal" href="../users/userdoc.html#userdoc-login"><em>Login</em></a>)
+- You need to be logged: (<a class="reference internal" href="../users/userdoc.html#userdoc-login"><span>Login</span></a>)
 - You need to be logged as the owner of the (entity_id) where your are requesting a new channel</p>
 <p>The channel will be attached to the entity, together with Pub_Url and a (Sub_Url).</p>
 <dl class="post">
 <dt id="post--entities-(entity_id)-channels">
-<tt class="descname">POST </tt><tt class="descname">/entities/</tt><big>(</big><em>entity_id</em><big>)</big><tt class="descname">/channels</tt><a class="headerlink" href="#post--entities-(entity_id)-channels" title="Permalink to this definition">¶</a></dt>
+<code class="descname">POST </code><code class="descname">/entities/</code><span class="sig-paren">(</span><em>entity_id</em><span class="sig-paren">)</span><code class="descname">/channels</code><a class="headerlink" href="#post--entities-(entity_id)-channels" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a new channel</p>
 <p><strong>Example request</strong>:</p>
 <div class="highlight-http"><div class="highlight"><pre><span class="nf">POST</span> <span class="nn">/entities/51e7be2a1fb1a1f179000001/channels</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
@@ -196,10 +194,10 @@ information about description and the pub/sub mechanisms. Some preconditions:
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Status Codes:</th><td class="field-body"><ul class="first last simple">
-<li><strong>200</strong> &#8211; no error</li>
-<li><strong>400</strong> &#8211; error</li>
-<li><strong>401</strong> &#8211; Not authenticated</li>
-<li><strong>417</strong> &#8211; Incorrect model received, check mandatory params and syntax</li>
+<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a> &#8211; no error</li>
+<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1">400 Bad Request</a> &#8211; error</li>
+<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.2">401 Unauthorized</a> &#8211; Not authenticated</li>
+<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.18">417 Expectation Failed</a> &#8211; Incorrect model received, check mandatory params and syntax</li>
 </ul>
 </td>
 </tr>
@@ -213,13 +211,13 @@ information about description and the pub/sub mechanisms. Some preconditions:
 <p>Get the list of channels of an specific entity. Preconditions:</p>
 <blockquote>
 <div><ul class="simple">
-<li>You need to be logged: (<a class="reference internal" href="../users/userdoc.html#userdoc-login"><em>Login</em></a>)</li>
+<li>You need to be logged: (<a class="reference internal" href="../users/userdoc.html#userdoc-login"><span>Login</span></a>)</li>
 <li>You need to be logged as the owner of the (entity_id)</li>
 </ul>
 </div></blockquote>
 <dl class="get">
 <dt id="get--entities-(entity_id)-channels">
-<tt class="descname">GET </tt><tt class="descname">/entities/</tt><big>(</big><em>entity_id</em><big>)</big><tt class="descname">/channels</tt><a class="headerlink" href="#get--entities-(entity_id)-channels" title="Permalink to this definition">¶</a></dt>
+<code class="descname">GET </code><code class="descname">/entities/</code><span class="sig-paren">(</span><em>entity_id</em><span class="sig-paren">)</span><code class="descname">/channels</code><a class="headerlink" href="#get--entities-(entity_id)-channels" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get channels&#8217;s list.</p>
 <p><strong>Example request</strong>:</p>
 <div class="highlight-http"><div class="highlight"><pre><span class="nf">GET</span> <span class="nn">/entities/51e7be2a1fb1a1f179000001/channels</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
@@ -240,35 +238,36 @@ information about description and the pub/sub mechanisms. Some preconditions:
 </tbody>
 </table>
 <p><strong>Example response</strong>:</p>
-<div class="highlight-http"><pre>HTTP/1.1 200 OK
+<div class="highlight-http"><div class="highlight"><pre>HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-  "code": 200,
-  "desc": "ok"
-  "result":
+  &quot;code&quot;: 200,
+  &quot;desc&quot;: &quot;ok&quot;
+  &quot;result&quot;:
    [
 
     {
-      "_id": "51e7be461fb1a1f179000002",
-      "channelName": "channelname",
-      "channeldesc": "channeldesc",
-      "pubID": "4ca05d1f-ff02-481d-a1db-9d69c6bfff73",
-      "subID": "d203158e-bac8-49ee-b2d3-1fd82729fa09"
+      &quot;_id&quot;: &quot;51e7be461fb1a1f179000002&quot;,
+      &quot;channelName&quot;: &quot;channelname&quot;,
+      &quot;channeldesc&quot;: &quot;channeldesc&quot;,
+      &quot;pubID&quot;: &quot;4ca05d1f-ff02-481d-a1db-9d69c6bfff73&quot;,
+      &quot;subID&quot;: &quot;d203158e-bac8-49ee-b2d3-1fd82729fa09&quot;
     },
     ...
 
    ]
- }</pre>
+ }
+</pre></div>
 </div>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Status Codes:</th><td class="field-body"><ul class="first last simple">
-<li><strong>200</strong> &#8211; no error</li>
-<li><strong>400</strong> &#8211; error</li>
-<li><strong>401</strong> &#8211; Not authenticated</li>
+<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a> &#8211; no error</li>
+<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1">400 Bad Request</a> &#8211; error</li>
+<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.2">401 Unauthorized</a> &#8211; Not authenticated</li>
 </ul>
 </td>
 </tr>
@@ -282,7 +281,7 @@ Content-Type: application/json
 <dl class="docutils">
 <dt>Get complete information of an specific channel. Preconditions:</dt>
 <dd><ul class="first last simple">
-<li>You need to be logged: (<a class="reference internal" href="../users/userdoc.html#userdoc-login"><em>Login</em></a>)</li>
+<li>You need to be logged: (<a class="reference internal" href="../users/userdoc.html#userdoc-login"><span>Login</span></a>)</li>
 <li>You need to be logged as the owner of the (entity_id)</li>
 <li>(channel_id) has to be attached to the list of channels of (entity_id)</li>
 </ul>
@@ -290,7 +289,7 @@ Content-Type: application/json
 </dl>
 <dl class="get">
 <dt id="get--entities-(entity_id)-channels-(channel_id)">
-<tt class="descname">GET </tt><tt class="descname">/entities/</tt><big>(</big><em>entity_id</em><big>)</big><tt class="descname">/channels/</tt><big>(</big><em>channel_id</em><big>)</big><a class="headerlink" href="#get--entities-(entity_id)-channels-(channel_id)" title="Permalink to this definition">¶</a></dt>
+<code class="descname">GET </code><code class="descname">/entities/</code><span class="sig-paren">(</span><em>entity_id</em><span class="sig-paren">)</span><code class="descname">/channels/</code><span class="sig-paren">(</span><em>channel_id</em><span class="sig-paren">)</span><a class="headerlink" href="#get--entities-(entity_id)-channels-(channel_id)" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get channel info for (<cite>channel_id</cite>).</p>
 <p><strong>Example request</strong>:</p>
 <div class="highlight-http"><div class="highlight"><pre><span class="nf">GET</span> <span class="nn">/entities/51e7be2a1fb1a1f179000001/channels/51e7be461fb1a1f179000002</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
@@ -312,47 +311,48 @@ Content-Type: application/json
 </tbody>
 </table>
 <p><strong>Example response</strong>:</p>
-<div class="highlight-http"><pre>HTTP/1.1 200 OK
+<div class="highlight-http"><div class="highlight"><pre>HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-  "code": 200,
-  "desc": "ok"
-  "result":
+  &quot;code&quot;: 200,
+  &quot;desc&quot;: &quot;ok&quot;
+  &quot;result&quot;:
    [
 
     {
-      "_id": "51e7be461fb1a1f179000002",
-      "channelName": "channelname",
-      "channeldesc": "channeldesc",
-      "pubID": "4ca05d1f-ff02-481d-a1db-9d69c6bfff73",
-      "subID": "d203158e-bac8-49ee-b2d3-1fd82729fa09",
-      "puburl": "http://lcb.herokuapp.com/publish/4ca05d1f-ff02-481d-a1db-9d69c6bfff73",
-      "subscriptionsurl": "http://lcb.herokuapp.com/subscribe/d203158e-bac8-49ee-b2d3-1fd82729fa09",
-      "subscriptions": [
+      &quot;_id&quot;: &quot;51e7be461fb1a1f179000002&quot;,
+      &quot;channelName&quot;: &quot;channelname&quot;,
+      &quot;channeldesc&quot;: &quot;channeldesc&quot;,
+      &quot;pubID&quot;: &quot;4ca05d1f-ff02-481d-a1db-9d69c6bfff73&quot;,
+      &quot;subID&quot;: &quot;d203158e-bac8-49ee-b2d3-1fd82729fa09&quot;,
+      &quot;puburl&quot;: &quot;http://130.206.81.70:3000/publish/4ca05d1f-ff02-481d-a1db-9d69c6bfff73&quot;,
+      &quot;subscriptionsurl&quot;: &quot;http://130.206.81.70:3000/subscribe/d203158e-bac8-49ee-b2d3-1fd82729fa09&quot;,
+      &quot;subscriptions&quot;: [
         {
-          _id: "53bfe41faf5e6e0200000016",
-          desc: "demo-sub",
-          id: "demo-sub",
-          ip: "lcb.herokuapp.com",
-          subkey: "Delivery Item 1-10925842-queu"
+          _id: &quot;53bfe41faf5e6e0200000016&quot;,
+          desc: &quot;demo-sub&quot;,
+          id: &quot;demo-sub&quot;,
+          ip: &quot;http://130.206.81.70:3000&quot;,
+          subkey: &quot;Delivery Item 1-10925842-queu&quot;
         },
         ...
       ]
 
     }
    ]
- }</pre>
+ }
+</pre></div>
 </div>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Status Codes:</th><td class="field-body"><ul class="first last simple">
-<li><strong>200</strong> &#8211; no error</li>
-<li><strong>400</strong> &#8211; error</li>
-<li><strong>401</strong> &#8211; Not authenticated</li>
-<li><strong>404</strong> &#8211; Channel not exist</li>
+<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a> &#8211; no error</li>
+<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1">400 Bad Request</a> &#8211; error</li>
+<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.2">401 Unauthorized</a> &#8211; Not authenticated</li>
+<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.5">404 Not Found</a> &#8211; Channel not exist</li>
 </ul>
 </td>
 </tr>
@@ -366,7 +366,7 @@ Content-Type: application/json
 <dl class="docutils">
 <dt>Updates the information of an specific channel. Preconditions:</dt>
 <dd><ul class="first last simple">
-<li>You need to be logged: (<a class="reference internal" href="../users/userdoc.html#userdoc-login"><em>Login</em></a>)</li>
+<li>You need to be logged: (<a class="reference internal" href="../users/userdoc.html#userdoc-login"><span>Login</span></a>)</li>
 <li>You need to be logged as the owner of the (entity_id)</li>
 <li>(channel_id) has to be attached to the list of channels of (entity_id)</li>
 </ul>
@@ -374,7 +374,7 @@ Content-Type: application/json
 </dl>
 <dl class="put">
 <dt id="put--entities-(entity_id)-channels-(channel_id)">
-<tt class="descname">PUT </tt><tt class="descname">/entities/</tt><big>(</big><em>entity_id</em><big>)</big><tt class="descname">/channels/</tt><big>(</big><em>channel_id</em><big>)</big><a class="headerlink" href="#put--entities-(entity_id)-channels-(channel_id)" title="Permalink to this definition">¶</a></dt>
+<code class="descname">PUT </code><code class="descname">/entities/</code><span class="sig-paren">(</span><em>entity_id</em><span class="sig-paren">)</span><code class="descname">/channels/</code><span class="sig-paren">(</span><em>channel_id</em><span class="sig-paren">)</span><a class="headerlink" href="#put--entities-(entity_id)-channels-(channel_id)" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get channel info for (<cite>channel_id</cite>).</p>
 <p><strong>Example request</strong>:</p>
 <div class="highlight-http"><div class="highlight"><pre><span class="nf">PUT</span> <span class="nn">/entities/51e7be2a1fb1a1f179000001/channels/52b417dea3bc5b191c000001</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
@@ -405,11 +405,11 @@ Content-Type: application/json
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Status Codes:</th><td class="field-body"><ul class="first last simple">
-<li><strong>200</strong> &#8211; no error</li>
-<li><strong>400</strong> &#8211; error</li>
-<li><strong>401</strong> &#8211; Not authenticated</li>
-<li><strong>404</strong> &#8211; Channel not found</li>
-<li><strong>417</strong> &#8211; Incorrect model received, check mandatory params and syntax</li>
+<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a> &#8211; no error</li>
+<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1">400 Bad Request</a> &#8211; error</li>
+<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.2">401 Unauthorized</a> &#8211; Not authenticated</li>
+<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.5">404 Not Found</a> &#8211; Channel not found</li>
+<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.18">417 Expectation Failed</a> &#8211; Incorrect model received, check mandatory params and syntax</li>
 </ul>
 </td>
 </tr>
@@ -423,7 +423,7 @@ Content-Type: application/json
 <dl class="docutils">
 <dt>Delete an specific channel. Preconditions:</dt>
 <dd><ul class="first last simple">
-<li>In order to delete an existing channel you need to be logged (<a class="reference internal" href="../users/userdoc.html#userdoc-login"><em>Login</em></a>)</li>
+<li>In order to delete an existing channel you need to be logged (<a class="reference internal" href="../users/userdoc.html#userdoc-login"><span>Login</span></a>)</li>
 <li>You need to be logged as the owner of the entity that is linked with the specific channel:</li>
 <li>(channel_id) has to be attached to the list of channels of (entity_id)</li>
 </ul>
@@ -431,7 +431,7 @@ Content-Type: application/json
 </dl>
 <dl class="delete">
 <dt id="delete--entities-(entity_id)-channels-(channel_id)">
-<tt class="descname">DELETE </tt><tt class="descname">/entities/</tt><big>(</big><em>entity_id</em><big>)</big><tt class="descname">/channels/</tt><big>(</big><em>channel_id</em><big>)</big><a class="headerlink" href="#delete--entities-(entity_id)-channels-(channel_id)" title="Permalink to this definition">¶</a></dt>
+<code class="descname">DELETE </code><code class="descname">/entities/</code><span class="sig-paren">(</span><em>entity_id</em><span class="sig-paren">)</span><code class="descname">/channels/</code><span class="sig-paren">(</span><em>channel_id</em><span class="sig-paren">)</span><a class="headerlink" href="#delete--entities-(entity_id)-channels-(channel_id)" title="Permalink to this definition">¶</a></dt>
 <dd><p>Delete  (<cite>channel_id</cite>).</p>
 <p><strong>Example request</strong>:</p>
 <div class="highlight-http"><div class="highlight"><pre><span class="nf">DELETE</span> <span class="nn">/entities/51e7be2a1fb1a1f179000001/channels/52b417dea3bc5b191c000001</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
@@ -467,10 +467,10 @@ Content-Type: application/json
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Status Codes:</th><td class="field-body"><ul class="first last simple">
-<li><strong>200</strong> &#8211; no error</li>
-<li><strong>400</strong> &#8211; error</li>
-<li><strong>401</strong> &#8211; Not authenticated</li>
-<li><strong>404</strong> &#8211; Channel not found</li>
+<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a> &#8211; no error</li>
+<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1">400 Bad Request</a> &#8211; error</li>
+<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.2">401 Unauthorized</a> &#8211; Not authenticated</li>
+<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.5">404 Not Found</a> &#8211; Channel not found</li>
 </ul>
 </td>
 </tr>

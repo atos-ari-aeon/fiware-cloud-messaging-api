@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 
 
@@ -10,7 +9,7 @@
     
     <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/bootswatch-3.1.0/flatly/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/bootswatch-3.2.0/flatly/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
     
     <script type="text/javascript">
@@ -27,7 +26,7 @@
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="../../_static/bootstrap-3.1.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-3.2.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="top" title="AEON real time communcations" href="../../index.html" />
@@ -40,7 +39,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 
   </head>
-  <body>
+  <body role="document">
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -58,9 +57,8 @@
 
         <div class="collapse navbar-collapse nav-collapse">
           <ul class="nav navbar-nav">
-            <li class="divider-vertical"></li>
             
-                <li><a href="http://aeon.atosresearch.eu">Portal</a></li>
+                <li><a href="http://130.206.81.70:8000">Portal</a></li>
             
             
               <li class="dropdown globaltoc-container">
@@ -71,12 +69,12 @@
      href="../../index.html">Site <b class="caret"></b></a>
   <ul class="dropdown-menu globaltoc"
       role="menu"
-      aria-labelledby="dLabelGlobalToc"><ul>
-<li class="toctree-l1"><a class="reference internal" href="../apidoc.html">Technical documentation</a><ul>
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../apidoc.html">Technical documentation</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../apidoc.html#aeon-way-of-working">AEON way of working</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../apidoc.html#quick-start">Quick Start</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../apidoc.html#sdk">SDK</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../apidoc.html#aeon-api">AEON API</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../apidoc.html#aeon-api">AEON API</a></li>
 </ul>
 </li>
 </ul>
@@ -109,11 +107,11 @@
               
                 
   <li>
-    <a href="../users/userdoc.html" title="Previous Chapter: API Users Documentation"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm">&laquo; API Users Docume...</span>
+    <a href="../users/userdoc.html" title="Previous Chapter: API Users Documentation"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; API Users Docume...</span>
     </a>
   </li>
   <li>
-    <a href="../channels/channelsdoc.html" title="Next Chapter: API Channels Documentation"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm">API Channels Doc... &raquo;</span>
+    <a href="../channels/channelsdoc.html" title="Next Chapter: API Channels Documentation"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">API Channels Doc... &raquo;</span>
     </a>
   </li>
               
@@ -147,57 +145,59 @@
 <span id="entitydoc"></span><h1>API Entities Documentation<a class="headerlink" href="#api-entities-documentation" title="Permalink to this headline">¶</a></h1>
 <p>Documentation for entity&#8217;s management. AEON entities are the basic resource to organize your different communication channels. An entity could mean whatever you want, a truck, a box of fish, a chat application, a chat room, your personal mobile, whatever.. By the moment, entities contains just a little description.</p>
 <p>Only users can create new entities, and these entities will contain the different channels... actually, what we are interested in, isn’t it?.</p>
-<p>You can try all the operation using AEON&#8217;s <a class="reference external" href="http://lcb.herokuapp.com/">API</a></p>
+<p>You can try all the operation using AEON&#8217;s <a class="reference external" href="http://130.206.81.70:3000/">API</a></p>
 <div class="section" id="post-entity">
 <span id="entitydoc-create"></span><h2>POST entity<a class="headerlink" href="#post-entity" title="Permalink to this headline">¶</a></h2>
 <p>Create a new entity into the system. By the moment, entities only contains
 information about description and a list of channels. Some preconditions:
-- You need to be logged: (<a class="reference internal" href="../users/userdoc.html#userdoc-login"><em>Login</em></a>)</p>
+- You need to be logged: (<a class="reference internal" href="../users/userdoc.html#userdoc-login"><span>Login</span></a>)</p>
 <p>The entity will be created and owned by the logged user.</p>
 <dl class="post">
 <dt id="post--entities-">
-<tt class="descname">POST </tt><tt class="descname">/entities/</tt><a class="headerlink" href="#post--entities-" title="Permalink to this definition">¶</a></dt>
+<code class="descname">POST </code><code class="descname">/entities/</code><a class="headerlink" href="#post--entities-" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a new entity</p>
 <p><strong>Example request</strong>:</p>
-<div class="highlight-http"><pre>POST /entities/ HTTP/1.1
-Host: example.com
-Content: application/json
-Accept: application/json
+<div class="highlight-http"><div class="highlight"><pre><span class="nf">POST</span> <span class="nn">/entities/</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">example.com</span>
+<span class="na">Content</span><span class="o">:</span> <span class="l">application/json</span>
+<span class="na">Accept</span><span class="o">:</span> <span class="l">application/json</span>
 
 {
-  "entityname": "entityname",
-  "entitydesc": "entitydesc",
-  "type": "entity",
-};</pre>
+  &quot;entityname&quot;: &quot;entityname&quot;,
+  &quot;entitydescription&quot;: &quot;entitydescription&quot;,
+  &quot;type&quot;: &quot;entity&quot;,
+};
+</pre></div>
 </div>
 <p><strong>Example response</strong>:</p>
-<div class="highlight-http"><pre>HTTP/1.1 200 OK
+<div class="highlight-http"><div class="highlight"><pre>HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-  "code": 200,
-  "desc": "ok"
-  "result":
+  &quot;code&quot;: 200,
+  &quot;desc&quot;: &quot;ok&quot;
+  &quot;result&quot;:
   [
    {
-      "entityname": "entityname",
-      "entitydesc": "entitydesc",
-      "type": "entity",
-      "owner": "userid",
-      "channels": ["channelname"]
+      &quot;entityname&quot;: &quot;entityname&quot;,
+      &quot;entitydescription&quot;: &quot;entitydescription&quot;,
+      &quot;type&quot;: &quot;entity&quot;,
+      &quot;owner&quot;: &quot;userid&quot;,
+      &quot;channels&quot;: [&quot;channelname&quot;]
    };
   ]
-}</pre>
+}
+</pre></div>
 </div>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Status Codes:</th><td class="field-body"><ul class="first last simple">
-<li><strong>200</strong> &#8211; no error</li>
-<li><strong>400</strong> &#8211; error</li>
-<li><strong>401</strong> &#8211; Not authenticated</li>
-<li><strong>417</strong> &#8211; Incorrect model received, check mandatory params and syntax</li>
+<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a> &#8211; no error</li>
+<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1">400 Bad Request</a> &#8211; error</li>
+<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.2">401 Unauthorized</a> &#8211; Not authenticated</li>
+<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.18">417 Expectation Failed</a> &#8211; Incorrect model received, check mandatory params and syntax</li>
 </ul>
 </td>
 </tr>
@@ -211,12 +211,12 @@ Content-Type: application/json
 <p>Get list of entities owned by the logged user. Preconditions:</p>
 <blockquote>
 <div><ul class="simple">
-<li>You need to be logged: (<a class="reference internal" href="../users/userdoc.html#userdoc-login"><em>Login</em></a>)</li>
+<li>You need to be logged: (<a class="reference internal" href="../users/userdoc.html#userdoc-login"><span>Login</span></a>)</li>
 </ul>
 </div></blockquote>
 <dl class="get">
 <dt id="get--entities-">
-<tt class="descname">GET </tt><tt class="descname">/entities/</tt><a class="headerlink" href="#get--entities-" title="Permalink to this definition">¶</a></dt>
+<code class="descname">GET </code><code class="descname">/entities/</code><a class="headerlink" href="#get--entities-" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get entities&#8217;s list.</p>
 <p><strong>Example request</strong>:</p>
 <div class="highlight-http"><div class="highlight"><pre><span class="nf">GET</span> <span class="nn">/entities/</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
@@ -225,36 +225,37 @@ Content-Type: application/json
 </pre></div>
 </div>
 <p><strong>Example response</strong>:</p>
-<div class="highlight-http"><pre>  HTTP/1.1 200 OK
+<div class="highlight-http"><div class="highlight"><pre>  HTTP/1.1 200 OK
   Content-Type: application/json
 
   {
-    "code": 200,
-    "desc": "ok"
-    "result":
+    &quot;code&quot;: 200,
+    &quot;desc&quot;: &quot;ok&quot;
+    &quot;result&quot;:
     [
         {
 
-            "_id": "entityid",
-            "channels": [ … ],
-            "entitydesc": "entitydesc",
-            "entityname": "entityname",
-            "owner": "userid",
-            "type": "entity"
+            &quot;_id&quot;: &quot;entityid&quot;,
+            &quot;channels&quot;: [ … ],
+            &quot;entitydescription&quot;: &quot;entitydescription&quot;,
+            &quot;entityname&quot;: &quot;entityname&quot;,
+            &quot;owner&quot;: &quot;userid&quot;,
+            &quot;type&quot;: &quot;entity&quot;
 
         },
     ...
     ]
-}</pre>
+}
+</pre></div>
 </div>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Status Codes:</th><td class="field-body"><ul class="first last simple">
-<li><strong>200</strong> &#8211; no error</li>
-<li><strong>401</strong> &#8211; Not authenticated</li>
-<li><strong>400</strong> &#8211; error</li>
+<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a> &#8211; no error</li>
+<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.2">401 Unauthorized</a> &#8211; Not authenticated</li>
+<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1">400 Bad Request</a> &#8211; error</li>
 </ul>
 </td>
 </tr>
@@ -269,13 +270,13 @@ Content-Type: application/json
 <dt>Get complete information of an specific entity. Preconditions:</dt>
 <dd><ul class="first last simple">
 <li>In order to get extra information of an existing entity you need to be logged</li>
-<li>You need to be logged (<a class="reference internal" href="../users/userdoc.html#userdoc-login"><em>Login</em></a>) as the owner of (<cite>entity_id</cite>):</li>
+<li>You need to be logged (<a class="reference internal" href="../users/userdoc.html#userdoc-login"><span>Login</span></a>) as the owner of (<cite>entity_id</cite>):</li>
 </ul>
 </dd>
 </dl>
 <dl class="get">
 <dt id="get--entities-(entity_id)">
-<tt class="descname">GET </tt><tt class="descname">/entities/</tt><big>(</big><em>entity_id</em><big>)</big><a class="headerlink" href="#get--entities-(entity_id)" title="Permalink to this definition">¶</a></dt>
+<code class="descname">GET </code><code class="descname">/entities/</code><span class="sig-paren">(</span><em>entity_id</em><span class="sig-paren">)</span><a class="headerlink" href="#get--entities-(entity_id)" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get information for (<cite>entity_id</cite>).</p>
 <p><strong>Example request</strong>:</p>
 <div class="highlight-http"><div class="highlight"><pre><span class="nf">GET</span> <span class="nn">/entities/51e7be2a1fb1a1f179000001</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
@@ -296,36 +297,37 @@ Content-Type: application/json
 </tbody>
 </table>
 <p><strong>Example response</strong>:</p>
-<div class="highlight-http"><pre>  HTTP/1.1 200 OK
+<div class="highlight-http"><div class="highlight"><pre>  HTTP/1.1 200 OK
   Content-Type: application/json
 
   {
-    "code": 200,
-    "desc": "ok"
-    "result":
+    &quot;code&quot;: 200,
+    &quot;desc&quot;: &quot;ok&quot;
+    &quot;result&quot;:
     [
         {
 
-            "_id": "entityid",
-            "channels": [ … ],
-            "entitydesc": "entitydesc",
-            "entityname": "entityname",
-            "owner": "userid",
-            "type": "entity"
+            &quot;_id&quot;: &quot;entityid&quot;,
+            &quot;channels&quot;: [ … ],
+            &quot;entitydescription&quot;: &quot;entitydescription&quot;,
+            &quot;entityname&quot;: &quot;entityname&quot;,
+            &quot;owner&quot;: &quot;userid&quot;,
+            &quot;type&quot;: &quot;entity&quot;
 
         },
     ]
-}</pre>
+}
+</pre></div>
 </div>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Status Codes:</th><td class="field-body"><ul class="first last simple">
-<li><strong>200</strong> &#8211; no error</li>
-<li><strong>400</strong> &#8211; error</li>
-<li><strong>401</strong> &#8211; not authorized</li>
-<li><strong>404</strong> &#8211; Entity not exist</li>
+<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a> &#8211; no error</li>
+<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1">400 Bad Request</a> &#8211; error</li>
+<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.2">401 Unauthorized</a> &#8211; not authorized</li>
+<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.5">404 Not Found</a> &#8211; Entity not exist</li>
 </ul>
 </td>
 </tr>
@@ -340,13 +342,13 @@ Content-Type: application/json
 <dt>Update the name or the description of an entity. Preconditions:</dt>
 <dd><ul class="first last simple">
 <li>In order to delete an existing user you need to be logged</li>
-<li>You need to be logged as the owner of the entity: (<a class="reference internal" href="../users/userdoc.html#userdoc-login"><em>Login</em></a>)</li>
+<li>You need to be logged as the owner of the entity: (<a class="reference internal" href="../users/userdoc.html#userdoc-login"><span>Login</span></a>)</li>
 </ul>
 </dd>
 </dl>
 <dl class="put">
 <dt id="put--entities-(entity_id)">
-<tt class="descname">PUT </tt><tt class="descname">/entities/</tt><big>(</big><em>entity_id</em><big>)</big><a class="headerlink" href="#put--entities-(entity_id)" title="Permalink to this definition">¶</a></dt>
+<code class="descname">PUT </code><code class="descname">/entities/</code><span class="sig-paren">(</span><em>entity_id</em><span class="sig-paren">)</span><a class="headerlink" href="#put--entities-(entity_id)" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update information for (<cite>entity_id</cite>).</p>
 <p><strong>Example request</strong>:</p>
 <div class="highlight-http"><div class="highlight"><pre><span class="nf">PUT</span> <span class="nn">/entities/51e7be2a1fb1a1f179000001</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
@@ -378,10 +380,10 @@ Content-Type: application/json
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Status Codes:</th><td class="field-body"><ul class="first last simple">
-<li><strong>200</strong> &#8211; no error</li>
-<li><strong>400</strong> &#8211; error</li>
-<li><strong>401</strong> &#8211; not authorized</li>
-<li><strong>417</strong> &#8211; Incorrect model received, check mandatory params and syntax</li>
+<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a> &#8211; no error</li>
+<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1">400 Bad Request</a> &#8211; error</li>
+<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.2">401 Unauthorized</a> &#8211; not authorized</li>
+<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.18">417 Expectation Failed</a> &#8211; Incorrect model received, check mandatory params and syntax</li>
 </ul>
 </td>
 </tr>
@@ -396,13 +398,13 @@ Content-Type: application/json
 <dt>Delete an specific entity. When an entity is deleted, the channels that belongs to it will be deleted too. Preconditions:</dt>
 <dd><ul class="first last simple">
 <li>In order to delete an existing entity you need to be logged</li>
-<li>You need to be logged as the owner of the entity: (<a class="reference internal" href="../users/userdoc.html#userdoc-login"><em>Login</em></a>)</li>
+<li>You need to be logged as the owner of the entity: (<a class="reference internal" href="../users/userdoc.html#userdoc-login"><span>Login</span></a>)</li>
 </ul>
 </dd>
 </dl>
 <dl class="delete">
 <dt id="delete--entities-(entity_id)">
-<tt class="descname">DELETE </tt><tt class="descname">/entities/</tt><big>(</big><em>entity_id</em><big>)</big><a class="headerlink" href="#delete--entities-(entity_id)" title="Permalink to this definition">¶</a></dt>
+<code class="descname">DELETE </code><code class="descname">/entities/</code><span class="sig-paren">(</span><em>entity_id</em><span class="sig-paren">)</span><a class="headerlink" href="#delete--entities-(entity_id)" title="Permalink to this definition">¶</a></dt>
 <dd><p>Delete  (<cite>entity_id</cite>).</p>
 <p><strong>Example request</strong>:</p>
 <div class="highlight-http"><div class="highlight"><pre><span class="nf">DELETE</span> <span class="nn">/entities/jhon</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
@@ -437,10 +439,10 @@ Content-Type: application/json
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Status Codes:</th><td class="field-body"><ul class="first last simple">
-<li><strong>200</strong> &#8211; no error</li>
-<li><strong>400</strong> &#8211; error</li>
-<li><strong>401</strong> &#8211; not authorized</li>
-<li><strong>404</strong> &#8211; Entity not exist</li>
+<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a> &#8211; no error</li>
+<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1">400 Bad Request</a> &#8211; error</li>
+<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.2">401 Unauthorized</a> &#8211; not authorized</li>
+<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.5">404 Not Found</a> &#8211; Entity not exist</li>
 </ul>
 </td>
 </tr>

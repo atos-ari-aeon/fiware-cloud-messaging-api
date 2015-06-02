@@ -21,7 +21,7 @@ This simple demonstration shows:
 First steps
 ===================
 
-First of all you need to get AEON SDK from the download_ section. Java package is distributed containing the sdk.jar and Socket-io.jar (dependency). 
+First of all you need to get AEON SDK from `GitLab <http://gitlab.atosresearch.eu/ari/aeon-sdk/blob/master/SDK/java/releases/AeonSDK-Java_0.2.0.tgz>`_. Java package is distributed containing the sdk.jar and Socket-io.jar (dependency). 
 
 .. note::
 

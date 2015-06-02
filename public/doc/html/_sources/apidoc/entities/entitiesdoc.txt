@@ -38,7 +38,7 @@ The entity will be created and owned by the logged user.
 
       {
         "entityname": "entityname",
-        "entitydesc": "entitydesc",
+        "entitydescription": "entitydescription",
         "type": "entity",
       };
  
@@ -57,7 +57,7 @@ The entity will be created and owned by the logged user.
         [
          {
             "entityname": "entityname",
-            "entitydesc": "entitydesc",
+            "entitydescription": "entitydescription",
             "type": "entity",
             "owner": "userid",
             "channels": ["channelname"]
@@ -108,7 +108,7 @@ Get list of entities owned by the logged user. Preconditions:
 
                 "_id": "entityid",
                 "channels": [ … ],
-                "entitydesc": "entitydesc",
+                "entitydescription": "entitydescription",
                 "entityname": "entityname",
                 "owner": "userid",
                 "type": "entity"
@@ -162,7 +162,7 @@ Get complete information of an specific entity. Preconditions:
 
                 "_id": "entityid",
                 "channels": [ … ],
-                "entitydesc": "entitydesc",
+                "entitydescription": "entitydescription",
                 "entityname": "entityname",
                 "owner": "userid",
                 "type": "entity"
