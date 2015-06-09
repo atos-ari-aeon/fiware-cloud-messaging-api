@@ -295,7 +295,7 @@ exports.createQueue = function createQueue(broker, dbConnection, entityID, chann
 
           //next(errorsManagement.SUBSCRIPTION_ALREADY_EXISTS, null);
       } else {
-        console.log("correct request");
+        //console.log("correct request");
         brokerManager.createQueue(channel, function (error, result) {
           if (error) {
             logger.error("Manager createQueue() error ", error, " with code ", error.code);
