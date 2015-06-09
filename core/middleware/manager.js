@@ -493,7 +493,7 @@ exports.deleteUser = function deleteUser(broker, userID, dbConnection, next){
 
   exports.getEntities(userID, {}, dbConnection, function (error, docs) {
     if (error) {
-      next(er ror, null);
+      next(error, null);
     } else {
       var entities = docs;
       var deletedEntities = 0;
