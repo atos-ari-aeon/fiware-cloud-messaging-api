@@ -33,14 +33,13 @@ var responsesManagment = require('../responses.js');
 var manager = require('../../core/middleware/manager');
 
 function checkEntityModel(entityModel) {
-
-  if ((!"type" in entityModel) || (entityModel.type !== "entity")) {
-    logger.error("not model of type entity");
+  if (!("type" in entityModel) || (entityModel.type !== "entity")) {
+//    logger.error("not model of type entity");
     return false;
   }
 
-  if ((!"entityname" in entityModel) || (!"entitydesc" in entityModel)) {
-    logger.error("not entityname or entitydesc");
+  if (!("entityname" in entityModel) || !("entitydescription" in entityModel)) {
+  //  logger.error("not entityname or entitydescription");
     return false;
   }
 
@@ -128,7 +127,9 @@ exports.info = function (req, res) {
 exports.create = function (req, res) {
   //console.log("Create entity");
   // lets try to do very light checks
+
   var entityModel = req.body;
+
   if (checkEntityModel(entityModel)) {
     entityModel.owner = req.user._id;
 
@@ -141,7 +142,8 @@ exports.create = function (req, res) {
     });
 
   } else {
-    errorsManagment.sendError(errorsManagment.INCORRECT_MODEL_ERROR,  res);
+    errorsManagment.sendError(errorsManagment.INCORRECT_MODEL_ERROR, res);
+
   }
 
 };
@@ -160,6 +162,7 @@ exports.update = function (req, res) {
 
   } else {
     errorsManagment.sendError(errorsManagment.INCORRECT_MODEL_ERROR, res);
+
   }
 
 };
