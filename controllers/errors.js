@@ -230,8 +230,7 @@ exports.sendError = function (error, res){
 
     var newError = this.getErrorMessage (error);
     //logger.error(JSON.stringify(newError));
-    res.json(code, newError);
-
+    res.json(newError);
 }
 
 exports.getErrorMessage = function (error){
