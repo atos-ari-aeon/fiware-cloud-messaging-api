@@ -90,7 +90,7 @@ exports.isEntityOwner = function (req, next) {
  *
  */
 exports.remove = function (req, res) {
-  logger.info("Delete entity ", req.params.entity);
+  //logger.info("Delete entity ", req.params.entity);
 
   manager.deleteEntity(req.brokerConnection, req.dbConnection, req.params.entity, function (err, doc) {
     entitiesResponse(err, doc, res);
