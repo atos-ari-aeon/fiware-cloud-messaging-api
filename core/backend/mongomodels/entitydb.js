@@ -87,8 +87,8 @@ module.exports.findAll = function findAll (dbConnection, next){
 
     collection.find().toArray(function(err, docs){
         if (err) {
-          logger.error("findAll()");
-            next(errorsManagment.UNKNOWN_ERROR, null);
+          logger.error("findAll() UNKNOWN_ERROR");
+          next(errorsManagment.UNKNOWN_ERROR, null);
         };
         next(null, docs);
     });
