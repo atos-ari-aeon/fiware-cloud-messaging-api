@@ -24,6 +24,8 @@
 
 var login = require("../controllers/login");
 var errorsManagement = require('../controllers/errors');
+var logger = require('../logger.js');
+
 
 /*
  * GET users listing.
@@ -40,8 +42,8 @@ module.exports = function(app, passport, dbConnection) {
 
     app.post('/login', passport.authenticate('local'), function(err, req, res, next) {
         // failure in login test route
-        console.error("failure in login test route");
-        console.error(err.stack);
+        logger.error("failure in login test route");
+        //console.error(err.stack);
         errorsManagement.sendError(errorsManagement.UNKNOWN_ERROR, res);
 
     }, login.login);
