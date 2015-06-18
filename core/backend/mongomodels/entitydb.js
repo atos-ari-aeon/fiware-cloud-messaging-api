@@ -32,7 +32,7 @@ var ObjectID = require('mongodb').ObjectID;
 var logger = require('../../../logger.js');
 
 module.exports.findEntityByID = function findEntityByID (entityID, projection, dbConnection, next){
-    logger.info("findEntityByID(): finding entity " + entityID);
+    //logger.info("findEntityByID(): finding entity " + entityID);
     
     collection = dbConnection.getClient().collection(dbConnection.config.collectionEntities);
 
@@ -40,11 +40,13 @@ module.exports.findEntityByID = function findEntityByID (entityID, projection, d
 
     collection.find( {"_id" : objectID }, projection).toArray(function(err, docs){
         if (err) {
+            logger.error("findEntityByID(): UNKNOWN_ERROR " + entityID);
             next(errorsManagment.UNKNOWN_ERROR, null);
         };
-        if (docs.length == 0)
+        if (docs.length == 0) {
+            logger.error("findEntityByID() ENTITY_NOT_EXISTS: " + entityID);
             next (errorsManagement.ENTITY_NOT_EXISTS, null);
-        else{
+        } else {
             next(null, docs);
         }
     });
@@ -55,20 +57,22 @@ module.exports.findEntityByID = function findEntityByID (entityID, projection, d
 
 
 module.exports.removeByEntityID = function removeByEntityID (entityID, dbConnection, next){
-    logger.info("removeByEntityID(): deleting entity " + entityID);
+    //logger.info("removeByEntityID(): deleting entity " + entityID);
     
     collection = dbConnection.getClient().collection(dbConnection.config.collectionEntities);
     var objectID = new ObjectID(entityID);
     
     collection.remove({"_id" : objectID }, function(err, docs) {
         if (err) {
-            next(errorsManagment.UNKNOWN_ERROR, null);
-            return;
+          logger.info("removeByEntityID() UNKNOWN_ERROR " + entityID);
+          next(errorsManagment.UNKNOWN_ERROR, null);
+          return;
         } 
         
-        if (docs == 0)
-            next (errorsManagement.ENTITY_NOT_EXISTS, null);
-        else {
+        if (docs == 0) {
+          logger.info("removeByEntityID() ENTITY_NOT_EXISTS " + entityID);
+          next (errorsManagement.ENTITY_NOT_EXISTS, null);
+        } else {
             next(null, docs);
         }
     });
@@ -77,12 +81,13 @@ module.exports.removeByEntityID = function removeByEntityID (entityID, dbConnect
 }
 
 module.exports.findAll = function findAll (dbConnection, next){
-    logger.info("findAll(): finding entities ");
+    //logger.info("findAll(): finding entities ");
     
     collection = dbConnection.getClient().collection(dbConnection.config.collectionEntities);
 
     collection.find().toArray(function(err, docs){
         if (err) {
+          logger.error("findAll()");
             next(errorsManagment.UNKNOWN_ERROR, null);
         };
         next(null, docs);
@@ -92,13 +97,14 @@ module.exports.findAll = function findAll (dbConnection, next){
 }
 
 module.exports.findAllByOwner = function findAllByOwner (ownerID, projection, dbConnection, next){
-    logger.info("findAllByOwner():finding entities ");
+    //logger.info("findAllByOwner():finding entities ");
     
     collection = dbConnection.getClient().collection(dbConnection.config.collectionEntities);
 
     collection.find({"owner": ownerID}, projection).toArray(function(err, docs){
         if (err) {
-            next(errorsManagment.UNKNOWN_ERROR, null);
+          logger.error("findAllByOwner() entity not found ");
+          next(errorsManagment.UNKNOWN_ERROR, null);
         };
         next(null, docs);
     });
@@ -107,13 +113,14 @@ module.exports.findAllByOwner = function findAllByOwner (ownerID, projection, db
 }
     
 module.exports.createEntity = function createEntity(entity, dbConnection, next) {
-    logger.info("createEntity(): creating entity " + entity);
+    //logger.info("createEntity(): creating entity " + entity);
     collection = dbConnection.getClient().collection(dbConnection.config.collectionEntities);
 
     collection.insert(entity, function(err, docs) {
         if (err) {
-            next(errorsManagment.UNKNOWN_ERROR, null);
-            return;
+          logger.error("createEntity(): entity not created " + entity);
+          next(errorsManagment.UNKNOWN_ERROR, null);
+          return;
         } 
         next(null, docs);
     });
@@ -123,7 +130,7 @@ module.exports.updateEntity = function updateEntity (entityID, entity, dbConnect
 
     var entityID = new ObjectID(entityID);    
 
-    logger.info("updateEntity(): updating entity "+entity);
+    //logger.info("updateEntity(): updating entity "+entity);
     collection = dbConnection.getClient().collection(dbConnection.config.collectionEntities);    
 
      collection.update({_id:entityID}, {
