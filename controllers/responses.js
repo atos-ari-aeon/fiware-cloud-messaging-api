@@ -32,7 +32,7 @@
  
  exports.getResponseMessage = function(err, data){
      if (err) {
-        logger.error("getResponse " + JSON.stringify(err));
+        logger.error("responses getResponse " + JSON.stringify(err));
         return errorsManagment.getErrorMessage(err.message, 400);
         
     } else {
@@ -53,7 +53,7 @@
  };
  exports.sendResponse = function (err, res, data) {
     if (err) {
-        logger.error("sendResponse " + JSON.stringify(err));
+        logger.error("responses sendResponse " + JSON.stringify(err));
         //console.log(errorsManagment);
         errorsManagment.sendError(err, res);
         
