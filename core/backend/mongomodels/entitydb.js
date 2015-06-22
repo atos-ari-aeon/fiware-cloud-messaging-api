@@ -64,13 +64,13 @@ module.exports.removeByEntityID = function removeByEntityID (entityID, dbConnect
     
     collection.remove({"_id" : objectID }, function(err, docs) {
         if (err) {
-          logger.info("removeByEntityID() UNKNOWN_ERROR " + entityID);
+          logger.error("removeByEntityID() entity not removed " + entityID);
           next(errorsManagment.UNKNOWN_ERROR, null);
           return;
         } 
         
         if (docs == 0) {
-          logger.info("removeByEntityID() ENTITY_NOT_EXISTS " + entityID);
+          logger.error("removeByEntityID() ENTITY_NOT_EXISTS " + entityID);
           next (errorsManagement.ENTITY_NOT_EXISTS, null);
         } else {
             next(null, docs);
@@ -118,7 +118,7 @@ module.exports.createEntity = function createEntity(entity, dbConnection, next) 
 
     collection.insert(entity, function(err, docs) {
         if (err) {
-          logger.error("createEntity(): entity not created " + entity);
+          logger.error("createEntity(): entity not inserted " + entity);
           next(errorsManagment.UNKNOWN_ERROR, null);
           return;
         } 
@@ -140,8 +140,9 @@ module.exports.updateEntity = function updateEntity (entityID, entity, dbConnect
         }        
      }, function(err, docs){
          if (err) {
-            next(errorsManagment.UNKNOWN_ERROR, null);
-            return;
+           logger.error("updateEntity() entity not updated "+entity);
+           next(errorsManagment.UNKNOWN_ERROR, null);
+           return;
         } 
         next(null, docs);
     });       
