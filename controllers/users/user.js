@@ -52,7 +52,7 @@ function usersResponse(err, doc, res) {
 }
 
 exports.list = function(req, res) {
-    logger.info("List of users");
+    //logger.info("List of users");
     /*
      * It should response with a list of usersResponse
      * with no detailed information (just the public side)
@@ -68,20 +68,22 @@ exports.list = function(req, res) {
 };
 
 exports.info = function(req, res) {
-    logger.info("Info for user ", req.params.id);
-    if (req.user._id != req.params.id)
-        errorsManagment.sendError(errorsManagment.NOT_AUTHORIZED, res);
-    else
+
+    if (req.user._id != req.params.id) {
+      logger.error("User Info()  NOT_AUTHORIZED ", req.params.id);
+      errorsManagment.sendError(errorsManagment.NOT_AUTHORIZED, res);
+    } else {
         manager.getUserByName(req.params.id, req.dbConnection, {
             'password': 0
         }, function(err, doc) {
             usersResponse(err, doc, res);
         });
+    }
 
 };
 
 exports.cookieInfo = function(req, res) {
-    logger.info("Info for user ", req.user._id);
+    //logger.info("Info for user ", req.user._id);
 
     manager.getUserByName(req.user._id, req.dbConnection, {
         'password': 0
@@ -92,10 +94,11 @@ exports.cookieInfo = function(req, res) {
 };
 
 exports.remove = function(req, res) {
-    logger.info("Delete user ", req.params.id);
-    if (req.user._id != req.params.id)
-        errorsManagment.sendError(errorsManagment.NOT_AUTHORIZED, res);
-    else
+    //logger.info("Delete user ", req.params.id);
+    if (req.user._id != req.params.id) {
+      logger.error("User remove() NOT_AUTHORIZED ", req.params.id);
+      errorsManagment.sendError(errorsManagment.NOT_AUTHORIZED, res);
+    } else
         manager.deleteUser(req.brokerConnection, req.params.id, req.dbConnection, function(err, doc) {
             req.logout();
             usersResponse(err, doc, res);
@@ -109,29 +112,34 @@ exports.create = function(req, res) {
         manager.createUser(req.body, req.dbConnection, function(err, doc) {
             usersResponse(err, doc, res);
         });
-    else
-        errorsManagment.sendError(errorsManagment.INCORRECT_MODEL_ERROR, res);
+    else {
+      logger.error("User create() INCORRECT_MODEL_ERROR ", req.params.id);
+      errorsManagment.sendError(errorsManagment.INCORRECT_MODEL_ERROR, res);
+    }
 
 }
 
 exports.updateUserPass = function updateUserPass(req, res) {
-    logger.info("Update user password");
+    //logger.info("Update user password");
 
     if (checkUserModel(req.body)) {
         if (req.user._id != req.params.id){
-            errorsManagment.sendError(errorsManagment.NOT_AUTHORIZED, res);
+          logger.error("User updateUserPass() NOT_AUTHORIZED ", req.params.id);
+          errorsManagment.sendError(errorsManagment.NOT_AUTHORIZED, res);
         }
         else
             manager.updateUserPass(req.params.id, req.body.password, req.dbConnection, function(err, doc) {
                 usersResponse(err, doc, res);
             });
 
-    } else
-        errorsManagment.sendError(errorsManagment.INCORRECT_MODEL_ERROR, res);
+    } else {
+      logger.error("User updateUserPass() INCORRECT_MODEL_ERROR ", req.params.id);
+      errorsManagment.sendError(errorsManagment.INCORRECT_MODEL_ERROR, res);
+    }
 }
 
 exports.resetUserPass = function resetUserPass(req, res) {
-    logger.info("Reset user password");
+    //logger.info("Reset user password");
 
     if (checkUserModel(req.body)) {
         var user = req.params.id;
@@ -140,29 +148,34 @@ exports.resetUserPass = function resetUserPass(req, res) {
         manager.getUserByName(user, req.dbConnection, {
             'password': 0
         }, function(error, doc) {
-            if (error)
-                errorsManagment.sendError(errorsManagment.USER_NOT_EXISTS, res);
-            else {   
+            if (error) {
+              logger.error("User resetUserPass() USER_NOT_EXISTS ", req.params.id);
+              errorsManagment.sendError(errorsManagment.USER_NOT_EXISTS, res);
+            } else {
 
                 manager.existsPasswordCode(user, reset_code, req.dbConnection, function(error, result) {
-                    if (error)
+                    if (error) {
+                      logger.error("User resetUserPass() USER_RESET_PASSWORD_INCORRECT ", req.params.id);
                         errorsManagment.sendError(errorsManagment.USER_RESET_PASSWORD_INCORRECT, res);
-                    else {
+                    } else {
                         manager.updateUserPass(user, req.body.password, req.dbConnection, function(error, doc) {
-                            if (error)
+                            if (error) {
+                              logger.error("User resetUserPass() USER_RESET_PASSWORD ", req.params.id);
                                 errorsManagment.sendError(errorsManagment.USER_RESET_PASSWORD, res);
-                            else {
+                            } else {
                                 manager.deletePasswordCode(user, req.dbConnection, function(error, code) {
-                                    if (error)
-                                        errorsManagment.sendError(errorsManagment.USER_RESET_PASSWORD, res);
-                                    else {
+                                    if (error) {
+                                      logger.error("User resetUserPass() USER_RESET_PASSWORD ", req.params.id);
+                                      errorsManagment.sendError(errorsManagment.USER_RESET_PASSWORD, res);
+                                    } else {
                                         misc.sendEmail(user, "User password changed",
                                                        misc.prepareResetPasswordEmail(user, reset_code),
                                                        "changedpassword",
                                                        function(error, result){
-                                                           if (error)
-                                                               errorsManagment.sendError(errorsManagment.USER_REST_EMAIL, res);
-                                                           else                                                  
+                                                           if (error) {
+                                                             logger.error("User resetUserPass() USER_REST_EMAIL ", req.params.id);
+ errorsManagment.sendError(errorsManagment.USER_REST_EMAIL, res);
+                                                           } else
                                                                 usersResponse(error, doc, res);
                                                        });
 
@@ -178,34 +191,39 @@ exports.resetUserPass = function resetUserPass(req, res) {
             }
         });
 
-    } else
-        errorsManagment.sendError(errorsManagment.INCORRECT_MODEL_ERROR, res);
+    } else {
+      logger.error("User resetUserPass() INCORRECT_MODEL_ERROR ", req.params.id);
+      errorsManagment.sendError(errorsManagment.INCORRECT_MODEL_ERROR, res);
+    }
 }
 
 exports.rememberUserPass = function rememberUserPass(req, res) {
-    logger.info("Remember user password");
+    //logger.info("Remember user password");
 
     var user = req.params.id;
     manager.getUserByName(user, req.dbConnection, {
         'password': 0
     }, function(error, doc) {
-        if (error)
-            errorsManagment.sendError(errorsManagment.USER_NOT_EXISTS, res);
-        else {
-            logger.info("Sending reset");
+        if (error) {
+          logger.error("User rememberUserPass() USER_NOT_EXISTS ", req.params.id);
+          errorsManagment.sendError(errorsManagment.USER_NOT_EXISTS, res);
+        } else {
+            //logger.info("Sending reset");
             var reset_code = misc.getUUID();
             manager.resetUserPass(user, reset_code, req.dbConnection, function(error, result) {
-                if (error)
-                    errorsManagment.sendError(errorsManagment.USER_RESET_PASSWORD, res);
-                else {
+                if (error) {
+                  logger.error("User rememberUserPass() USER_RESET_PASSWORD ", req.params.id);
+                  errorsManagment.sendError(errorsManagment.USER_RESET_PASSWORD, res);
+                } else {
                     var msg = "You will receive an email with information for reset."
                     misc.sendEmail(user, "Request for AEON's password reset",
                                    misc.prepareResetPasswordEmail(user, reset_code),
                                    "resetpassword",
                                    function(error, result) {
-                                       if (error)
-                                           errorsManagment.sendError(errorsManagment.USER_RESET_PASSWORD, res);
-                                       else
+                                       if (error) {
+                                         logger.error("User rememberUserPass.sendMail() USER_RESET_PASSWORD ", req.params.id);
+                                         errorsManagment.sendError(errorsManagment.USER_RESET_PASSWORD, res);
+                                       } else
                                            usersResponse(null, msg, res);
 
                                    });
