@@ -40,21 +40,17 @@ module.exports.findEntityByID = function findEntityByID (entityID, projection, d
 
     collection.find( {"_id" : objectID }, projection).toArray(function(err, docs){
         if (err) {
-            logger.error("findEntityByID(): UNKNOWN_ERROR " + entityID);
+            logger.error("entitydb findEntityByID(): UNKNOWN_ERROR " + entityID);
             next(errorsManagment.UNKNOWN_ERROR, null);
         };
         if (docs.length == 0) {
-            logger.error("findEntityByID() ENTITY_NOT_EXISTS: " + entityID);
+            logger.error("entitydb findEntityByID() ENTITY_NOT_EXISTS: " + entityID);
             next (errorsManagement.ENTITY_NOT_EXISTS, null);
         } else {
             next(null, docs);
         }
     });
-
-
 }
-
-
 
 module.exports.removeByEntityID = function removeByEntityID (entityID, dbConnection, next){
     //logger.info("removeByEntityID(): deleting entity " + entityID);
@@ -64,20 +60,18 @@ module.exports.removeByEntityID = function removeByEntityID (entityID, dbConnect
     
     collection.remove({"_id" : objectID }, function(err, docs) {
         if (err) {
-          logger.error("removeByEntityID() entity not removed " + entityID);
+          logger.error("entitydb removeByEntityID() entity not removed " + entityID);
           next(errorsManagment.UNKNOWN_ERROR, null);
           return;
         } 
         
         if (docs == 0) {
-          logger.error("removeByEntityID() ENTITY_NOT_EXISTS " + entityID);
+          logger.error("entitydb removeByEntityID() ENTITY_NOT_EXISTS " + entityID);
           next (errorsManagement.ENTITY_NOT_EXISTS, null);
         } else {
             next(null, docs);
         }
     });
-
-
 }
 
 module.exports.findAll = function findAll (dbConnection, next){
@@ -87,13 +81,11 @@ module.exports.findAll = function findAll (dbConnection, next){
 
     collection.find().toArray(function(err, docs){
         if (err) {
-          logger.error("findAll() UNKNOWN_ERROR");
+          logger.error("entitydb findAll() UNKNOWN_ERROR");
           next(errorsManagment.UNKNOWN_ERROR, null);
         };
         next(null, docs);
     });
-
-
 }
 
 module.exports.findAllByOwner = function findAllByOwner (ownerID, projection, dbConnection, next){
@@ -103,13 +95,11 @@ module.exports.findAllByOwner = function findAllByOwner (ownerID, projection, db
 
     collection.find({"owner": ownerID}, projection).toArray(function(err, docs){
         if (err) {
-          logger.error("findAllByOwner() entity not found ");
+          logger.error("entitydb findAllByOwner() entity not found ");
           next(errorsManagment.UNKNOWN_ERROR, null);
         };
         next(null, docs);
     });
-
-
 }
     
 module.exports.createEntity = function createEntity(entity, dbConnection, next) {
@@ -118,7 +108,7 @@ module.exports.createEntity = function createEntity(entity, dbConnection, next) 
 
     collection.insert(entity, function(err, docs) {
         if (err) {
-          logger.error("createEntity(): entity not inserted " + entity);
+          logger.error("entitydb createEntity(): entity not inserted " + entity);
           next(errorsManagment.UNKNOWN_ERROR, null);
           return;
         } 
@@ -127,7 +117,6 @@ module.exports.createEntity = function createEntity(entity, dbConnection, next) 
 };
 
 module.exports.updateEntity = function updateEntity (entityID, entity, dbConnection, next){
-
     var entityID = new ObjectID(entityID);    
 
     //logger.info("updateEntity(): updating entity "+entity);
@@ -140,11 +129,10 @@ module.exports.updateEntity = function updateEntity (entityID, entity, dbConnect
         }        
      }, function(err, docs){
          if (err) {
-           logger.error("updateEntity() entity not updated "+entity);
+           logger.error("entitydb updateEntity() entity not updated "+entity);
            next(errorsManagment.UNKNOWN_ERROR, null);
            return;
         } 
         next(null, docs);
-    });       
-
+    });
 };
