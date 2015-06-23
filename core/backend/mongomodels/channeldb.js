@@ -35,7 +35,7 @@ var logger = require('../../../logger');
 module.exports.findChannelByID = function findChannel(entityID, channelID, dbConnection, next) {
 
 
-    logger.info("finding channel " + channelID);
+    //logger.info("finding channel " + channelID);
     
     collection = dbConnection.getClient().collection(dbConnection.config.collectionEntities);
 
@@ -43,14 +43,16 @@ module.exports.findChannelByID = function findChannel(entityID, channelID, dbCon
         entityID = new ObjectID(entityID);    
     }
     catch(err){
-        next(errorsManagement.WRONG_ENTITY_ID,{});
+      logger.error("channeldb findChannelByID() WRONG_ENTITY_ID: " + entityID);
+      next(errorsManagement.WRONG_ENTITY_ID,{});
     }
     
     try{
         channelID = new ObjectID(channelID);
     }
     catch(err){
-        next(errorsManagement.WRONG_CHANNEL_ID,{});
+      logger.error("channeldb findChannelByID() WRONG_CHANNEL_ID: " + channelID);
+      next(errorsManagement.WRONG_CHANNEL_ID,{});
     }
 
     var query = {
@@ -67,15 +69,18 @@ module.exports.findChannelByID = function findChannel(entityID, channelID, dbCon
 
     collection.findOne(query, projection, function(err, doc) {
 
-        if (err) 
-            next(errorsManagement.UNKNOWN_ERROR, null);
-        else if (doc.channels == null)
-            next(errorsManagement.CHANNEL_NOT_EXISTS, {});
-        else if (doc.channels.length == 1)
-            next(null, doc.channels[0]);
-        else
-            next(errorsManagement.REPLICATED_CHANNEL, {});                    
-        
+        if (err) {
+          logger.error("channeldb findChannelByID() UNKNOWN_ERROR: " + channelID);
+          next(errorsManagement.UNKNOWN_ERROR, null);
+        } else if (doc.channels == null) {
+          logger.error("channeldb findChannelByID() CHANNEL_NOT_EXISTS: " + channelID);
+          next(errorsManagement.CHANNEL_NOT_EXISTS, {});
+        } else if (doc.channels.length == 1){
+          next(null, doc.channels[0]);
+        } else {
+          logger.error("channeldb findChannelByID() REPLICATED_CHANNEL: " + channelID);
+          next(errorsManagement.REPLICATED_CHANNEL, {});
+        }
     });
 
 
@@ -84,7 +89,7 @@ module.exports.findChannelByID = function findChannel(entityID, channelID, dbCon
 module.exports.findChannelByPubID = function findChannelByPubId(pubID, dbConnection, next) {
 
 
-    logger.info("finding channel by pubID " + pubID);
+    //logger.info("finding channel by pubID " + pubID);
     
     collection = dbConnection.getClient().collection(dbConnection.config.collectionEntities);
 
@@ -102,14 +107,18 @@ module.exports.findChannelByPubID = function findChannelByPubId(pubID, dbConnect
 
     collection.findOne(query, projection, function(err, doc) {
 
-        if (err) 
-            next(errorsManagement.UNKNOWN_ERROR, null);
-        else if (doc == null || doc.channels == null)       
-            next(errorsManagement.PUB_URL_NOT_EXISTS, null);            
-        else if (doc.channels.length == 1)
-            next(null, doc);
-        else
-            next(errorsManagement.REPLICATED_CHANNEL, null);                    
+        if (err) {
+          logger.error("channeldb findChannelByPubID() UNKNOWN_ERROR: " + pubID);
+          next(errorsManagement.UNKNOWN_ERROR, null);
+        } else if (doc == null || doc.channels == null) {
+          logger.error("channeldb findChannelByPubID() PUB_URL_NOT_EXISTS pubId: " + pubID);
+          next(errorsManagement.PUB_URL_NOT_EXISTS, null);
+        } else if (doc.channels.length == 1) {
+          next(null, doc);
+        } else {
+          logger.error("channeldb findChannelByPubID() REPLICATED_CHANNEL pubId: " + pubID);
+          next(errorsManagement.REPLICATED_CHANNEL, null);
+        }
         
     });
 }
@@ -117,7 +126,7 @@ module.exports.findChannelByPubID = function findChannelByPubId(pubID, dbConnect
 module.exports.findChannelBySubID = function findChannelBySubId(subID, dbConnection, next) {
 
 
-    logger.info("finding channel by subID " + subID);
+    //logger.info("finding channel by subID " + subID);
     
     collection = dbConnection.getClient().collection(dbConnection.config.collectionEntities);
 
@@ -135,14 +144,18 @@ module.exports.findChannelBySubID = function findChannelBySubId(subID, dbConnect
 
     collection.findOne(query, projection, function(err, doc) {
         
-        if (err) 
-            next(errorsManagement.UNKNOWN_ERROR, null);
-        else if (doc == null || doc.channels == null)
+        if (err) {
+          logger.error("channeldb findChannelBySubID() UNKNOWN_ERROR: " + subID);
+          next(errorsManagement.UNKNOWN_ERROR, null);
+        } else if (doc == null || doc.channels == null) {
+            logger.error("channeldb findChannelBySubID() SUB_URL_NOT_EXISTS sudId: " + subID);
             next(errorsManagement.SUB_URL_NOT_EXISTS, {});
-        else if (doc.channels.length == 1)
+        } else if (doc.channels.length == 1) {
             next(null, doc);
-        else
-            next(errorsManagement.REPLICATED_CHANNEL, {});                    
+        } else {
+            logger.error("channeldb findChannelBySubID() REPLICATED_CHANNEL subId: " + subID);
+            next(errorsManagement.REPLICATED_CHANNEL, {});
+        }
         
     });
 }
@@ -150,7 +163,7 @@ module.exports.findChannelBySubID = function findChannelBySubId(subID, dbConnect
 module.exports.findSubscriptionBySubID = function findSubscriptionBySubID(subID, subscription, dbConnection, next) {
 
 
-    logger.info("finding subscription by subID " + subID);
+    //logger.info("finding subscription by subID " + subID);
     
     collection = dbConnection.getClient().collection(dbConnection.config.collectionEntities);
 
@@ -188,15 +201,18 @@ module.exports.findSubscriptionBySubID = function findSubscriptionBySubID(subID,
         }
     ],function(error, docs){
 
-        if(error){            
-            next(errorsManagement.UNKNOWN_ERROR, null);            
+        if(error){
+          logger.error("channeldb findSubscriptionBySubID() UNKNOWN_ERROR: " + subID);
+          next(errorsManagement.UNKNOWN_ERROR, null);
         }
         else{
             
             if(docs.length!=0)
-                next(null, docs[0].subscriptions);
-            else
-                next(errorsManagement.SUBSCRIPTION_NOT_EXIST, null);
+              next(null, docs[0].subscriptions);
+            else {
+              logger.error("channeldb findSubscriptionBySubID() SUBSCRIPTION_NOT_EXIST: " + subID);
+              next(errorsManagement.SUBSCRIPTION_NOT_EXIST, null);
+            }
         }
     });
 
@@ -204,7 +220,7 @@ module.exports.findSubscriptionBySubID = function findSubscriptionBySubID(subID,
 }
 
 module.exports.removeByChannelID = function removeByChannelID(entityID, channelID, dbConnection, next) {
-    logger.info("removeByChannelID(): deleting channel " + channelID);
+    //logger.info("removeByChannelID(): deleting channel " + channelID);
 
     collection = dbConnection.getClient().collection(dbConnection.config.collectionEntities);
     var entityID = new ObjectID(entityID);
@@ -223,14 +239,16 @@ module.exports.removeByChannelID = function removeByChannelID(entityID, channelI
 
 
     collection.update(query, update, function(error, docs) {
-        if (error) {            
-            next(errorsManagement.UNKNOWN_ERROR, null);
-            return;
+        if (error) {
+          logger.error("channeldb removeByChannelID() UNKNOWN_ERROR " + channelID);
+          next(errorsManagement.UNKNOWN_ERROR, null);
+          return;
         }
 
-        if (docs == 0)
-            next(errorsManagement.ENTITY_NOT_EXISTS, null);
-        else {
+        if (docs == 0){
+          logger.error("channeldb removeByChannelID(): " + channelID+ " ENTITY_NOT_EXISTS: " + entityID);
+          next(errorsManagement.ENTITY_NOT_EXISTS, null);
+        } else {
             next(null, docs);
         }
     });
@@ -239,7 +257,7 @@ module.exports.removeByChannelID = function removeByChannelID(entityID, channelI
 }
 
 module.exports.findAll = function findAll(entityID, projection, dbConnection, next) {
-    logger.info("findAll(): finding channels ");
+    //logger.info("findAll(): finding channels ");
 
     collection = dbConnection.getClient().collection(dbConnection.config.collectionEntities);
 
@@ -255,8 +273,9 @@ module.exports.findAll = function findAll(entityID, projection, dbConnection, ne
     collection.findOne({
         "_id": objectID
     }, projection, function(error, doc) {
-        if (error) {            
-            next(errorsManagement.UNKNOWN_ERROR, null);
+        if (error) {
+          logger.error("channeldb findAll() UNKNOWN_ERROR entity: " + entityID);
+          next(errorsManagement.UNKNOWN_ERROR, null);
         };
 
         if (doc.channels)
@@ -269,7 +288,7 @@ module.exports.findAll = function findAll(entityID, projection, dbConnection, ne
 }
 
 module.exports.createChannel = function createChannel(entityID, channel, dbConnection, next) {
-    logger.info("createChannel(): creating channel " + entity + " for the entity " + entityID);
+    //logger.info("createChannel(): creating channel " + entity + " for the entity " + entityID);
     collection = dbConnection.getClient().collection(dbConnection.config.collectionEntities);
 
     var objectID = new ObjectID(entityID);
@@ -284,9 +303,10 @@ module.exports.createChannel = function createChannel(entityID, channel, dbConne
             "channels": channel
         }
     }, function(error, docs) {
-        if (error) {            
-            next(errorsManagement.UNKNOWN_ERROR, null);
-            return;
+        if (error) {
+          logger.error("channeldb createChannel() UNKNOWN_ERROR entity: " + entityID);
+          next(errorsManagement.UNKNOWN_ERROR, null);
+          return;
         }
         
         next(null, channel);
@@ -297,7 +317,7 @@ module.exports.createChannel = function createChannel(entityID, channel, dbConne
 };
 
 module.exports.updateChannel = function updateChannel(entityID, channelID, channel, dbConnection, next){
-    logger.info("updateChannel(): updating channel " + channelID + " for the entity " + entityID);
+    //logger.info("updateChannel(): updating channel " + channelID + " for the entity " + entityID);
 
     channelID = new ObjectID(channelID);
     entityID = new ObjectID(entityID);
@@ -310,8 +330,9 @@ module.exports.updateChannel = function updateChannel(entityID, channelID, chann
             'channels.$.channeldesc':channel.channeldesc
         }
     },function(error,doc){
-        if (error) {            
-            next(errorsManagement.UNKNOWN_ERROR, null);
+        if (error) {
+          logger.error("channeldb updateChannel() UNKNOWN_ERROR: " + channelID + " entity: " + entityID);
+          next(errorsManagement.UNKNOWN_ERROR, null);
         }
         else{
             next(null, doc);
@@ -322,7 +343,7 @@ module.exports.updateChannel = function updateChannel(entityID, channelID, chann
 
 // module.exports.addChannelSubscription = function addChannelSubscription(entityID, channelID, subscription, dbConnection, next) {
 module.exports.addChannelSubscription = function addChannelSubscription(entityID, channelID, subscription, dbConnection, next) {
-    logger.info("addChannelSubscription(): Adding susbscription to channel  " + channelID + " for the entity " + entityID);
+    //logger.info("addChannelSubscription(): Adding susbscription to channel  " + channelID + " for the entity " + entityID);
     collection = dbConnection.getClient().collection(dbConnection.config.collectionEntities);
 
     subscription._id = new ObjectID();
@@ -335,7 +356,8 @@ module.exports.addChannelSubscription = function addChannelSubscription(entityID
             "channels.$.subscriptions": subscription
         }
     }, function(error, docs) {
-        if (error) {                        
+        if (error) {
+          logger.error("channeldb addChannelSubscription() UNKNOWN_ERROR: " + channelID + " entity: " + entityID);
             next(errorsManagement.UNKNOWN_ERROR, null);
             return;
         }
@@ -347,7 +369,7 @@ module.exports.addChannelSubscription = function addChannelSubscription(entityID
 
 module.exports.getChannelQueues = function getChannelQueues(entityID, channelID, dbConnection, next){
 
-    logger.info("getChannelQueues(): Getting queues for channel "+ channelID + " for the entity "+entityID);
+    //logger.info("getChannelQueues(): Getting queues for channel "+ channelID + " for the entity "+entityID);
 
     collection = dbConnection.getClient().collection(dbConnection.config.collectionEntities);
 
@@ -380,7 +402,8 @@ module.exports.getChannelQueues = function getChannelQueues(entityID, channelID,
                 }
         }
     ], function(error, docs){
-        if(error){            
+        if(error){
+          logger.error("channeldb getChannelQueues() UNKNOWN_ERROR: "+ channelID + " entity "+entityID);
             next(errorsManagement.UNKNOWN_ERROR, null);
             return;
         }
@@ -394,7 +417,7 @@ module.exports.getChannelQueues = function getChannelQueues(entityID, channelID,
 
 module.exports.getChannelSubscription = function getChannelSubscription(subID, subscription, dbConnection, next){
 
-    logger.info("Get Subscription id: "+ subscription.id+" desc: "+subscription.desc);
+    //logger.info("Get Subscription id: "+ subscription.id+" desc: "+subscription.desc);
 
     collection = dbConnection.getClient().collection(dbConnection.config.collectionEntities);
 
@@ -423,8 +446,9 @@ module.exports.getChannelSubscription = function getChannelSubscription(subID, s
             }   
         }
     ], function(error, docs){        
-        if(error){            
-            next(errorsManagement.UNKNOWN_ERROR, null);            
+        if(error){
+          logger.error("channeldb getChannelSubscription() UNKNOWN_ERROR id: "+ subscription.id);
+          next(errorsManagement.UNKNOWN_ERROR, null);
         }
         else{            
             next(null, docs);
@@ -437,7 +461,7 @@ module.exports.getChannelSubscription = function getChannelSubscription(subID, s
 
 module.exports.deleteChannelSubscription = function deleteChannelSubscription(subID, subscription, dbConnection, next){
 
-    logger.info("Delete Subscription "+ subID + " id: "+ subscription.id+" desc: "+subscription.desc);
+    //logger.info("Delete Subscription "+ subID + " id: "+ subscription.id+" desc: "+subscription.desc);
 
     collection = dbConnection.getClient().collection(dbConnection.config.collectionEntities);
 
@@ -453,8 +477,9 @@ module.exports.deleteChannelSubscription = function deleteChannelSubscription(su
 
     collection.update(query, projection, function(error, docs){
 
-        if(error){            
-            next(errorsManagement.UNKNOWN_ERROR, null);            
+        if(error){
+          logger.error("channeldb deleteChannelSubscription: "+ subID + " id: "+ subscription.id);
+          next(errorsManagement.UNKNOWN_ERROR, null);
         }
         else{            
             next(null, docs);
