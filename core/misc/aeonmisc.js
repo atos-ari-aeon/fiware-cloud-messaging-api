@@ -122,7 +122,7 @@ module.exports.sendEmail = function sendEmail(to, subject, emailInfo, templateNa
                         });
 
                         responseStatus.statusHandler.once("sent", function(data){
-                            logger.info("Message was accepted by %s", data.domain);
+                            //logger.info("Message was accepted by %s", data.domain);
                             next(null, data);
                         });
                         //next(null, responseStatus);

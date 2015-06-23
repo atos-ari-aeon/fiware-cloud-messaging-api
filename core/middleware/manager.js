@@ -109,7 +109,7 @@ exports.createChannel = function createChannel(broker, dbConnection, entityID, c
 
     channel.subscriptions = [];
     channelsBackend.createChannel(entityID, channel, dbConnection, function (err, doc) {
-      logger.info("Channel created correctly: ", doc);
+      //logger.info("Channel created correctly: ", doc);
       next(err, doc);
     });
   }

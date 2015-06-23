@@ -35,7 +35,7 @@ var logger = require('../../../logger.js');
 exports.workerTopicDump = function workerTopicDump(req, res, next) {
 
     // nothing to do, just next
-    logger.info("Worker: workerTopicDump(): I will do nothing");
+    //logger.info("Worker: workerTopicDump(): I will do nothing");
     next();
 
 }

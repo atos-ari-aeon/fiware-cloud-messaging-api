@@ -33,7 +33,7 @@
 exports.workerLogDump = function workerLogDump(req, res, next) {
 
     // nothing to do, just next
-    console.info("Worker: workerLogDump(): I will do nothing");
+    //console.info("Worker: workerLogDump(): I will do nothing");
     next();
 
 }

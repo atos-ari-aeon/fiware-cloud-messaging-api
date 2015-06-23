@@ -38,7 +38,7 @@ var logger = require('../../../logger.js');
 
 exports.workerLogMessageMongo = function workerLogMessageMongo(req, res, next) {
 
-    logger.info("Worker: workerLogMongo(): I will log message into mongo");
+    //logger.info("Worker: workerLogMongo(): I will log message into mongo");
 
     var dbConnection = req.dbConnection;
 
