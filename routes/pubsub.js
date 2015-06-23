@@ -36,7 +36,7 @@ var pubsub = require('../controllers/pubSub/pubsub');
 module.exports = function(app, passport, dbConnection, broker) {
 
     function dumpWorker(req, res, next) {
-        logger.info("dumpWorker()");
+        //logger.info("dumpWorker()");
 
         next();
     }
