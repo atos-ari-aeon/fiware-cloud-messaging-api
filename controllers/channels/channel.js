@@ -158,7 +158,7 @@ exports.create = function (req, res) {
     }
   }
 
-  logger.info("createChannel()");
+  //logger.info("createChannel()");
 
   channelModel = req.body;
 
@@ -167,7 +167,7 @@ exports.create = function (req, res) {
   }
 
   if (checkChannelModel(channelModel)) {
-    logger.info("Create channel into broker");
+    //logger.info("Create channel into broker");
     entities.isEntityOwner(req, checkedEntityOwner);
   } else {
     errorsManagement.sendError(errorsManagement.INCORRECT_MODEL_ERROR, 400, res);
@@ -181,7 +181,7 @@ exports.update = function (req, res) {
   var channelModel = req.body;
 
   if (checkChannelModel(channelModel)) {
-    logger.info("Update channel");
+    //logger.info("Update channel");
 
     manager.updateChannel(entityID, channelID, req.body, req.dbConnection, function (err, doc) {
       if (err) {
@@ -208,7 +208,7 @@ exports.update = function (req, res) {
  */
 exports.publish = function (req, res, next) {
 
-  logger.info("publish()");
+  //logger.info("publish()");
   var doc = null;
 
   if ("AEONChannel" in req) {
@@ -243,7 +243,7 @@ exports.publish = function (req, res, next) {
  *
  */
 exports.getSubscription = function (req, res, next) {
-  logger.info("getSubscription()");
+  //logger.info("getSubscription()");
 
   if (checkSubscriptionParams(req.query)) {
     if ("AEONChannel" in req) {
