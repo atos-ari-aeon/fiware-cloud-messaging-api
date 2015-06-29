@@ -113,7 +113,7 @@ module.exports = function(app, passport, dbConnection, broker) {
              pubChain.workerstep2,
              pubChain.workerstep3,
              function (req, res){
-                 logger.info("end of pub chain");
+                 //logger.info("end of pub chain");
              }
             );
 
@@ -136,7 +136,7 @@ module.exports = function(app, passport, dbConnection, broker) {
             subscriptionsChain.workerstep2,
             subscriptionsChain.workerstep3,
             function (req, res){
-                console.log("end of pub chain");
+                //console.log("end of pub chain");
             }
            );
 
