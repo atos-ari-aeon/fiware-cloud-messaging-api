@@ -162,9 +162,11 @@ app.configure(function() {
     app.use(function(err, req, res, next) {        
         // console.error(err.stack);
         if (err instanceof SyntaxError) {
+          logger.error('app.use(): ' + err.message);
             errorsManagement.sendError(errorsManagement.INCORRECT_MODEL_ERROR, res);
         } else {
-            // console.log(err);
+            //console.log(err);
+           logger.error('app.use(): ' + err.message);
             res.send(500, 'Something broke!');
         }
 
