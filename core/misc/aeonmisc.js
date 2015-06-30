@@ -104,6 +104,7 @@ module.exports.sendEmail = function sendEmail(to, subject, emailInfo, templateNa
 
                     }, function(error, responseStatus) {
                         if (error){
+                          logger.error("aeonmisc transport.sendEmail(): ",JSON.stringify(error));
                             next(error, null);
                             return;
                         }
