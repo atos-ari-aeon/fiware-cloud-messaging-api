@@ -35,7 +35,7 @@ var logger = require('../../../logger.js');
 exports.workerCADump = function workerCADump(req, res, next) {
 
     // nothing to do, just next
-    logger.info("Worker: workerCADump(): I will do nothing");
+    //logger.info("Worker: workerCADump(): I will do nothing");
     next();
 
 }
