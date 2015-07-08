@@ -78,7 +78,7 @@ Now lets create the application to receive the numbers. Againg we need to create
     sdk = new AeonSDK(config.SUB_URL, subscriptionData);
 
     
-The combination of YOUR_ID and YOUR_DESC (strings) makes your subscriber unique in the iCargo network. Once the SDK is ready you can ask for a subscription. As simple as:
+The combination of YOUR_ID and YOUR_DESC (strings) makes your subscriber unique. Once the SDK is ready you can ask for a subscription. As simple as:
 
 .. code-block:: javascript
 

@@ -108,7 +108,7 @@ The code below subscribes to the channel and wait for published messages. After 
     sdk = new AeonSDK(config.SUB_URL, subscriptionData);
 
     
-The combination of YOUR_ID and YOUR_DESC (strings) makes your subscriber unique in the iCargo network. Once the SDK is ready you can ask for a subscription. As simple as:
+The combination of YOUR_ID and YOUR_DESC (strings) makes your subscriber unique.g Once the SDK is ready you can ask for a subscription. As simple as:
 
 .. code-block:: javascript
     
