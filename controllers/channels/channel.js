@@ -170,7 +170,7 @@ exports.create = function (req, res) {
     //logger.info("Create channel into broker");
     entities.isEntityOwner(req, checkedEntityOwner);
   } else {
-    errorsManagement.sendError(errorsManagement.INCORRECT_MODEL_ERROR, 400, res);
+    errorsManagement.sendError(errorsManagement.INCORRECT_MODEL_ERROR,res);
   }
 
 };
