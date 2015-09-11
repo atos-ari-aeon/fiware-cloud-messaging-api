@@ -38,16 +38,16 @@ module.exports.version.codename = "Bolt";
 
 // configuration for the external/proxy host
 module.exports.protocol = 'http';
-module.exports.extHost = '127.0.0.1';
+module.exports.extHost = '192.168.59.103';
 module.exports.extPort = 3000;
 // configuration for the internal deployed instance
-module.exports.host = '127.0.0.1';
+module.exports.host = '0.0.0.0';
 module.exports.port = 3000;
 module.exports.secret = "default should be changed";
 
 // configuration for the socketIO server
-module.exports.socket_server_host = '127.0.0.1';
-module.exports.socket_server_port = 7789;
+module.exports.socket_server_host = "192.168.59.103";
+module.exports.socket_server_port = process.env.EVENTS_PORT_7789_TCP_PORT;
 
 module.exports.SSL = false;
 module.exports.key = 'cert/key.pem'; //only if ssl enabled
@@ -55,8 +55,8 @@ module.exports.cert = 'cert/cert.pem'; //only if ssl enabled
 
 //configuration about the gui interface
 module.exports.protocolGUI = 'http';
-module.exports.extHostGUI = '127.0.0.1';
-module.exports.extPortGUI = 8000;
+module.exports.extHostGUI = process.env.DASHBOARD_PORT_8000_TCP_ADDR;
+module.exports.extPortGUI = process.env.DASHBOARD_PORT_8000_TCP_ADDR;
 
 // contact info
 module.exports.contact = "aeon-support@lists.atosresearch.eu";
