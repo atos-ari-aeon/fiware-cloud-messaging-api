@@ -1,5 +1,7 @@
 #!/bin/bash
 
+export DOCKER_HOST_IP=$(more /etc/hosts|awk '/docker_host/ {print $1}')
+
 rm -rf node_modules
 
 npm install

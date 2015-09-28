@@ -38,7 +38,7 @@ module.exports.version.codename = "Bolt";
 
 // configuration for the external/proxy host
 module.exports.protocol = 'http';
-module.exports.extHost = '192.168.59.103';
+module.exports.extHost = process.env.DOCKER_HOST_IP;
 module.exports.extPort = 3000;
 // configuration for the internal deployed instance
 module.exports.host = '0.0.0.0';
@@ -46,7 +46,7 @@ module.exports.port = 3000;
 module.exports.secret = "default should be changed";
 
 // configuration for the socketIO server
-module.exports.socket_server_host = "192.168.59.103";
+module.exports.socket_server_host = process.env.DOCKER_HOST_IP;
 module.exports.socket_server_port = process.env.EVENTS_PORT_7789_TCP_PORT;
 
 module.exports.SSL = false;
