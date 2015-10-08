@@ -33,7 +33,7 @@ module.exports.env = 'development';
 module.exports.logLevel = 'debug'; // { silly: 0, debug: 1, verbose: 2, info: 3, warn: 4, error: 5 }
 // version info
 module.exports.version = {}
-module.exports.version.version = "0.2.1";
+module.exports.version.version = "0.2.2";
 module.exports.version.codename = "Bolt";
 
 // configuration for the external/proxy host
