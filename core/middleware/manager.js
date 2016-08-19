@@ -297,8 +297,7 @@ exports.createQueue = function createQueue(broker, dbConnection, entityID, chann
               next(err, subscriptions[0]);
 
           }
-          else if(doc.length > 1){
-            console.log("Hay más de una subscription con ID y DESC");
+          else if(doc.length > 1){            
             next(errorsManagement.DUPLICATED_SUBSCRIPTION_IN_DB, null);
           }                    
         }
