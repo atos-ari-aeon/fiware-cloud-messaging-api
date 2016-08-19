@@ -282,31 +282,43 @@ exports.createQueue = function createQueue(broker, dbConnection, entityID, chann
     if (err) {
       next(err, null);
     }
+    else{
+      if (doc != undefined) {              
+        if (doc.length != 0) {
+          if(doc.length == 1){
+            var subscriptions = doc[0].channels.subscriptions;
+            /*for (i = 0; i < subscriptions.length; i++) {
+              if (subscriptions[i].id == subscription.id && subscriptions[i].desc == subscription.desc) {              
+                next(err, subscriptions[i]);
+                /*BUG TO BE CHANGED!! SEE GITLAB ISSUE #
+                break needs to be removed
+                //break;
+              }*/
+              next(err, subscriptions[0]);
 
-    if (doc != undefined) {
-      if (doc.length != 0) {
-        var subscriptions = doc[0].channels.subscriptions;
-        for (i = 0; i < subscriptions.length; i++) {
-          if (subscriptions[i].id == subscription.id && subscriptions[i].desc == subscription.desc) {
-            next(err, subscriptions[i]);
           }
-
+          else if(doc.length > 1){
+            console.log("Hay más de una subscription con ID y DESC");
+            next(errorsManagement.DUPLICATED_SUBSCRIPTION_IN_DB, null);
+          }                    
         }
+        else{          
+          brokerManager.createQueue(channel, function (error, result) {
+            if (error) {
+              logger.error("Manager createQueue() error ", error, " with code ", error.code);
+              next(error, null);
+            } else {
+              addSubscription(error, result);
+            }
 
-          //next(errorsManagement.SUBSCRIPTION_ALREADY_EXISTS, null);
-      } else {
-        //console.log("correct request");
-        brokerManager.createQueue(channel, function (error, result) {
-          if (error) {
-            logger.error("Manager createQueue() error ", error, " with code ", error.code);
-            next(error, null);
-          } else {
-            addSubscription(error, result);
-          }
-
-        });
+          });
+        }
       }
-
+      else { //This Else was badly idented. It was allowing to create subscriptions despite exising //already.
+        console.log("Me voy por lo nuevo")
+          //console.log("correct request");
+          
+      }      
     }
   });
 };

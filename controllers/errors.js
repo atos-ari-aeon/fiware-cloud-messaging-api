@@ -126,6 +126,10 @@ exports.SUBSCRIPTION_ALREADY_EXISTS = new Error("Subscription already exist. Che
 exports.SUBSCRIPTION_ALREADY_EXISTS.msg = "Subscription already exist. Check id and desc.";
 exports.SUBSCRIPTION_ALREADY_EXISTS.code = 409;
 
+exports.DUPLICATED_SUBSCRIPTION_IN_DB = new Error("Duplicated subscription in DB. Please contact with the Administrator.");
+exports.DUPLICATED_SUBSCRIPTION_IN_DB.msg = "Duplicated subscription in DB. Please contact with the Administrator.";
+exports.DUPLICATED_SUBSCRIPTION_IN_DB.code = 410;
+
 exports.CHANNEL_ADD_SUBSCRIPTION = new Error("Not able to store new subscription");
 exports.CHANNEL_ADD_SUBSCRIPTION.msg = "Not able to store new subscription";
 exports.CHANNEL_ADD_SUBSCRIPTION.code = 501;

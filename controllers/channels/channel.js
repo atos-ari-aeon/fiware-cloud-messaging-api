@@ -60,7 +60,7 @@ function checkSubscriptionParams(subscription) {
   return true;
 }
 
-function channelsResponse(err, doc, res) {
+function channelsResponse(err, doc, res) {  
   responsesManagment.sendResponse(err, res, doc);
 }
 
@@ -267,7 +267,7 @@ exports.getSubscription = function (req, res, next) {
         "ip": ip
       };
 
-      manager.createQueue(req.brokerConnection, req.dbConnection, req.entityID, req.channelID, channel, subscription, function (error, doc) {
+      manager.createQueue(req.brokerConnection, req.dbConnection, req.entityID, req.channelID, channel, subscription, function (error, doc) {        
         channelsResponse(error, doc, res);
         next(); //Invoke the next worker of the chain
       });

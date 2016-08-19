@@ -423,18 +423,22 @@ module.exports.getChannelSubscription = function getChannelSubscription(subID, s
 
     collection.aggregate([
         {
-            $match:{
-                'channels.subID': subID
-            }
-        },
-        {
-            $unwind:'$channels'
+          $unwind:'$channels'
         },
         {
             $match:{
                 'channels.subID': subID
             }
         },
+        {
+            $unwind:'$channels.subscriptions'
+        },
+        {
+            $match:{
+                'channels.subscriptions.id': subscription.id,
+              'channels.subscriptions.desc': subscription.desc
+            }
+        }/*,
         {
             $match:{
                 'channels.subscriptions':{
@@ -444,13 +448,13 @@ module.exports.getChannelSubscription = function getChannelSubscription(subID, s
                     }
                 }
             }   
-        }
+        }*/
     ], function(error, docs){        
-        if(error){
+        if(error){          
           logger.error("channeldb getChannelSubscription() UNKNOWN_ERROR id: "+ subscription.id);
           next(errorsManagement.UNKNOWN_ERROR, null);
         }
-        else{            
+        else{                      
             next(null, docs);
         }
     });
