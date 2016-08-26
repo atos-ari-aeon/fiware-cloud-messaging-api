@@ -294,7 +294,7 @@ exports.createQueue = function createQueue(broker, dbConnection, entityID, chann
                 break needs to be removed
                 //break;
               }*/
-              next(err, subscriptions[0]);
+              next(err, subscriptions);
 
           }
           else if(doc.length > 1){            
